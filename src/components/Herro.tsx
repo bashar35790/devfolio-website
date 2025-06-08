@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import { fadeInUp, scaleIn } from "../../utility/animation";
 
 const Herro = () => {
@@ -39,42 +39,67 @@ const Herro = () => {
           Front End Developer | UI/UX Enthusiast | Open Source Contributor
         </motion.p>
 
-        <div className="flex justify-center space-x-4 mb-8">
-          <Link
+        <motion.div
+          className="flex justify-center space-x-4 mb-8"
+          {...fadeInUp}
+          transition={{ delay: 0.5 }}
+        >
+          <motion.a
             href="https://github.com/bashar35790"
-            className="text-2xl text-gray-600 hover:text-primary dark:text-gray-300 transition-colors mt-8 duration-300"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-2xl text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
           >
             <FaGithub />
-          </Link>
-          <Link
+          </motion.a>
+          <motion.a
             href="https://www.linkedin.com/feed/"
-            className="text-2xl text-gray-600 hover:text-primary dark:text-gray-300 transition-colors mt-8 duration-300"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-2xl text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
           >
             <FaLinkedin />
-          </Link>
+          </motion.a>
 
-          <Link
+          <motion.a
             href="https://www.facebook.com/bashar35790"
-            className="text-2xl text-gray-600 hover:text-primary dark:text-gray-300 transition-colors mt-8 duration-300"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-2xl text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
           >
             <FaFacebook />
-          </Link>
-        </div>
+          </motion.a>
+        </motion.div>
 
-        <div className="flex flex-col md:flex-row justify-center gap-4">
-          <Link
-            href="/projects"
-            className="bg-primary inline-block w-full md:w-auto text-white py-3 px-8 rounded-lg hover:bg-primary/70 transition-colors"
-          >
-            View Project
-          </Link>
-          <Link
-            href="/contract"
-            className="bg-gray-500 inline-block w-full md:w-auto text-white py-3 px-8 rounded-lg hover:bg-gray-30 transition-colors hover:text-gray-800"
-          >
-            Contact Me
-          </Link>
-        </div>
+        <motion.div
+          className="flex flex-col md:flex-row justify-center gap-4"
+          {...fadeInUp}
+          transition={{ delay: 0.6 }}
+        >
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link
+              href="/projects"
+              className="bg-primary inline-block w-full md:w-auto text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+            >
+              View Projects
+            </Link>
+          </motion.div>
+
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link
+              href="/contact"
+              className=" inline-block w-full bg-gray-500  md:w-auto text-gray-800 dark:text-white px-8 py-3 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+            >
+              Contact Me
+            </Link>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

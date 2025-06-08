@@ -5,7 +5,6 @@ import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "./context/ThemeContext";
 import Footer from "@/components/Footer";
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -28,11 +27,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white transition-colors dark:bg-gray-900 dark:text-white`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white transition-colors dark:bg-gray-900 dark:text-white`}
+        data-new-gr-c-s-check-loaded="14.1238.0"
+        data-gr-ext-installed=""
+      >
         <ThemeProvider>
-        <Navbar />
-        <main className="pt-23 min-h-screen">{children}</main>
-          <Footer/>
+          <Navbar />
+          <main className="pt-23 min-h-screen">{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
