@@ -193,7 +193,31 @@ const Hero = () => {
             <div className="w-[80%] aspect-square rounded-full border border-primary/20 animate-[spin_20s_linear_infinite]" />
             <div className="absolute w-[90%] aspect-square rounded-full border border-primary/10 animate-[spin_30s_linear_infinite_reverse]" />
             <div className="absolute w-[100%] aspect-square rounded-full border border-primary/5 animate-[spin_40s_linear_infinite]" />
-            <div className="absolute w-64 h-64 bg-primary/20 blur-[100px] rounded-full" />
+            <motion.div 
+              animate={{ 
+                opacity: [0.2, 0.5, 0.2],
+                scale: [1, 1.2, 1],
+              }}
+              transition={{ 
+                duration: 4, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
+              className="absolute w-64 h-64 bg-primary/30 blur-[100px] rounded-full" 
+            />
+            <motion.div 
+              animate={{ 
+                opacity: [0.1, 0.3, 0.1],
+                scale: [0.8, 1.1, 0.8],
+              }}
+              transition={{ 
+                duration: 5, 
+                repeat: Infinity, 
+                ease: "easeInOut",
+                delay: 1
+              }}
+              className="absolute w-80 h-80 bg-blue-500/20 blur-[120px] rounded-full" 
+            />
           </div>
 
           {/* Floating Elements */}

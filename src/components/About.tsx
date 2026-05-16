@@ -3,14 +3,15 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { 
-  FaUser, 
-  FaCalendarAlt, 
-  FaMapMarkerAlt, 
-  FaPhoneAlt, 
-  FaEnvelope, 
-  FaDownload, 
-  FaPaperPlane 
+import {
+  FaUser,
+  FaCalendarAlt,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaDownload,
+  FaPaperPlane,
+  FaPhone
 } from "react-icons/fa";
 import Link from "next/link";
 
@@ -19,8 +20,8 @@ const About = () => {
     { label: "Name", value: "Abul Bashar", icon: <FaUser className="text-primary" /> },
     { label: "Age", value: "24 Years", icon: <FaCalendarAlt className="text-primary" /> },
     { label: "Location", value: "Dhaka, Bangladesh", icon: <FaMapMarkerAlt className="text-primary" /> },
-    { label: "Phone", value: "+880 1700 000000", icon: <FaPhoneAlt className="text-primary" /> },
-    { label: "Email", value: "bashar@example.com", icon: <FaEnvelope className="text-primary" /> },
+    { label: "Phone", value: "+8801833487526", icon: <FaPhoneAlt className="text-primary" /> },
+    { label: "Email", value: "bashar35790@gmail.com", icon: <FaEnvelope className="text-primary" /> },
   ];
 
   const containerVariants = {
@@ -50,15 +51,15 @@ const About = () => {
     <section id="about" className="relative py-24 overflow-hidden bg-[#0A0A0C]">
       {/* Background Decorations */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <motion.div 
+        <motion.div
           animate={{ x: [0, 50, 0], y: [0, 30, 0] }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[20%] -left-[10%] w-[30%] h-[30%] bg-primary/5 blur-[120px] rounded-full" 
+          className="absolute top-[20%] -left-[10%] w-[30%] h-[30%] bg-primary/5 blur-[120px] rounded-full"
         />
-        <motion.div 
+        <motion.div
           animate={{ x: [0, -40, 0], y: [0, -20, 0] }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[10%] -right-[5%] w-[40%] h-[40%] bg-blue-500/5 blur-[100px] rounded-full" 
+          className="absolute bottom-[10%] -right-[5%] w-[40%] h-[40%] bg-blue-500/5 blur-[100px] rounded-full"
         />
       </div>
 
@@ -73,13 +74,13 @@ const About = () => {
             className="relative flex justify-center lg:justify-start"
           >
             <motion.div
-              animate={{ y: [0, -20, 0] }}
+              animate={{ y: [0, -5, 0] }}
               transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
               className="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl group"
             >
               {/* Soft Shadow Glow */}
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-blue-500/20 blur-2xl opacity-50 group-hover:opacity-75 transition-opacity" />
-              
+
               <div className="relative h-full w-full bg-[#111] rounded-3xl overflow-hidden border border-white/10">
                 <Image
                   src="/1.png"
@@ -115,20 +116,20 @@ const About = () => {
             </div>
 
             <motion.p variants={itemVariants} className="text-gray-400 text-lg leading-relaxed max-w-xl">
-              I am a passionate Full Stack Developer with expertise in building modern, scalable web applications. 
-              With a strong focus on the MERN stack and Next.js, I create high-performance digital experiences 
-              that combine elegant design with robust engineering. My goal is to deliver user-centric 
+              I am a passionate Full Stack Developer with expertise in building modern, scalable web applications.
+              With a strong focus on the MERN stack and Next.js, I create high-performance digital experiences
+              that combine elegant design with robust engineering. My goal is to deliver user-centric
               solutions that solve real-world problems efficiently.
             </motion.p>
 
             {/* Glassmorphism Info Card */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="glass p-8 rounded-3xl border border-white/10 grid md:grid-cols-2 gap-6 relative overflow-hidden group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               {infoItems.map((item, index) => (
-                <div key={index} className="flex items-center gap-4 relative z-10">
+                <div key={index} className="flex items-center gap-4 relative z-10 cursor-pointer group">
                   <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-lg border border-white/5 group-hover:border-primary/30 transition-colors">
                     {item.icon}
                   </div>
@@ -148,9 +149,9 @@ const About = () => {
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
               </Link>
-              
-              <Link href="#contact" className="btn btn-secondary group hover:bg-white/5 transition-all">
-                Contact Me <FaPaperPlane className="text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+
+              <Link href="tel:+8801833487526" className="btn btn-secondary group hover:bg-white/5 transition-all cursor-pointer">
+                Call Now <FaPhone className="text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </Link>
             </motion.div>
           </motion.div>
