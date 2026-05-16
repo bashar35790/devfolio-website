@@ -29,7 +29,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed w-full bg-white/80 dark:bg-dark/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700 shadow-sm transition-colors">
+    <nav className="fixed w-full bg-white/80 dark:bg-dark/80 backdrop-blur-sm z-50 border-b border-primary/30 shadow-sm transition-colors">
       <div className="container max-w-7xl mx-auto px-4">
         {/* destop menu */}
 
@@ -45,9 +45,8 @@ const Navbar = () => {
                 <Link
                   key={index}
                   href={item.href}
-                  className={`hover:text-primary transition-colors font-medium ${
-                    isActive && "text-primary"
-                  }`}
+                  className={`hover:text-primary transition-colors font-medium ${isActive && "text-primary"
+                    }`}
                 >
                   {item.lebel}
                 </Link>

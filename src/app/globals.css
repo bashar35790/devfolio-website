@@ -1,19 +1,40 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #007AFF;
+  --color-primary: #FF5F38;
   --color-secondary: #6B7280;
-  --color-dark: #1F2937;
+  --color-dark: #0A0A0C;
   --color-light: #F9FAFB;
-  --color-text: #000000;
-  --color-bg: #ffffff;
+  --color-text: #ffffff;
+  --color-bg: #0A0A0C;
 
+  --color-accent-coral: #FF5F38;
+  --color-accent-glow: rgba(255, 95, 56, 0.2);
+  --color-navy-deep: #020617;
+  
   --font-sans: 'Inter', sans-serif;
 
   --animation-fade-in: fadeIn 0.5s ease-in-out;
   --animation-slide-up: slideUp 0.5s ease-in-out;
 }
 
+@layer base {
+  body {
+    @apply bg-dark text-white antialiased;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+  .glow-ring {
+    box-shadow: 0 0 80px 20px rgba(255, 95, 56, 0.1);
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-gray-500;
+  }
+}
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -27,15 +48,15 @@ a {
   }
   
   .btn {
-    @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
+    @apply px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-2;
   }
   
   .btn-primary {
-    @apply bg-primary text-white hover:bg-primary/90;
+    @apply bg-primary text-white hover:bg-primary/90 hover:scale-105 active:scale-95 shadow-lg shadow-primary/20;
   }
   
   .btn-secondary {
-    @apply bg-secondary text-white hover:bg-secondary/90;
+    @apply border border-white/20 text-white hover:bg-white/10 hover:scale-105 active:scale-95;
   }
   
   .section-title {
@@ -61,4 +82,9 @@ a {
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
