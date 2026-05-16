@@ -13,6 +13,7 @@ export interface Projects {
   githubLink: string;
   demoLink: string;
   image: string;
+  category: string;
 }
 
 export interface formDate {
