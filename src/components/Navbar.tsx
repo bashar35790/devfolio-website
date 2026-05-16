@@ -29,13 +29,13 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed w-full bg-white/80 dark:bg-dark/80 backdrop-blur-sm z-50 border-b border-primary/30 shadow-sm transition-colors">
+    <nav className="fixed w-full bg-dark/80 backdrop-blur-sm z-50 border-b border-primary/30 shadow-sm transition-colors">
       <div className="container max-w-7xl mx-auto px-4">
         {/* destop menu */}
 
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="text-xl font-bold text-primary">
-            Portfolio&trade;
+            {"< Abul Bashar >"}
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">

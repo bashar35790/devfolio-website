@@ -23,6 +23,7 @@ import {
   SiGit,
   SiGithub
 } from "react-icons/si";
+import Link from "next/link";
 
 const techStack = [
   { name: "Next.js", icon: <SiNextdotjs className="w-6 h-6" /> },
@@ -95,7 +96,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative flex flex-col justify-center overflow-hidden bg-[#0A0A0C] pt-20">
+    <section className="relative flex flex-col justify-center overflow-hidden bg-[#0A0A0C] pt-20 h-screen">
       {/* Background Decorative Gradients */}
       <div className="absolute -top-100 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full" />
@@ -148,14 +149,16 @@ const Hero = () => {
             variants={itemVariants}
             className="flex flex-wrap gap-4"
           >
-            <button className="btn btn-primary group">
+            <button className="btn btn-primary group cursor-pointer">
               Hire Me
               <FaArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="btn btn-secondary group">
-              Download Resume
-              <FaDownload className="w-4 h-4 group-hover:translate-y-1 transition-transform text-primary" />
-            </button>
+            <Link href="/resume.pdf" download>
+              <button className="btn btn-secondary group cursor-pointer">
+                Download Resume
+                <FaDownload className="w-4 h-4 group-hover:translate-y-1 transition-transform text-primary" />
+              </button>
+            </Link>
           </motion.div>
 
           <motion.div
@@ -163,10 +166,9 @@ const Hero = () => {
             className="flex items-center gap-6 pt-4"
           >
             {[
-              { icon: <FaGithub />, href: "#" },
-              { icon: <FaLinkedin />, href: "#" },
-              { icon: <FaTwitter />, href: "#" },
-              { icon: <FaFacebook />, href: "#" },
+              { icon: <FaGithub />, href: "https://github.com/bashar35790" },
+              { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/bashar35790/" },
+              { icon: <FaFacebook />, href: "https://www.facebook.com/bashar35790/" },
             ].map((social, i) => (
               <a
                 key={i}
@@ -196,7 +198,7 @@ const Hero = () => {
 
           {/* Floating Elements */}
           <motion.div
-            animate={{ y: [0, -20, 0] }}
+            animate={{ y: [0, -10, 0] }}
             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
             className="absolute -top-10 right-10 glass p-4 rounded-2xl hidden md:block z-100"
           >
@@ -207,7 +209,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.div
-            animate={{ y: [0, 20, 0] }}
+            animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
             className="absolute bottom-10 -left-5 glass p-4 rounded-2xl hidden md:block z-100"
           >
