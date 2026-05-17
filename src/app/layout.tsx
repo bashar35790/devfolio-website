@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import "animate.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "./context/ThemeContext";
 import Footer from "@/components/Footer";
