@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #FF5F38;
-  --color-secondary: #6B7280;
-  --color-dark: #0A0A0C;
-  --color-light: #F9FAFB;
-  --color-text: #ffffff;
-  --color-bg: #0A0A0C;
+  --color-primary: #00A8FF;
+  --color-secondary: #64748B;
+  --color-dark: #020C1B;
+  --color-light: #F8FAFC;
+  --color-text: #F1F5F9;
+  --color-bg: #020C1B;
 
-  --color-accent-coral: #FF5F38;
-  --color-accent-glow: rgba(255, 95, 56, 0.2);
-  --color-navy-deep: #020617;
+  --color-accent-coral: #00D2FF;
+  --color-accent-glow: rgba(0, 168, 255, 0.15);
+  --color-navy-deep: #01040A;
   
   --font-sans: 'Inter', sans-serif;
 
@@ -21,6 +21,7 @@
 @layer base {
   body {
     @apply bg-dark text-white antialiased;
+    background-color: #020C1B;
   }
 }
 
@@ -29,10 +30,25 @@
     @apply bg-white/5 backdrop-blur-lg border border-white/10;
   }
   .glow-ring {
-    box-shadow: 0 0 80px 20px rgba(255, 95, 56, 0.1);
+    box-shadow: 0 0 80px 20px rgba(0, 168, 255, 0.15);
   }
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-gray-500;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-[#00D2FF] to-[#0084FF];
+  }
+  
+  /* Morphing organic blob utility classes */
+  .morphing-blob {
+    animation: morph 8s ease-in-out infinite;
+  }
+  .morphing-blob-border {
+    animation: morphBorder 12s ease-in-out infinite, spin 30s linear infinite;
+  }
+}
+
+/* Hide default cursor on desktop screens */
+@media (pointer: fine) {
+  body, a, button, [role='button'], input, textarea, select, .btn, .clickable {
+    cursor: none !important;
   }
 }
 
@@ -88,7 +104,33 @@ a {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
 @keyframes shimmer {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
+}
+
+/* Organic Morphing Shape Animations */
+@keyframes morph {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+@keyframes morphBorder {
+  0% {
+    border-radius: 40% 60% 60% 40% / 50% 30% 70% 50%;
+  }
+  50% {
+    border-radius: 60% 40% 30% 70% / 60% 60% 40% 40%;
+  }
+  100% {
+    border-radius: 40% 60% 60% 40% / 50% 30% 70% 50%;
+  }
 }

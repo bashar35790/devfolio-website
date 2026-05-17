@@ -49,7 +49,7 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
     // 3. Custom Spotlight Follower Effect
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
-      
+
       // Select hoverable elements
       const target = e.target as HTMLElement;
       const isHovered = target.closest("a, button, [role='button'], .clickable");
@@ -100,14 +100,14 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
   return (
     <>
       {/* Premium Scroll Progress Indicator */}
-      <div 
-        ref={scrollProgressRef} 
-        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary via-[#ff8466] to-primary z-[9999] origin-left scale-x-0" 
+      <div
+        ref={scrollProgressRef}
+        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary via-[#ff8466] to-primary z-[9999] origin-left scale-x-0"
       />
 
       {/* Luxury Spotlight/Cursor Follower (only visible on large screens) */}
-      <div 
-        ref={spotlightRef} 
+      <div
+        ref={spotlightRef}
         className="hidden lg:block fixed w-8 h-8 rounded-full border border-primary/20 pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 mix-blend-screen bg-transparent transition-all duration-300"
         style={{ left: 0, top: 0 }}
       />

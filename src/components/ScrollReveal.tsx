@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
-import { motion, useInView, useAnimation } from "framer-motion";
+import { motion, useInView, useAnimation, Variants } from "framer-motion";
 import gsap from "gsap";
 
 interface ScrollRevealProps {
@@ -76,7 +76,7 @@ export default function ScrollReveal({
     },
   };
 
-  const childVariants = {
+  const childVariants: Variants = {
     hidden: {
       opacity: 0,
       ...getDirectionOffset(),

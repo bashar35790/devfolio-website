@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import Image from "next/image";
 import { FaGithub, FaExternalLinkAlt, FaFolderOpen } from "react-icons/fa";
 import { projects } from "@/contents/projects";
@@ -27,7 +27,7 @@ const Projects = () => {
     },
   };
 
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,

@@ -73,16 +73,17 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, [currentText, isDeleting, currentTitleIndex, typingSpeed]);
 
-  // Premium Clipping / Masking Reveal Effect for profile image
+  // Premium Reveal Effect for profile image
   useEffect(() => {
     if (profileImageRef.current) {
       gsap.fromTo(
         profileImageRef.current,
-        { clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" },
+        { scale: 0.85, opacity: 0 },
         {
-          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+          scale: 1,
+          opacity: 1,
           duration: 1.5,
-          ease: "power4.inOut",
+          ease: "power4.out",
           delay: 0.5,
         }
       );
@@ -112,11 +113,11 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative flex flex-col justify-center overflow-hidden bg-[#0A0A0C] pt-20 min-h-screen">
+    <section id="home" className="relative flex flex-col justify-center overflow-hidden bg-[#020C1B] pt-20 min-h-screen">
       {/* Background Decorative Gradients */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[45%] h-[45%] bg-primary/10 blur-[130px] rounded-full" />
-        <div className="absolute bottom-[20%] right-[-5%] w-[35%] h-[35%] bg-blue-500/5 blur-[120px] rounded-full" />
+        <div className="absolute top-[-10%] left-[-10%] w-[45%] h-[45%] bg-[#00A8FF]/10 blur-[130px] rounded-full" />
+        <div className="absolute bottom-[20%] right-[-5%] w-[35%] h-[35%] bg-[#00D2FF]/5 blur-[120px] rounded-full" />
       </div>
 
       <div className="container relative z-10 grid lg:grid-cols-2 gap-12 items-center py-12">
@@ -138,7 +139,7 @@ const Hero = () => {
               variants={itemVariants}
               className="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-none"
             >
-              I&apos;m <span className="text-gradient bg-gradient-to-r from-primary via-primary/80 to-white">Bashar</span>
+              I&apos;m <span className="text-gradient">Bashar</span>
             </motion.h1>
             <motion.h2
               variants={itemVariants}
@@ -210,37 +211,24 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        {/* Right Showcase */}
+        {/* Right Showcase (Morphing Shape Behind Image) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: [0.6, 0.05, 0.2, 0.9] }}
-          className="relative flex justify-center items-center"
+          className="relative flex justify-center items-center w-full max-w-md mx-auto aspect-square"
         >
-          {/* Glowing Background Rings */}
-          <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-            <div className="w-[80%] aspect-square rounded-full border border-primary/20 animate-[spin_20s_linear_infinite]" />
-            <div className="absolute w-[90%] aspect-square rounded-full border border-primary/10 animate-[spin_30s_linear_infinite_reverse]" />
-            <div className="absolute w-[100%] aspect-square rounded-full border border-primary/5 animate-[spin_40s_linear_infinite]" />
-            <motion.div 
-              animate={{ 
-                opacity: [0.2, 0.5, 0.2],
-                scale: [1, 1.2, 1],
-              }}
-              transition={{ 
-                duration: 4, 
-                repeat: Infinity, 
-                ease: "easeInOut" 
-              }}
-              className="absolute w-64 h-64 bg-primary/30 blur-[100px] rounded-full" 
-            />
-          </div>
+          {/* Animated Morphing Blur Blob */}
+          <div className="absolute w-[95%] aspect-square bg-gradient-to-tr from-primary via-[#00D2FF]/20 to-transparent blur-3xl opacity-50 morphing-blob pointer-events-none" />
+
+          {/* Glowing Animated Outer Border Ring */}
+          <div className="absolute w-[90%] aspect-square border border-primary/30 shadow-[0_0_50px_rgba(0,168,255,0.25)] morphing-blob-border pointer-events-none" />
 
           {/* Floating Element 1 */}
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-            className="absolute -top-6 right-10 glass p-4 rounded-2xl hidden md:block z-20 shadow-xl border-white/10"
+            className="absolute -top-6 right-6 glass p-4 rounded-2xl hidden md:block z-20 shadow-xl border-white/10"
           >
             <div className="flex items-center gap-3">
               <span className="flex h-3 w-3 relative">
@@ -268,20 +256,20 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Profile Image with mask-reveal ref */}
+          {/* Morphing Profile Image Frame Container */}
           <div 
             ref={profileImageRef}
-            className="relative w-full max-w-md aspect-square rounded-full overflow-hidden shadow-2xl glow-ring z-10 border border-white/10"
+            className="relative w-[82%] aspect-square overflow-hidden shadow-2xl z-10 border border-white/10 bg-[#03152F] morphing-blob transition-all duration-300"
           >
             <Image
               src="/2.png"
               alt="Bashar - Full Stack Developer"
               fill
-              className="object-cover"
+              className="object-cover scale-110 -translate-y-2"
               priority
             />
-            {/* Overlay Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0C] via-transparent to-transparent opacity-40" />
+            {/* Overlay Gradient to blend with deep navy background */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#020C1B]/60 via-transparent to-transparent opacity-60" />
           </div>
         </motion.div>
       </div>
@@ -299,8 +287,8 @@ const Hero = () => {
           ))}
         </div>
         {/* Soft edge masks */}
-        <div className="absolute top-0 left-0 h-full w-24 bg-gradient-to-r from-[#0A0A0C] to-transparent z-10 pointer-events-none" />
-        <div className="absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-[#0A0A0C] to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 left-0 h-full w-24 bg-gradient-to-r from-[#020C1B] to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-[#020C1B] to-transparent z-10 pointer-events-none" />
       </div>
 
       {/* Scroll Indicator */}

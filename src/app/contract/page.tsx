@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 import { formDate } from "@/types";
 import Link from "next/link";
 import React, { useState } from "react";
