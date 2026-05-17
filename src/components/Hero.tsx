@@ -131,15 +131,15 @@ const Hero = () => {
           <div className="space-y-3">
             <motion.h4
               variants={itemVariants}
-              className="text-primary font-semibold tracking-widest uppercase text-sm"
+              className="text-primary font-semibold tracking-widest  text-md"
             >
-              Hello World.
+              Hello There!
             </motion.h4>
             <motion.h1
               variants={itemVariants}
               className="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-none"
             >
-              I&apos;m <span className="text-gradient">Bashar</span>
+              I&apos;m <span className="text-gradient">Abul Bashar</span>
             </motion.h1>
             <motion.h2
               variants={itemVariants}
@@ -176,7 +176,7 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
               </button>
             </Magnetic>
-            
+
             <Magnetic>
               <Link href="/resume.pdf" download>
                 <button className="btn btn-secondary group cursor-pointer px-8 py-4">
@@ -257,7 +257,7 @@ const Hero = () => {
           </motion.div>
 
           {/* Morphing Profile Image Frame Container */}
-          <div 
+          <div
             ref={profileImageRef}
             className="relative w-[82%] aspect-square overflow-hidden shadow-2xl z-10 border border-white/10 bg-[#03152F] morphing-blob transition-all duration-300"
           >
@@ -295,7 +295,7 @@ const Hero = () => {
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500 cursor-pointer hidden md:flex"
+        className="absolute bottom-80 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500 cursor-pointer hidden md:flex"
       >
         <span className="text-[10px] uppercase tracking-[0.22em] font-semibold text-gray-400">Scroll</span>
         <FaChevronDown className="w-4 h-4 text-primary" />
