@@ -45,13 +45,6 @@
   }
 }
 
-/* Hide default cursor on desktop screens */
-@media (pointer: fine) {
-  body, a, button, [role='button'], input, textarea, select, .btn, .clickable {
-    cursor: none !important;
-  }
-}
-
 @custom-variant dark (&:where(.dark, .dark *));
 
 a {

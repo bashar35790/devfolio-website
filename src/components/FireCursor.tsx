@@ -27,7 +27,7 @@ export default function FireCursor() {
   const speed = useRef(0);
   const isHovered = useRef(false);
   const isClicked = useRef(false);
-  
+
   // Animation properties
   const particles = useRef<Particle[]>([]);
   const lerpFactor = 0.15; // Smoothness factor
@@ -36,8 +36,8 @@ export default function FireCursor() {
   useEffect(() => {
     // 1. Check if device is mobile or touch-enabled
     const checkDevice = () => {
-      const mobileCheck = 
-        window.matchMedia("(pointer: coarse)").matches || 
+      const mobileCheck =
+        window.matchMedia("(pointer: coarse)").matches ||
         window.innerWidth < 768;
       setIsMobile(mobileCheck);
     };
@@ -90,15 +90,15 @@ export default function FireCursor() {
     const handleMouseOver = (e: MouseEvent) => {
       const targetEl = e.target as HTMLElement;
       if (
-        targetEl && 
-        (targetEl.closest("a") || 
-         targetEl.closest("button") || 
-         targetEl.closest("[role='button']") || 
-         targetEl.closest("input") || 
-         targetEl.closest("textarea") || 
-         targetEl.closest("select") || 
-         targetEl.classList.contains("btn") || 
-         targetEl.classList.contains("clickable"))
+        targetEl &&
+        (targetEl.closest("a") ||
+          targetEl.closest("button") ||
+          targetEl.closest("[role='button']") ||
+          targetEl.closest("input") ||
+          targetEl.closest("textarea") ||
+          targetEl.closest("select") ||
+          targetEl.classList.contains("btn") ||
+          targetEl.classList.contains("clickable"))
       ) {
         isHovered.current = true;
       }
@@ -107,15 +107,15 @@ export default function FireCursor() {
     const handleMouseOut = (e: MouseEvent) => {
       const targetEl = e.target as HTMLElement;
       if (
-        targetEl && 
-        (targetEl.closest("a") || 
-         targetEl.closest("button") || 
-         targetEl.closest("[role='button']") || 
-         targetEl.closest("input") || 
-         targetEl.closest("textarea") || 
-         targetEl.closest("select") || 
-         targetEl.classList.contains("btn") || 
-         targetEl.classList.contains("clickable"))
+        targetEl &&
+        (targetEl.closest("a") ||
+          targetEl.closest("button") ||
+          targetEl.closest("[role='button']") ||
+          targetEl.closest("input") ||
+          targetEl.closest("textarea") ||
+          targetEl.closest("select") ||
+          targetEl.classList.contains("btn") ||
+          targetEl.classList.contains("clickable"))
       ) {
         isHovered.current = false;
       }
@@ -141,7 +141,7 @@ export default function FireCursor() {
       for (let i = 0; i < pCount; i++) {
         const spread = isHoverState ? 12 : 6;
         const sizeSpread = isHoverState ? 1.5 : 1;
-        
+
         particles.current.push({
           x: x + (Math.random() - 0.5) * spread,
           y: y + (Math.random() - 0.5) * spread,
@@ -180,7 +180,7 @@ export default function FireCursor() {
       for (let i = 0; i < burstCount; i++) {
         const angleVal = (i / burstCount) * Math.PI * 2 + (Math.random() - 0.5) * 0.5;
         const velocity = Math.random() * 6 + 3;
-        
+
         particles.current.push({
           x,
           y,
@@ -252,7 +252,7 @@ export default function FireCursor() {
 
         ctx.fillStyle = gradient;
         ctx.beginPath();
-        
+
         // Render squashed/stretched core ellipse
         ctx.ellipse(0, 0, coreRadius * stretchAmount, coreRadius * squashAmount, 0, 0, Math.PI * 2);
         ctx.fill();
