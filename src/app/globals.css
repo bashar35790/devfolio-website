@@ -13,6 +13,7 @@
   --color-navy-deep: #01040A;
   
   --font-sans: 'Inter', sans-serif;
+  --font-serif: var(--font-playfair), serif;
 
   --animation-fade-in: fadeIn 0.5s ease-in-out;
   --animation-slide-up: slideUp 0.5s ease-in-out;
@@ -22,6 +23,10 @@
   body {
     @apply bg-dark text-white antialiased;
     background-color: #020C1B;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair), serif;
   }
 }
 

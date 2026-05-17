@@ -88,7 +88,7 @@ const Navbar = () => {
           {/* Brand Logo with Magnetic Hook */}
           <Magnetic range={30} strength={0.3}>
             <Link href="/" className="text-2xl font-bold tracking-tighter text-white hover:text-primary transition-colors flex items-center gap-1 group">
-              <span className="text-primary group-hover:scale-110 transition-transform duration-300">{"<"}</span>
+              <h2 className="text-primary group-hover:scale-110 transition-transform duration-300">{"<"}</h2>
               Abul Bashar
               <span className="text-primary group-hover:scale-110 transition-transform duration-300">{">"}</span>
             </Link>
