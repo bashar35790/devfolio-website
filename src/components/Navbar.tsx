@@ -76,16 +76,15 @@ const Navbar = () => {
   }, [pathname]);
 
   return (
-    <nav 
-      className={`fixed w-full top-0 left-0 z-[999] transition-all duration-500 border-b ${
-        scrolled 
-          ? "bg-dark/80 backdrop-blur-md border-primary/20 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.3)]" 
-          : "bg-transparent border-transparent py-5"
-      }`}
+    <nav
+      className={`fixed w-full top-0 left-0 z-[999] transition-all duration-500 border-b ${scrolled
+        ? "bg-dark/80 backdrop-blur-md border-primary/20 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
+        : "bg-transparent border-transparent py-5"
+        }`}
     >
       <div className="container max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center">
-          
+
           {/* Brand Logo with Magnetic Hook */}
           <Magnetic range={30} strength={0.3}>
             <Link href="/" className="text-2xl font-bold tracking-tighter text-white hover:text-primary transition-colors flex items-center gap-1 group">
@@ -107,14 +106,13 @@ const Navbar = () => {
                   <Magnetic range={20} strength={0.2}>
                     <Link
                       href={item.href}
-                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 relative z-10 block ${
-                        isActive 
-                          ? "text-primary font-semibold" 
-                          : "text-gray-300 hover:text-white"
-                      }`}
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 relative z-10 block ${isActive
+                        ? "text-primary font-semibold"
+                        : "text-gray-300 hover:text-white"
+                        }`}
                     >
                       {item.label}
-                      
+
                       {/* Active highlight backdrop */}
                       {isActive && (
                         <motion.div
@@ -158,7 +156,7 @@ const Navbar = () => {
                 <MoonIcon className="w-5 h-5" />
               )}
             </button>
-            
+
             <motion.button
               className="p-2 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-primary hover:bg-white/10 cursor-pointer"
               onClick={toggleMenu}
@@ -188,7 +186,7 @@ const Navbar = () => {
               <div className="py-6 px-4 space-y-4 flex flex-col">
                 {menuItem.map((item, index) => {
                   const isActive = pathname === item.href || (pathname === "/" && activeSection === item.sectionId);
-                  
+
                   return (
                     <motion.div
                       key={index}
@@ -199,11 +197,10 @@ const Navbar = () => {
                     >
                       <Link
                         href={item.href}
-                        className={`block px-4 py-3 rounded-xl text-lg font-medium transition-all ${
-                          isActive 
-                            ? "bg-primary/10 text-primary border-l-4 border-primary pl-6" 
-                            : "text-gray-300 hover:text-white hover:bg-white/5"
-                        }`}
+                        className={`block px-4 py-3 rounded-xl text-lg font-medium transition-all ${isActive
+                          ? "bg-primary/10 text-primary border-l-4 border-primary pl-6"
+                          : "text-gray-300 hover:text-white hover:bg-white/5"
+                          }`}
                         onClick={toggleMenu}
                       >
                         {item.label}
