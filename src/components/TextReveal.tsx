@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 
 interface TextRevealProps {
   text: string;
@@ -35,7 +35,7 @@ export default function TextReveal({
     }
   };
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: {},
     visible: {
       transition: {
@@ -45,7 +45,7 @@ export default function TextReveal({
     },
   };
 
-  const wordVariants = {
+  const wordVariants: Variants = {
     hidden: {
       opacity: 0,
       ...getDirectionOffset(),
