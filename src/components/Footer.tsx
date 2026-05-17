@@ -2,13 +2,14 @@
 
 import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { FaFacebookF, FaGithub, FaLinkedinIn, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import Magnetic from "./Magnetic";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -70,17 +71,18 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social, i) => (
-                <motion.a
-                  key={i}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -5 }}
-                  className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-gray-400 hover:text-primary hover:bg-primary/10 border border-white/5 hover:border-primary/30 transition-all duration-300"
-                  aria-label={social.label}
-                >
-                  {social.icon}
-                </motion.a>
+                <Magnetic key={i} range={30} strength={0.4}>
+                  <motion.a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ y: -5 }}
+                    className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-gray-400 hover:text-primary hover:bg-primary/10 border border-white/5 hover:border-primary/30 transition-all duration-300 cursor-pointer"
+                    aria-label={social.label}
+                  >
+                    {social.icon}
+                  </motion.a>
+                </Magnetic>
               ))}
             </div>
           </motion.div>

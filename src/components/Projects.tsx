@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { FaGithub, FaExternalLinkAlt, FaFolderOpen } from "react-icons/fa";
 import { projects } from "@/contents/projects";
+import ScrollReveal from "./ScrollReveal";
+import Magnetic from "./Magnetic";
 
 const categories = ["All Projects", "Full Stack", "Frontend", "Backend", "UI/UX", "Mobile Apps"];
 
@@ -49,59 +51,42 @@ const Projects = () => {
       <div className="container relative z-10 mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16 space-y-4">
-          <motion.h4
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-primary font-medium tracking-widest uppercase text-sm"
-          >
-            My Portfolio
-          </motion.h4>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-white tracking-tight"
-          >
-            Featured <span className="text-gradient">Projects</span>
-          </motion.h2>
-          <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: "80px" }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="h-1 bg-primary mx-auto rounded-full"
-          />
+          <ScrollReveal direction="up" stagger staggerDelay={0.15}>
+            <h4 className="text-primary font-semibold tracking-widest uppercase text-sm">
+              My Portfolio
+            </h4>
+            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+              Featured <span className="text-gradient bg-gradient-to-r from-primary via-primary/80 to-white">Projects</span>
+            </h2>
+            <div className="h-1 bg-primary mx-auto rounded-full w-20 mt-4" />
+          </ScrollReveal>
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
-          {categories.map((category, index) => (
-            <motion.button
-              key={category}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              onClick={() => setActiveCategory(category)}
-              className={`relative px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 border ${
-                activeCategory === category
-                  ? "border-primary text-white"
-                  : "border-white/10 text-gray-400 hover:border-white/20 hover:text-white"
-              }`}
-            >
-              {activeCategory === category && (
-                <motion.div
-                  layoutId="activeTab"
-                  className="absolute inset-0 bg-primary rounded-full -z-10 shadow-[0_0_20px_rgba(255,95,56,0.4)]"
-                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                />
-              )}
-              {category}
-            </motion.button>
-          ))}
-        </div>
+        <ScrollReveal direction="up" delay={0.2}>
+          <div className="flex flex-wrap justify-center gap-4 mb-16">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`relative px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 border cursor-pointer ${
+                  activeCategory === category
+                    ? "border-primary text-white"
+                    : "border-white/10 text-gray-400 hover:border-white/20 hover:text-white"
+                }`}
+              >
+                {activeCategory === category && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute inset-0 bg-primary rounded-full -z-10 shadow-[0_0_20px_rgba(255,95,56,0.4)]"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+                {category}
+              </button>
+            ))}
+          </div>
+        </ScrollReveal>
 
         {/* Projects Grid */}
         <motion.div
@@ -124,7 +109,7 @@ const Projects = () => {
                   className="group relative"
                 >
                   {/* Card Container */}
-                  <div className="relative h-full glass rounded-3xl overflow-hidden border border-white/10 group-hover:border-primary/30 transition-all duration-500">
+                  <div className="relative h-full glass rounded-3xl overflow-hidden border border-white/10 group-hover:border-primary/30 transition-all duration-500 shadow-xl cursor-pointer">
                     {/* Image Section */}
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <Image
@@ -158,7 +143,7 @@ const Projects = () => {
                         {project.technologies.slice(0, 3).map((tech) => (
                           <span
                             key={tech}
-                            className="text-[10px] font-medium text-primary bg-primary/10 px-3 py-1 rounded-full border border-primary/20"
+                            className="text-[10px] font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full border border-primary/20"
                           >
                             {tech}
                           </span>
@@ -170,25 +155,29 @@ const Projects = () => {
                         )}
                       </div>
 
-                      {/* Action Buttons */}
+                      {/* Action Buttons with Magnetic pull */}
                       <div className="flex gap-4 pt-2">
-                        <a
-                          href={project.demoLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 btn btn-primary py-2 text-xs"
-                        >
-                          <FaExternalLinkAlt className="w-3 h-3" />
-                          Live Demo
-                        </a>
-                        <a
-                          href={project.githubLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn btn-secondary py-2 px-4 text-xs"
-                        >
-                          <FaGithub className="w-4 h-4" />
-                        </a>
+                        <Magnetic range={20} strength={0.3}>
+                          <a
+                            href={project.demoLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 btn btn-primary py-2 text-xs"
+                          >
+                            <FaExternalLinkAlt className="w-3 h-3" />
+                            Live Demo
+                          </a>
+                        </Magnetic>
+                        <Magnetic range={20} strength={0.3}>
+                          <a
+                            href={project.githubLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-secondary py-2 px-4 text-xs"
+                          >
+                            <FaGithub className="w-4 h-4" />
+                          </a>
+                        </Magnetic>
                       </div>
                     </div>
 

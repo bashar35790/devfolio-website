@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import {
   FaGithub,
   FaLinkedin,
-  FaTwitter,
   FaFacebook,
   FaDownload,
   FaArrowRight,
@@ -24,6 +23,8 @@ import {
   SiGithub
 } from "react-icons/si";
 import Link from "next/link";
+import Magnetic from "./Magnetic";
+import gsap from "gsap";
 
 const techStack = [
   { name: "Next.js", icon: <SiNextdotjs className="w-6 h-6" /> },
@@ -37,28 +38,27 @@ const techStack = [
   { name: "GitHub", icon: <SiGithub className="w-6 h-6" /> },
 ];
 
+const titles = ["Full Stack Developer", "MERN Stack Specialist", "UI/UX Designer", "Problem Solver"];
+
 const Hero = () => {
-  const titles = ["Full Stack Developer", "MERN Stack Specialist", "UI/UX Designer", "Problem Solver"];
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(100);
+  const profileImageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleTyping = () => {
       const fullText = titles[currentTitleIndex];
 
       if (!isDeleting) {
-        // Typing
         setCurrentText(fullText.substring(0, currentText.length + 1));
         setTypingSpeed(100);
 
         if (currentText === fullText) {
-          // Pause before deleting
           setTimeout(() => setIsDeleting(true), 2000);
         }
       } else {
-        // Deleting
         setCurrentText(fullText.substring(0, currentText.length - 1));
         setTypingSpeed(50);
 
@@ -71,20 +71,36 @@ const Hero = () => {
 
     const timer = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
-  }, [currentText, isDeleting, currentTitleIndex, titles, typingSpeed]);
+  }, [currentText, isDeleting, currentTitleIndex, typingSpeed]);
+
+  // Premium Clipping / Masking Reveal Effect for profile image
+  useEffect(() => {
+    if (profileImageRef.current) {
+      gsap.fromTo(
+        profileImageRef.current,
+        { clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" },
+        {
+          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+          duration: 1.5,
+          ease: "power4.inOut",
+          delay: 0.5,
+        }
+      );
+    }
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
       },
     },
   };
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+  const itemVariants: Variants = {
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
@@ -96,14 +112,14 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative flex flex-col justify-center overflow-hidden bg-[#0A0A0C] pt-20 h-screen">
+    <section id="home" className="relative flex flex-col justify-center overflow-hidden bg-[#0A0A0C] pt-20 min-h-screen">
       {/* Background Decorative Gradients */}
-      <div className="absolute -top-100 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full" />
-        <div className="absolute top-[20%] -right-[5%] w-[30%] h-[30%] bg-primary/5 blur-[100px] rounded-full" />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[45%] h-[45%] bg-primary/10 blur-[130px] rounded-full" />
+        <div className="absolute bottom-[20%] right-[-5%] w-[35%] h-[35%] bg-blue-500/5 blur-[120px] rounded-full" />
       </div>
 
-      <div className="container relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container relative z-10 grid lg:grid-cols-2 gap-12 items-center py-12">
         {/* Left Content */}
         <motion.div
           variants={containerVariants}
@@ -111,18 +127,18 @@ const Hero = () => {
           animate="visible"
           className="space-y-8"
         >
-          <div className="space-y-2">
+          <div className="space-y-3">
             <motion.h4
               variants={itemVariants}
-              className="text-primary font-medium tracking-widest uppercase text-sm"
+              className="text-primary font-semibold tracking-widest uppercase text-sm"
             >
-              Hello.
+              Hello World.
             </motion.h4>
             <motion.h1
               variants={itemVariants}
-              className="text-5xl md:text-7xl font-bold tracking-tight text-white"
+              className="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-none"
             >
-              I&apos;m <span className="text-gradient">Bashar</span>
+              I&apos;m <span className="text-gradient bg-gradient-to-r from-primary via-primary/80 to-white">Bashar</span>
             </motion.h1>
             <motion.h2
               variants={itemVariants}
@@ -142,25 +158,35 @@ const Hero = () => {
             variants={itemVariants}
             className="text-gray-400 text-lg md:text-xl max-w-lg leading-relaxed"
           >
-            Crafting digital experiences that combine innovative design with robust, scalable code. Specialized in the MERN stack and modern web ecosystems.
+            Crafting premium digital experiences that seamlessly unite bespoke designs with robust, scalable engineering solutions. Specialized in MERN Stack and modern tech ecosystems.
           </motion.p>
 
+          {/* Magnetic Buttons */}
           <motion.div
             variants={itemVariants}
             className="flex flex-wrap gap-4"
           >
-            <button className="btn btn-primary group cursor-pointer">
-              Hire Me
-              <FaArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <Link href="/resume.pdf" download>
-              <button className="btn btn-secondary group cursor-pointer">
-                Download Resume
-                <FaDownload className="w-4 h-4 group-hover:translate-y-1 transition-transform text-primary" />
+            <Magnetic>
+              <button className="btn btn-primary group cursor-pointer relative overflow-hidden px-8 py-4">
+                <span className="relative z-10 flex items-center gap-2">
+                  Hire Me
+                  <FaArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
               </button>
-            </Link>
+            </Magnetic>
+            
+            <Magnetic>
+              <Link href="/resume.pdf" download>
+                <button className="btn btn-secondary group cursor-pointer px-8 py-4">
+                  Download Resume
+                  <FaDownload className="w-4 h-4 group-hover:translate-y-1 transition-transform text-primary" />
+                </button>
+              </Link>
+            </Magnetic>
           </motion.div>
 
+          {/* Magnetic Social Icons */}
           <motion.div
             variants={itemVariants}
             className="flex items-center gap-6 pt-4"
@@ -170,13 +196,16 @@ const Hero = () => {
               { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/bashar35790/" },
               { icon: <FaFacebook />, href: "https://www.facebook.com/bashar35790/" },
             ].map((social, i) => (
-              <a
-                key={i}
-                href={social.href}
-                className="text-gray-400 hover:text-primary text-2xl transition-colors duration-300"
-              >
-                {social.icon}
-              </a>
+              <Magnetic key={i} range={30} strength={0.4}>
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-primary text-2xl transition-colors duration-300 p-2 block"
+                >
+                  {social.icon}
+                </a>
+              </Magnetic>
             ))}
           </motion.div>
         </motion.div>
@@ -185,7 +214,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 1.2, ease: [0.6, 0.05, 0.2, 0.9] }}
           className="relative flex justify-center items-center"
         >
           {/* Glowing Background Rings */}
@@ -205,37 +234,28 @@ const Hero = () => {
               }}
               className="absolute w-64 h-64 bg-primary/30 blur-[100px] rounded-full" 
             />
-            <motion.div 
-              animate={{ 
-                opacity: [0.1, 0.3, 0.1],
-                scale: [0.8, 1.1, 0.8],
-              }}
-              transition={{ 
-                duration: 5, 
-                repeat: Infinity, 
-                ease: "easeInOut",
-                delay: 1
-              }}
-              className="absolute w-80 h-80 bg-blue-500/20 blur-[120px] rounded-full" 
-            />
           </div>
 
-          {/* Floating Elements */}
+          {/* Floating Element 1 */}
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-            className="absolute -top-10 right-10 glass p-4 rounded-2xl hidden md:block z-100"
+            className="absolute -top-6 right-10 glass p-4 rounded-2xl hidden md:block z-20 shadow-xl border-white/10"
           >
             <div className="flex items-center gap-3">
-              <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
-              <p className="text-xs font-medium text-white/80">Available for Work</p>
+              <span className="flex h-3 w-3 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+              </span>
+              <p className="text-xs font-semibold text-white/80">Available for Work</p>
             </div>
           </motion.div>
 
+          {/* Floating Element 2 */}
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
-            className="absolute bottom-10 -left-5 glass p-4 rounded-2xl hidden md:block z-100"
+            className="absolute bottom-10 -left-5 glass p-4 rounded-2xl hidden md:block z-20 shadow-xl border-white/10"
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
@@ -248,8 +268,11 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Profile Image */}
-          <div className="relative w-full max-w-md aspect-square rounded-full overflow-hidden shadow-2xl glow-ring z-0">
+          {/* Profile Image with mask-reveal ref */}
+          <div 
+            ref={profileImageRef}
+            className="relative w-full max-w-md aspect-square rounded-full overflow-hidden shadow-2xl glow-ring z-10 border border-white/10"
+          >
             <Image
               src="/2.png"
               alt="Bashar - Full Stack Developer"
@@ -263,28 +286,31 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Tech Stack Strip */}
-      <div className="mt-24 w-full border-y border-white/5 bg-white/[0.02] backdrop-blur-sm py-10 overflow-hidden ">
-        <div className="flex animate-[scroll_40s_linear_infinite] whitespace-nowrap gap-16 items-center px-16 ">
-          {[...techStack, ...techStack].map((tech, i) => (
-            <div key={i} className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors cursor-default group z-100">
-              <div className="text-primary group-hover:scale-110 transition-transform">
+      {/* Tech Stack Strip with Infinite Marquee */}
+      <div className="mt-16 w-full border-y border-white/5 bg-white/[0.01] backdrop-blur-sm py-8 overflow-hidden relative">
+        <div className="flex whitespace-nowrap gap-16 items-center px-16 w-max animate-[scroll_45s_linear_infinite] hover:[animation-play-state:paused] cursor-pointer">
+          {[...techStack, ...techStack, ...techStack].map((tech, i) => (
+            <div key={i} className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors duration-300 group">
+              <div className="text-primary group-hover:scale-110 transition-transform duration-300">
                 {tech.icon}
               </div>
-              <span className="text-lg font-medium">{tech.name}</span>
+              <span className="text-lg font-semibold tracking-wide">{tech.name}</span>
             </div>
           ))}
         </div>
+        {/* Soft edge masks */}
+        <div className="absolute top-0 left-0 h-full w-24 bg-gradient-to-r from-[#0A0A0C] to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-[#0A0A0C] to-transparent z-10 pointer-events-none" />
       </div>
 
       {/* Scroll Indicator */}
       <motion.div
-        animate={{ y: [0, 10, 0] }}
+        animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-40 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500 cursor-pointer hidden md:flex"
       >
-        <span className="text-[10px] uppercase tracking-[0.2em]">Scroll</span>
-        <FaChevronDown className="w-4 h-4" />
+        <span className="text-[10px] uppercase tracking-[0.22em] font-semibold text-gray-400">Scroll</span>
+        <FaChevronDown className="w-4 h-4 text-primary" />
       </motion.div>
     </section>
   );
