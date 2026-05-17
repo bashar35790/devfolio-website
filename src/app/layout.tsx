@@ -36,6 +36,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased bg-[#020C1B] text-white`}
+        cz-shortcut-listen="true"
       >
         <ThemeProvider>
           <SmoothScrollProvider>

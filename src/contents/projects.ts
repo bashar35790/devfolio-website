@@ -2,44 +2,52 @@ import { Projects } from "@/types";
 
 export const projects: Projects[] = [
   {
-    title: "E-commerce Platform",
+    title: "Tiles Gallery",
     description:
-      "A full-stack e-commerce platform built with Next.js, TypeScript, and Tailwind CSS.",
+      "A full-stack E-commerce website for selling tiles",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
-    githubLink: "https://github.com",
-    demoLink: "https://demo.com",
+    githubLink: "https://github.com/bashar35790/Tiles-Gallery",
+    demoLink: "https://tiles-gallery-gilt.vercel.app/",
     image: "/projects/e-commerce-website.png",
     category: "Full Stack",
   },
   {
-    title: "Task Management App",
+    title: "KeenKeeper — Smart Friendship Management Platform",
     description:
-      "A collaborative task management application with real-time updates.",
-    technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
-    githubLink: "https://github.com",
-    demoLink: "https://demo.com",
-    image: "/projects/task-manager.webp",
+      "KeenKeeper is a modern full-stack relationship management application that helps users organize friendships, track interactions, and nurture meaningful connections through a clean, intuitive, and beautifully crafted digital experience.",
+    technologies: [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "DaisyUI",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Socket.io"
+    ],
+    githubLink: "https://github.com/bashar35790/KeenKeeper",
+    demoLink: "https://keen-keeper-bashar.vercel.app/",
+    image: "/projects/keenKeeper.png",
     category: "Full Stack",
   },
   {
-    title: "Portfolio Website",
+    title: "Databox — Modern BI & Analytics Platform",
     description:
-      "My personal portfolio website showcasing my projects and skills.",
-    technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    githubLink: "https://github.com",
-    demoLink: "https://demo.com",
-    image: "/projects/portfolio-website.jpg",
-    category: "Frontend",
-  },
-  {
-    title: "Blog Platform",
-    description:
-      "A blogging platform with user authentication and markdown support.",
-    technologies: ["Gatsby", "GraphQL", "Contentful"],
-    githubLink: "https://github.com",
-    demoLink: "https://demo.com",
-    image: "/projects/blog-website.jpeg",
-    category: "Frontend",
+      "A modern business intelligence and analytics platform inspired by Databox. Built with a premium SaaS experience featuring AI-powered analytics, KPI dashboards, forecasting, reporting automation, and interactive data visualization for scaling businesses.",
+    technologies: [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "DaisyUI",
+      "Flowbite",
+      "Framer Motion",
+      "Swiper.js",
+      "Sanity CMS"
+    ],
+    githubLink: "https://github.com/bashar35790/Data-Box-Site-Copy",
+    demoLink: "https://data-box-site-copy.vercel.app/",
+    image: "/projects/databox.png",
+    category: "SaaS Platform",
   },
   {
     title: "Weather App",
@@ -52,30 +60,41 @@ export const projects: Projects[] = [
     category: "Frontend",
   },
   {
-    title: "Chat Application",
-    description: "A real-time chat application using WebSocket technology.",
-    technologies: ["React", "Node.js", "Socket.io"],
-    githubLink: "https://github.com",
-    demoLink: "https://demo.com",
-    image: "/projects/chat-app.png",
-    category: "Backend",
+    title: "MiniCommerce — Modern E-Commerce Website",
+    description:
+      "A sleek and responsive e-commerce web application built with Next.js and Redux Toolkit. Features product browsing, shopping cart functionality, responsive UI, dynamic sliders, and a smooth shopping experience optimized for modern users.",
+    technologies: [
+      "Next.js",
+      "React",
+      "Redux Toolkit",
+      "React Redux",
+      "Tailwind CSS",
+      "React Slick",
+      "Slick Carousel"
+    ],
+    githubLink: "https://github.com/bashar35790/mini-ecomarce",
+    demoLink: "https://mini-ecomarce-svtg.vercel.app/",
+    image: "/projects/miniEcomarce.png",
+    category: "E-Commerce",
+
   },
   {
-    title: "Recipe Finder",
-    description: "A recipe search application using the Edamam API.",
-    technologies: ["React", "Edamam API"],
-    githubLink: "https://github.com",
-    demoLink: "https://demo.com",
-    image: "/projects/recipe-finder.png",
-    category: "Frontend",
+    title: "Natours — Adventure & Travel Landing Page",
+    description:
+      "A modern and visually immersive travel landing page designed for adventure enthusiasts. Features elegant animations, responsive layouts, storytelling sections, and premium UI/UX inspired by real-world outdoor tour experiences.",
+    technologies: [
+      "HTML5",
+      "SCSS",
+      "Sass",
+      "CSS3",
+      "Autoprefixer",
+      "PostCSS",
+      "JavaScript"
+    ],
+    githubLink: "https://github.com/bashar35790/nature-project",
+    demoLink: "https://nature-project-bashar.vercel.app/",
+    image: "/projects/nature.png",
+    category: "Landing Page",
   },
-  {
-    title: "Expense Tracker",
-    description: "A personal finance tracker to manage expenses and income.",
-    technologies: ["React", "Firebase"],
-    githubLink: "https://github.com",
-    demoLink: "https://demo.com",
-    image: "/projects/expense-tracker.webp",
-    category: "Full Stack",
-  },
+
 ];
