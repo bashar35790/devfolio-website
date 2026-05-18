@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 const BlogsPage = () => {
   return (
-    <div className="bg-[#0A0A0C] min-h-screen py-32">
+    <div className="bg-bg-page min-h-screen py-32 text-text-main">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-20 space-y-4">
           <motion.h4
@@ -22,7 +22,7 @@ const BlogsPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-6xl font-bold text-white tracking-tight"
+            className="text-5xl md:text-6xl font-bold text-text-main tracking-tight"
           >
             Latest <span className="text-gradient">Insights</span>
           </motion.h1>
@@ -43,8 +43,8 @@ const BlogsPage = () => {
               transition={{ delay: index * 0.1 }}
               className="group relative"
             >
-              <div className="relative h-full glass p-8 rounded-3xl border border-white/10 group-hover:border-primary/30 transition-all duration-500">
-                <div className="flex items-center gap-6 text-xs text-gray-500 mb-6 uppercase tracking-wider font-semibold">
+              <div className="relative h-full glass p-8 rounded-3xl border border-border-subtle group-hover:border-primary/30 transition-all duration-500">
+                <div className="flex items-center gap-6 text-xs text-text-muted mb-6 uppercase tracking-wider font-semibold">
                   <div className="flex items-center gap-2">
                     <FaCalendarAlt className="text-primary" />
                     <span>{new Date(blog.date).toLocaleDateString()}</span>
@@ -56,10 +56,10 @@ const BlogsPage = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors line-clamp-2">
+                  <h3 className="text-2xl font-bold text-text-main group-hover:text-primary transition-colors line-clamp-2">
                     {blog.title}
                   </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
+                  <p className="text-text-muted text-sm leading-relaxed line-clamp-3">
                     {blog.excerpt}
                   </p>
                 </div>

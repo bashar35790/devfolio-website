@@ -13,7 +13,7 @@ const Blogs = () => {
   const duplicatedBlogs = [...blogs, ...blogs, ...blogs];
 
   return (
-    <section id="blogs" className="relative py-24 bg-[#0A0A0C] overflow-hidden">
+    <section id="blogs" className="relative py-24 bg-bg-section overflow-hidden">
       {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[20%] left-[5%] w-[30%] h-[30%] bg-primary/5 blur-[120px] rounded-full" />
@@ -25,8 +25,8 @@ const Blogs = () => {
           <h4 className="text-primary font-semibold tracking-widest uppercase text-sm mb-4">
             Insights & Articles
           </h4>
-          <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-            Latest <span className="text-gradient bg-gradient-to-r from-primary via-primary/80 to-white">Blog Posts</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-text-main tracking-tight">
+            Latest <span className="text-gradient bg-gradient-to-r from-primary via-primary/80 to-text-main">Blog Posts</span>
           </h2>
           <div className="h-1 bg-primary mx-auto rounded-full w-20 mt-6" />
         </ScrollReveal>
@@ -51,9 +51,9 @@ const Blogs = () => {
                 key={`${blog.slug}-${index}`}
                 className="w-[350px] md:w-[450px] shrink-0 group"
               >
-                <div className="relative h-full glass p-8 rounded-3xl border border-white/10 group-hover:border-primary/30 transition-all duration-500 hover:bg-white/[0.04] shadow-lg cursor-pointer">
+                <div className="relative h-full glass p-8 rounded-3xl border border-border-subtle group-hover:border-primary/30 transition-all duration-500 hover:bg-card-bg shadow-lg cursor-pointer">
                   {/* Meta Info */}
-                  <div className="flex items-center gap-6 text-xs text-gray-500 mb-6 uppercase tracking-wider font-semibold">
+                  <div className="flex items-center gap-6 text-xs text-text-muted mb-6 uppercase tracking-wider font-semibold">
                     <div className="flex items-center gap-2">
                       <FaCalendarAlt className="text-primary" />
                       <span>{new Date(blog.date).toLocaleDateString()}</span>
@@ -66,10 +66,10 @@ const Blogs = () => {
 
                   {/* Content */}
                   <div className="space-y-4">
-                    <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors line-clamp-2">
+                    <h3 className="text-2xl font-bold text-text-main group-hover:text-primary transition-colors line-clamp-2">
                       {blog.title}
                     </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
+                    <p className="text-text-muted text-sm leading-relaxed line-clamp-3">
                       {blog.excerpt}
                     </p>
                   </div>
@@ -93,8 +93,8 @@ const Blogs = () => {
           </motion.div>
 
           {/* Edge Fades */}
-          <div className="absolute top-0 left-0 h-full w-20 md:w-40 bg-gradient-to-r from-[#0A0A0C] to-transparent z-10 pointer-events-none" />
-          <div className="absolute top-0 right-0 h-full w-20 md:w-40 bg-gradient-to-l from-[#0A0A0C] to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 left-0 h-full w-20 md:w-40 bg-gradient-to-r from-bg-section to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 right-0 h-full w-20 md:w-40 bg-gradient-to-l from-bg-section to-transparent z-10 pointer-events-none" />
         </div>
       </ScrollReveal>
 

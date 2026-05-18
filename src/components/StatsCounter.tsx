@@ -43,14 +43,14 @@ export default function StatsCounter() {
   }, []);
 
   return (
-    <div ref={containerRef} className="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 border-y border-white/5 bg-white/[0.01] backdrop-blur-sm relative z-10">
+    <div ref={containerRef} className="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 border-y border-border-subtle bg-bg-page/20 backdrop-blur-sm relative z-10">
       {statsData.map((stat, i) => (
         <div key={i} className="text-center space-y-2">
           <div className="text-4xl md:text-5xl font-extrabold text-primary flex justify-center items-baseline tracking-tight">
             <span className="stat-number" data-target={stat.value}>0</span>
             <span>{stat.suffix}</span>
           </div>
-          <p className="text-gray-400 text-sm md:text-base font-medium">{stat.label}</p>
+          <p className="text-text-muted text-sm md:text-base font-medium">{stat.label}</p>
         </div>
       ))}
     </div>

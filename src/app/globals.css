@@ -1,12 +1,48 @@
 @import "tailwindcss";
 
+:root {
+  --color-bg-page: #F8FAFC;
+  --color-bg-section: #F1F5F9;
+  --color-text-main: #0F172A;
+  --color-text-muted: #475569;
+  --color-border-subtle: rgba(15, 23, 42, 0.08);
+  --color-card-bg: rgba(255, 255, 255, 0.7);
+  --color-card-border: rgba(15, 23, 42, 0.06);
+  --color-shadow-primary: rgba(0, 168, 255, 0.08);
+  --color-bg-input: #FFFFFF;
+  --color-text-input: #0F172A;
+  --color-glass-bg: rgba(255, 255, 255, 0.45);
+}
+
+.dark {
+  --color-bg-page: #020C1B;
+  --color-bg-section: #050E1E;
+  --color-text-main: #F1F5F9;
+  --color-text-muted: #94A3B8;
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-card-bg: rgba(255, 255, 255, 0.03);
+  --color-card-border: rgba(255, 255, 255, 0.08);
+  --color-shadow-primary: rgba(0, 168, 255, 0.2);
+  --color-bg-input: #03122A;
+  --color-text-input: #F1F5F9;
+  --color-glass-bg: rgba(2, 12, 27, 0.45);
+}
+
 @theme {
   --color-primary: #00A8FF;
   --color-secondary: #64748B;
-  --color-dark: #020C1B;
-  --color-light: #F8FAFC;
-  --color-text: #F1F5F9;
-  --color-bg: #020C1B;
+  
+  --color-bg-page: var(--color-bg-page);
+  --color-bg-section: var(--color-bg-section);
+  --color-text-main: var(--color-text-main);
+  --color-text-muted: var(--color-text-muted);
+  --color-border-subtle: var(--color-border-subtle);
+  --color-card-bg: var(--color-card-bg);
+  --color-card-border: var(--color-card-border);
+  --color-shadow-primary: var(--color-shadow-primary);
+  --color-bg-input: var(--color-bg-input);
+  --color-text-input: var(--color-text-input);
+  --color-glass-bg: var(--color-glass-bg);
 
   --color-accent-coral: #00D2FF;
   --color-accent-glow: rgba(0, 168, 255, 0.15);
@@ -21,24 +57,38 @@
 
 @layer base {
   body {
-    @apply bg-dark text-white antialiased;
-    background-color: #020C1B;
+    background-color: var(--color-bg-page);
+    color: var(--color-text-main);
+    @apply antialiased transition-colors duration-500;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-playfair), serif;
+    @apply text-text-main transition-colors duration-500;
+  }
+
+  body, section, nav, footer, .glass, button, input {
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                color 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
 @layer utilities {
   .glass {
-    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+    background-color: var(--color-card-bg);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--color-card-border);
   }
   .glow-ring {
     box-shadow: 0 0 80px 20px rgba(0, 168, 255, 0.15);
   }
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-[#00D2FF] to-[#0084FF];
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, var(--color-text-main) 0%, #00A8FF 50%, #00D2FF 100%);
   }
   
   /* Morphing organic blob utility classes */
@@ -70,7 +120,7 @@ a {
   }
   
   .btn-secondary {
-    @apply border border-white/20 text-white hover:bg-white/10 hover:scale-105 active:scale-95;
+    @apply border border-border-subtle text-text-main hover:bg-card-bg hover:scale-105 active:scale-95;
   }
   
   .section-title {

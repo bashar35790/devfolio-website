@@ -49,10 +49,10 @@ const Contract = () => {
   };
 
   return (
-    <div className="container max-w-7xl mx-auto py-20 px-4">
+    <div className="container max-w-7xl mx-auto py-20 px-4 text-text-main">
       <ScrollReveal direction="up" stagger staggerDelay={0.15}>
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-12 text-center text-white tracking-tight">
-          Contact <span className="text-gradient bg-gradient-to-r from-primary via-primary/80 to-white">Me</span>
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-12 text-center text-text-main tracking-tight">
+          Contact <span className="text-gradient bg-gradient-to-r from-primary via-primary/80 to-text-main">Me</span>
         </h1>
       </ScrollReveal>
 
@@ -60,8 +60,8 @@ const Contract = () => {
         {/* Left Info Column */}
         <div className="space-y-8">
           <ScrollReveal direction="left" stagger staggerDelay={0.1}>
-            <h2 className="text-2xl font-bold text-white tracking-tight">Get in Touch</h2>
-            <p className="text-gray-400 text-base leading-relaxed max-w-md">
+            <h2 className="text-2xl font-bold text-text-main tracking-tight">Get in Touch</h2>
+            <p className="text-text-muted text-base leading-relaxed max-w-md">
               I am always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
             </p>
           </ScrollReveal>
@@ -69,14 +69,14 @@ const Contract = () => {
           <div className="space-y-6">
             <ScrollReveal direction="left" delay={0.2}>
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:border-primary/30 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-bg-section/60 border border-border-subtle flex items-center justify-center text-primary group-hover:border-primary/30 transition-colors">
                   <FaEnvelope className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-300">Email</h3>
+                  <h3 className="font-semibold text-text-main">Email</h3>
                   <Link
                     href="mailto:bashar35790@gmail.com"
-                    className="text-gray-400 hover:text-primary transition-colors text-sm"
+                    className="text-text-muted hover:text-primary transition-colors text-sm"
                   >
                     bashar35790@gmail.com
                   </Link>
@@ -86,14 +86,14 @@ const Contract = () => {
 
             <ScrollReveal direction="left" delay={0.3}>
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:border-primary/30 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-bg-section/60 border border-border-subtle flex items-center justify-center text-primary group-hover:border-primary/30 transition-colors">
                   <FaPhone className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-300">Phone</h3>
+                  <h3 className="font-semibold text-text-main">Phone</h3>
                   <Link
                     href="tel:+8801833487526"
-                    className="text-gray-400 hover:text-primary transition-colors text-sm"
+                    className="text-text-muted hover:text-primary transition-colors text-sm"
                   >
                     +8801833487526
                   </Link>
@@ -103,12 +103,12 @@ const Contract = () => {
 
             <ScrollReveal direction="left" delay={0.4}>
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:border-primary/30 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-bg-section/60 border border-border-subtle flex items-center justify-center text-primary group-hover:border-primary/30 transition-colors">
                   <FaMapMarkerAlt className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-300">Location</h3>
-                  <span className="text-gray-400 text-sm">
+                  <h3 className="font-semibold text-text-main">Location</h3>
+                  <span className="text-text-muted text-sm">
                     Dhaka, Bangladesh
                   </span>
                 </div>
@@ -119,11 +119,11 @@ const Contract = () => {
 
         {/* Right Form Column */}
         <ScrollReveal direction="scale" delay={0.2}>
-          <div className="glass p-8 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden group">
+          <div className="glass p-8 rounded-3xl border border-border-subtle shadow-2xl relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <form className="space-y-6 relative z-10" onSubmit={handleSubmit}>
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-text-muted mb-2">
                   Name
                 </label>
                 <input
@@ -134,11 +134,11 @@ const Contract = () => {
                   id="name"
                   name="name"
                   placeholder="Enter your name"
-                  className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 focus:bg-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-primary/50 transition-all"
+                  className="w-full px-4 py-3 rounded-xl border border-border-subtle bg-bg-section/60 focus:bg-bg-section text-text-main placeholder-text-muted/60 focus:outline-none focus:border-primary/50 transition-all"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-text-muted mb-2">
                   Email
                 </label>
                 <input
@@ -149,11 +149,11 @@ const Contract = () => {
                   id="email"
                   name="email"
                   placeholder="Enter your email"
-                  className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 focus:bg-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-primary/50 transition-all"
+                  className="w-full px-4 py-3 rounded-xl border border-border-subtle bg-bg-section/60 focus:bg-bg-section text-text-main placeholder-text-muted/60 focus:outline-none focus:border-primary/50 transition-all"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-text-muted mb-2">
                   Message
                 </label>
                 <textarea
@@ -164,7 +164,7 @@ const Contract = () => {
                   id="message"
                   name="message"
                   placeholder="Enter your message"
-                  className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 focus:bg-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-primary/50 transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-xl border border-border-subtle bg-bg-section/60 focus:bg-bg-section text-text-main placeholder-text-muted/60 focus:outline-none focus:border-primary/50 transition-all resize-none"
                 />
               </div>
               

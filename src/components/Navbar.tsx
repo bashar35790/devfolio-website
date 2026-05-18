@@ -78,29 +78,29 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed w-full top-0 left-0 z-[999] transition-all duration-500 border-b ${scrolled
-        ? "bg-dark/80 backdrop-blur-md border-primary/20 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
+        ? "bg-bg-page/80 backdrop-blur-md border-border-subtle py-3 shadow-[0_4px_30px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
         : "bg-transparent border-transparent py-5"
         }`}
     >
       <div className="container max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center">
-
+ 
           {/* Brand Logo with Magnetic Hook */}
           <Magnetic range={30} strength={0.3}>
-            <Link href="/" className="text-2xl font-bold tracking-tighter text-white hover:text-primary transition-colors flex items-center gap-1 group">
+            <Link href="/" className="text-2xl font-bold tracking-tighter text-text-main hover:text-primary transition-colors flex items-center gap-1 group">
               <h2 className="text-primary group-hover:scale-110 transition-transform duration-300">{"<"}</h2>
               Abul Bashar
               <span className="text-primary group-hover:scale-110 transition-transform duration-300">{">"}</span>
             </Link>
           </Magnetic>
-
+ 
           {/* Desktop Menu Items */}
           <div className="hidden md:flex items-center space-x-1 lg:space-x-4">
             {menuItem.map((item, index) => {
               const isCurrentPath = pathname === item.href;
               const isCurrentSection = pathname === "/" && activeSection === item.sectionId;
               const isActive = isCurrentPath || isCurrentSection;
-
+ 
               return (
                 <div key={index} className="relative">
                   <Magnetic range={20} strength={0.2}>
@@ -108,16 +108,16 @@ const Navbar = () => {
                       href={item.href}
                       className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 relative z-10 block ${isActive
                         ? "text-primary font-semibold"
-                        : "text-gray-300 hover:text-white"
+                        : "text-text-muted hover:text-text-main"
                         }`}
                     >
                       {item.label}
-
+ 
                       {/* Active highlight backdrop */}
                       {isActive && (
                         <motion.div
                           layoutId="navBackdrop"
-                          className="absolute inset-0 bg-primary/10 rounded-full -z-10 border border-primary/20 shadow-[0_0_15px_rgba(255,95,56,0.15)]"
+                          className="absolute inset-0 bg-primary/10 rounded-full -z-10 border border-primary/20"
                           transition={{ type: "spring", bounce: 0.15, duration: 0.6 }}
                         />
                       )}
@@ -126,12 +126,12 @@ const Navbar = () => {
                 </div>
               );
             })}
-
+ 
             {/* Theme Toggle Button */}
             <Magnetic range={20} strength={0.3}>
               <motion.button
                 onClick={toggleTheme}
-                className="p-3 rounded-full bg-white/5 border border-white/10 hover:border-primary/30 text-gray-300 hover:text-primary transition-all duration-300 ml-4 cursor-pointer"
+                className="p-3 rounded-full bg-card-bg border border-card-border hover:border-primary/30 text-text-muted hover:text-primary transition-all duration-300 ml-4 cursor-pointer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -143,12 +143,12 @@ const Navbar = () => {
               </motion.button>
             </Magnetic>
           </div>
-
+ 
           {/* Mobile Menu Trigger Button */}
           <div className="flex items-center gap-4 md:hidden">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full bg-white/5 text-gray-300"
+              className="p-2 rounded-full bg-card-bg border border-card-border text-text-muted"
             >
               {theme === "dark" ? (
                 <SunIcon className="w-5 h-5" />
@@ -156,9 +156,9 @@ const Navbar = () => {
                 <MoonIcon className="w-5 h-5" />
               )}
             </button>
-
+ 
             <motion.button
-              className="p-2 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-primary hover:bg-white/10 cursor-pointer"
+              className="p-2 rounded-full bg-card-bg border border-card-border text-text-muted hover:text-primary hover:bg-bg-section cursor-pointer"
               onClick={toggleMenu}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -170,9 +170,9 @@ const Navbar = () => {
               )}
             </motion.button>
           </div>
-
+ 
         </div>
-
+ 
         {/* Mobile Full Screen Drawer Menu */}
         <AnimatePresence>
           {isMenuOpen && (
@@ -181,12 +181,12 @@ const Navbar = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.4, ease: [0.6, 0.05, 0.2, 0.9] }}
-              className="md:hidden overflow-hidden border-t border-white/5 bg-dark/95 backdrop-blur-xl rounded-2xl mt-4"
+              className="md:hidden overflow-hidden border-t border-border-subtle bg-bg-page/95 backdrop-blur-xl rounded-2xl mt-4 shadow-xl"
             >
               <div className="py-6 px-4 space-y-4 flex flex-col">
                 {menuItem.map((item, index) => {
                   const isActive = pathname === item.href || (pathname === "/" && activeSection === item.sectionId);
-
+ 
                   return (
                     <motion.div
                       key={index}
@@ -199,7 +199,7 @@ const Navbar = () => {
                         href={item.href}
                         className={`block px-4 py-3 rounded-xl text-lg font-medium transition-all ${isActive
                           ? "bg-primary/10 text-primary border-l-4 border-primary pl-6"
-                          : "text-gray-300 hover:text-white hover:bg-white/5"
+                          : "text-text-muted hover:text-text-main hover:bg-bg-section"
                           }`}
                         onClick={toggleMenu}
                       >

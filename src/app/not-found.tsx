@@ -7,7 +7,7 @@ import { FaHome, FaArrowLeft } from "react-icons/fa";
 
 export default function NotFound() {
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-[#0A0A0C] overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center bg-bg-page text-text-main overflow-hidden">
       {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[10%] left-[10%] w-[30%] h-[30%] bg-primary/10 blur-[120px] rounded-full" />
@@ -37,10 +37,10 @@ export default function NotFound() {
           </motion.h1>
 
           <div className="space-y-4 max-w-lg mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-bold text-text-main tracking-tight">
               Page Not Found
             </h2>
-            <p className="text-gray-400 text-lg leading-relaxed">
+            <p className="text-text-muted text-lg leading-relaxed">
               The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
             </p>
           </div>
@@ -60,7 +60,7 @@ export default function NotFound() {
               onClick={() => window.history.back()}
               className="btn btn-secondary group flex items-center gap-2"
             >
-              <FaArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+               <FaArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               Previous Page
             </button>
           </motion.div>
@@ -73,7 +73,7 @@ export default function NotFound() {
             rotate: [0, 10, 0]
           }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 -right-10 w-24 h-24 border border-white/5 rounded-full hidden md:block"
+          className="absolute top-1/4 -right-10 w-24 h-24 border border-border-subtle rounded-full hidden md:block"
         />
         <motion.div
           animate={{ 
@@ -81,7 +81,7 @@ export default function NotFound() {
             rotate: [0, -10, 0]
           }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-1/4 -left-10 w-32 h-32 border border-white/5 rounded-2xl hidden md:block"
+          className="absolute bottom-1/4 -left-10 w-32 h-32 border border-border-subtle rounded-2xl hidden md:block"
         />
       </div>
     </div>

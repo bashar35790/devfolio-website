@@ -40,7 +40,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="relative py-24 bg-[#0A0A0C] overflow-hidden">
+    <section id="projects" className="relative py-24 bg-bg-page overflow-hidden">
       {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[10%] right-[5%] w-[30%] h-[30%] bg-primary/5 blur-[120px] rounded-full" />
@@ -55,8 +55,8 @@ const Projects = () => {
             <h4 className="text-primary font-semibold tracking-widest uppercase text-sm">
               My Portfolio
             </h4>
-            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-              Featured <span className="text-gradient bg-gradient-to-r from-primary via-primary/80 to-white">Projects</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-text-main tracking-tight">
+              Featured <span className="text-gradient bg-gradient-to-r from-primary via-primary/80 to-text-main">Projects</span>
             </h2>
             <div className="h-1 bg-primary mx-auto rounded-full w-20 mt-4" />
           </ScrollReveal>
@@ -72,7 +72,7 @@ const Projects = () => {
                 className={`relative px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 border cursor-pointer ${
                   activeCategory === category
                     ? "border-primary text-white"
-                    : "border-white/10 text-gray-400 hover:border-white/20 hover:text-white"
+                    : "border-border-subtle text-text-muted hover:border-text-main hover:text-text-main"
                 }`}
               >
                 {activeCategory === category && (
@@ -109,7 +109,7 @@ const Projects = () => {
                   className="group relative"
                 >
                   {/* Card Container */}
-                  <div className="relative h-full glass rounded-3xl overflow-hidden border border-white/10 group-hover:border-primary/30 transition-all duration-500 shadow-xl cursor-pointer">
+                  <div className="relative h-full glass rounded-3xl overflow-hidden border border-border-subtle group-hover:border-primary/30 transition-all duration-500 shadow-xl cursor-pointer">
                     {/* Image Section */}
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <Image
@@ -126,14 +126,14 @@ const Projects = () => {
                     <div className="p-8 space-y-6">
                       <div className="space-y-2">
                         <div className="flex justify-between items-start">
-                          <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">
+                          <h3 className="text-xl font-bold text-text-main group-hover:text-primary transition-colors">
                             {project.title}
                           </h3>
-                          <span className="text-[10px] uppercase tracking-wider bg-white/5 px-2 py-1 rounded-md text-gray-400">
+                          <span className="text-[10px] uppercase tracking-wider bg-bg-section px-2 py-1 rounded-md text-text-muted">
                             {project.category}
                           </span>
                         </div>
-                        <p className="text-gray-400 text-sm leading-relaxed line-clamp-2">
+                        <p className="text-text-muted text-sm leading-relaxed line-clamp-2">
                           {project.description}
                         </p>
                       </div>
@@ -149,7 +149,7 @@ const Projects = () => {
                           </span>
                         ))}
                         {project.technologies.length > 3 && (
-                          <span className="text-[10px] text-gray-500 font-medium px-2 py-1">
+                          <span className="text-[10px] text-text-muted font-medium px-2 py-1">
                             +{project.technologies.length - 3}
                           </span>
                         )}
@@ -193,11 +193,11 @@ const Projects = () => {
                 exit={{ opacity: 0, scale: 0.9 }}
                 className="col-span-full py-20 text-center space-y-4"
               >
-                <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <FaFolderOpen className="w-8 h-8 text-gray-600" />
+                <div className="w-20 h-20 bg-bg-section rounded-full flex items-center justify-center mx-auto mb-6">
+                  <FaFolderOpen className="w-8 h-8 text-text-muted" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">No Projects Found</h3>
-                <p className="text-gray-400 max-w-md mx-auto">
+                <h3 className="text-2xl font-bold text-text-main">No Projects Found</h3>
+                <p className="text-text-muted max-w-md mx-auto">
                   I haven&apos;t added any projects in the <span className="text-primary font-semibold">{activeCategory}</span> category yet. Stay tuned!
                 </p>
               </motion.div>

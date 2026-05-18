@@ -42,7 +42,7 @@ const servicesList = [
 
 const Services = () => {
   return (
-    <section id="services" className="relative py-24 bg-[#0A0A0C] overflow-hidden">
+    <section id="services" className="relative py-24 bg-bg-section overflow-hidden">
       {/* Premium Background Ambient Glows */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div 
@@ -67,18 +67,18 @@ const Services = () => {
                 <span className="text-primary font-semibold tracking-widest uppercase text-sm block">
                   What I Offer
                 </span>
-                <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
-                  My <span className="text-gradient bg-gradient-to-r from-primary via-primary/80 to-white">Services</span>
+                <h2 className="text-4xl md:text-5xl font-bold text-text-main tracking-tight leading-tight">
+                  My <span className="text-gradient bg-gradient-to-r from-primary via-primary/80 to-text-main">Services</span>
                 </h2>
                 <div className="h-1 w-20 bg-primary rounded-full mt-4" />
               </div>
 
-              <div className="space-y-4 text-gray-400 text-lg leading-relaxed">
+              <div className="space-y-4 text-text-muted text-lg leading-relaxed">
                 <p>
-                  Greetings, fellow digital explorers! I am <span className="text-white font-medium">Abul Bashar</span>, a passionate and innovative developer dedicated to crafting immersive digital experiences. Welcome to my online abode.
+                  Greetings, fellow digital explorers! I am <span className="text-text-main font-medium">Abul Bashar</span>, a passionate and innovative developer dedicated to crafting immersive digital experiences. Welcome to my online abode.
                 </p>
                 <p>
-                  Greetings, fellow digital explorers! I am <span className="text-white font-medium">Abul Bashar</span>, a passionate and innovative developer dedicated to turning challenging problems into beautiful web solutions.
+                  Greetings, fellow digital explorers! I am <span className="text-text-main font-medium">Abul Bashar</span>, a passionate and innovative developer dedicated to turning challenging problems into beautiful web solutions.
                 </p>
               </div>
             </ScrollReveal>
@@ -102,13 +102,13 @@ const Services = () => {
             <ScrollReveal direction="right" stagger staggerDelay={0.12} className="grid md:grid-cols-2 gap-6">
               {servicesList.map((service) => (
                 <div key={service.id} className="relative group">
-                  <div className="glass p-8 rounded-3xl border border-white/10 hover:border-primary/30 transition-all duration-300 relative overflow-hidden flex flex-col justify-between shadow-xl cursor-pointer">
+                  <div className="glass p-8 rounded-3xl hover:border-primary/30 transition-all duration-300 relative overflow-hidden flex flex-col justify-between shadow-xl cursor-pointer">
                     {/* Neon glow effect behind card */}
                     <div className="absolute -inset-px bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
                     
                     <div className="space-y-6 relative z-10">
                       {/* Glowing Icon Container */}
-                      <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary/30 group-hover:bg-primary/5 transition-all duration-500 relative">
+                      <div className="w-14 h-14 rounded-2xl bg-bg-section/60 border border-border-subtle group-hover:border-primary/30 group-hover:bg-primary/5 transition-all duration-500 relative">
                         <div className="absolute inset-0 bg-primary/20 blur-md rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <div className="relative z-10 group-hover:scale-110 transition-transform duration-300">
                           {service.icon}
@@ -116,10 +116,10 @@ const Services = () => {
                       </div>
 
                       <div className="space-y-3">
-                        <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors duration-300">
+                        <h3 className="text-xl font-bold text-text-main group-hover:text-primary transition-colors duration-300">
                           {service.title}
                         </h3>
-                        <p className="text-gray-400 text-sm leading-relaxed">
+                        <p className="text-text-muted text-sm leading-relaxed">
                           {service.description}
                         </p>
                       </div>

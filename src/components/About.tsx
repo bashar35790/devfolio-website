@@ -26,7 +26,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="relative py-24 overflow-hidden bg-[#0A0A0C]">
+    <section id="about" className="relative py-24 overflow-hidden bg-bg-section">
       {/* Background Decorations */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <motion.div
@@ -42,8 +42,8 @@ const About = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
+
           {/* Left Side: Image with Magnetic Float Effect */}
           <ScrollReveal direction="right" duration={1}>
             <div className="relative flex justify-center lg:justify-start">
@@ -55,16 +55,16 @@ const About = () => {
                 {/* Soft Shadow Glow */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-blue-500/20 blur-2xl opacity-50 group-hover:opacity-75 transition-opacity duration-500" />
 
-                <div className="relative h-full w-full bg-[#111] rounded-3xl overflow-hidden border border-white/10">
+                <div className="relative h-full w-full bg-bg-page rounded-3xl overflow-hidden border border-border-subtle">
                   <Image
-                    src="/1.png"
+                    src="/unnamed.png"
                     alt="Abul Bashar"
                     fill
-                    className="object-cover object-top hover:scale-105 transition-transform duration-700"
+                    className="object-cover hover:scale-105 transition-transform duration-700"
                     priority
                   />
                   {/* Glassmorphism Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0C] via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg-section via-transparent to-transparent opacity-60" />
                 </div>
               </motion.div>
             </div>
@@ -77,15 +77,15 @@ const About = () => {
                 <span className="text-primary font-semibold tracking-widest uppercase text-sm block">
                   About Me
                 </span>
-                <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
-                  Hello, I am <span className="text-gradient bg-gradient-to-r from-primary via-primary/80 to-white">Abul Bashar</span>
+                <h2 className="text-4xl md:text-5xl font-bold text-text-main tracking-tight leading-tight">
+                  Hello, I am <span className="text-gradient bg-gradient-to-r from-primary via-primary/80 to-text-main">Abul Bashar</span>
                 </h2>
-                <h3 className="text-xl md:text-2xl font-bold text-white/80">
+                <h3 className="text-xl md:text-2xl font-bold text-text-main/80">
                   Full Stack Web Developer
                 </h3>
               </div>
 
-              <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
+              <p className="text-text-muted text-lg leading-relaxed max-w-xl">
                 I am a passionate Full Stack Developer with expertise in building modern, scalable web applications.
                 With a strong focus on the MERN stack and Next.js, I create high-performance digital experiences
                 that combine elegant design with robust engineering. My goal is to deliver user-centric
@@ -95,16 +95,16 @@ const About = () => {
 
             {/* Glassmorphism Info Card */}
             <ScrollReveal direction="blur" delay={0.2}>
-              <div className="glass p-8 rounded-3xl border border-white/10 grid md:grid-cols-2 gap-6 relative overflow-hidden group">
+              <div className="glass p-8 rounded-3xl grid md:grid-cols-2 gap-6 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 {infoItems.map((item, index) => (
                   <div key={index} className="flex items-center gap-4 relative z-10 cursor-pointer group">
-                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-lg border border-white/5 group-hover:border-primary/30 transition-all duration-300">
+                    <div className="w-10 h-10 rounded-xl bg-bg-section/60 flex items-center justify-center text-lg border border-border-subtle group-hover:border-primary/30 transition-all duration-300">
                       {item.icon}
                     </div>
                     <div>
-                      <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">{item.label}</p>
-                      <p className="text-white font-medium group-hover:text-primary transition-colors">{item.value}</p>
+                      <p className="text-xs text-text-muted uppercase tracking-wider font-semibold">{item.label}</p>
+                      <p className="text-text-main font-medium group-hover:text-primary transition-colors">{item.value}</p>
                     </div>
                   </div>
                 ))}
@@ -124,7 +124,7 @@ const About = () => {
                 </Magnetic>
 
                 <Magnetic>
-                  <Link href="tel:+8801833487526" className="btn btn-secondary group hover:bg-white/5 transition-all cursor-pointer px-8 py-4">
+                  <Link href="tel:+8801833487526" className="btn btn-secondary group hover:bg-card-bg transition-all cursor-pointer px-8 py-4">
                     Call Now <FaPhone className="text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                   </Link>
                 </Magnetic>

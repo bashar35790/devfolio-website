@@ -1,28 +1,27 @@
 "use client";
 
-import React from "react";
-import { 
-  FaCode, 
-  FaLaptopCode, 
-  FaTools, 
-  FaBriefcase, 
-  FaGraduationCap, 
-  FaDownload, 
-  FaEnvelope, 
-  FaMapMarkerAlt, 
+import {
+  FaCode,
+  FaLaptopCode,
+  FaTools,
+  FaBriefcase,
+  FaGraduationCap,
+  FaDownload,
+  FaEnvelope,
+  FaMapMarkerAlt,
   FaCalendarAlt,
   FaCheckCircle,
   FaAws
 } from "react-icons/fa";
-import { 
-  SiNextdotjs, 
-  SiTypescript, 
-  SiReact, 
-  SiTailwindcss, 
-  SiNodedotjs, 
-  SiExpress, 
-  SiMongodb, 
-  SiGit, 
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiReact,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiGit,
   SiDocker,
   SiPostgresql
 } from "react-icons/si";
@@ -101,7 +100,7 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="relative min-h-screen bg-[#020C1B] text-white pt-10 pb-24 overflow-hidden">
+    <div className="relative min-h-screen bg-bg-page text-text-main pt-10 pb-24 overflow-hidden">
       {/* Decorative Ambient Background Glows */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[5%] left-[-10%] w-[50%] h-[50%] bg-[#00A8FF]/5 blur-[140px] rounded-full" />
@@ -109,20 +108,20 @@ const AboutPage = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-4 max-w-6xl">
-        
+
         {/* Header Title Section */}
         <div className="text-center mb-16 animate__animated animate__fadeIn">
           <span className="text-primary font-semibold tracking-widest uppercase text-sm block mb-3">
             Get To Know Me
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-text-main">
             About <span className="text-gradient">Abul Bashar</span>
           </h1>
           <div className="h-1 w-24 bg-primary mx-auto rounded-full mb-6" />
           <div className="max-w-3xl mx-auto">
-            <TextReveal 
+            <TextReveal
               text="An engineering-driven Full Stack Web Developer passionate about merging elegant typography and high-end aesthetics with fast, secure, and robust system architectures."
-              className="text-lg md:text-xl text-gray-300 leading-relaxed font-light"
+              className="text-lg md:text-xl text-text-muted leading-relaxed font-light"
               staggerDelay={0.015}
             />
           </div>
@@ -130,14 +129,14 @@ const AboutPage = () => {
 
         {/* Core Profile Narrative & Quick Info */}
         <div className="grid lg:grid-cols-12 gap-12 items-start mb-24">
-          
+
           {/* Narrative - Column 7 */}
           <div className="lg:col-span-7 space-y-6">
             <ScrollReveal direction="left">
-              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-text-main tracking-tight mb-4">
                 My Professional Philosophy
               </h2>
-              <div className="space-y-4 text-gray-400 leading-relaxed text-base md:text-lg">
+              <div className="space-y-4 text-text-muted leading-relaxed text-base md:text-lg">
                 <p>
                   As a software engineer, I don&apos;t just build websites; I design responsive, highly-interactive, and secure digital landscapes. My background is rooted in the MERN ecosystem and Next.js. I specialize in building custom, type-safe full-stack platforms from the ground up, utilizing modern component architectures and microservices.
                 </p>
@@ -154,10 +153,10 @@ const AboutPage = () => {
           {/* Quick Info - Column 5 */}
           <div className="lg:col-span-5">
             <ScrollReveal direction="right" delay={0.1}>
-              <div className="glass p-8 rounded-3xl border border-white/10 hover:border-primary/20 transition-all duration-300 relative overflow-hidden group shadow-xl">
+              <div className="glass p-8 rounded-3xl border border-border-subtle hover:border-primary/20 transition-all duration-300 relative overflow-hidden group shadow-xl">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <h3 className="text-xl font-bold text-white mb-6 border-b border-white/5 pb-4">
+
+                <h3 className="text-xl font-bold text-text-main mb-6 border-b border-border-subtle pb-4">
                   Quick Details
                 </h3>
 
@@ -169,12 +168,12 @@ const AboutPage = () => {
                     { label: "Age", value: "24 Years", icon: <FaCalendarAlt className="text-primary" /> }
                   ].map((info, index) => (
                     <div key={index} className="flex items-center gap-4 group/item">
-                      <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/5 group-hover/item:border-primary/30 group-hover/item:bg-primary/5 transition-all duration-300">
+                      <div className="w-10 h-10 rounded-xl bg-bg-section/60 flex items-center justify-center border border-border-subtle group-hover/item:border-primary/30 group-hover/item:bg-primary/5 transition-all duration-300">
                         {info.icon}
                       </div>
                       <div>
-                        <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">{info.label}</p>
-                        <p className="text-white font-medium group-hover/item:text-primary transition-colors">{info.value}</p>
+                        <p className="text-xs text-text-muted uppercase tracking-wider font-semibold">{info.label}</p>
+                        <p className="text-text-main font-medium group-hover/item:text-primary transition-colors">{info.value}</p>
                       </div>
                     </div>
                   ))}
@@ -202,7 +201,7 @@ const AboutPage = () => {
             <span className="text-primary font-semibold tracking-widest uppercase text-sm block mb-2">
               Capabilities
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-main">
               My Core Expertise
             </h2>
             <div className="h-1 w-16 bg-primary mx-auto rounded-full mt-3" />
@@ -211,15 +210,15 @@ const AboutPage = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {skills.map((skillGroup, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 0.1}>
-                <div className={`glass p-8 rounded-3xl border border-white/10 hover:border-primary/20 transition-all duration-500 relative overflow-hidden group flex flex-col h-full shadow-xl ${skillGroup.borderColor} ${skillGroup.glowColor}`}>
+                <div className={`glass p-8 rounded-3xl border border-border-subtle hover:border-primary/20 transition-all duration-500 relative overflow-hidden group flex flex-col h-full shadow-xl ${skillGroup.borderColor} ${skillGroup.glowColor}`}>
                   <div className="absolute -inset-px bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
-                  
+
                   {/* Skill Category Header */}
                   <div className="flex items-center gap-4 mb-6 relative z-10">
-                    <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center transition-all duration-300">
+                    <div className="w-12 h-12 rounded-2xl bg-bg-section/60 border border-border-subtle flex items-center justify-center transition-all duration-300">
                       {skillGroup.icon}
                     </div>
-                    <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors">
+                    <h3 className="text-lg font-bold text-text-main group-hover:text-primary transition-colors">
                       {skillGroup.category}
                     </h3>
                   </div>
@@ -227,11 +226,11 @@ const AboutPage = () => {
                   {/* Skills List */}
                   <ul className="space-y-4 relative z-10 flex-grow">
                     {skillGroup.items.map((item, idx) => (
-                      <li key={idx} className="flex items-center gap-3 text-gray-400 group/li">
+                      <li key={idx} className="flex items-center gap-3 text-text-muted group/li">
                         <span className="text-primary text-sm shrink-0 group-hover/li:scale-125 transition-transform duration-300">
                           {item.icon}
                         </span>
-                        <span className="text-sm font-medium hover:text-white transition-colors duration-200">
+                        <span className="text-sm font-medium hover:text-text-main transition-colors duration-200">
                           {item.name}
                         </span>
                       </li>
@@ -249,40 +248,40 @@ const AboutPage = () => {
             <span className="text-primary font-semibold tracking-widest uppercase text-sm block mb-2">
               Career Journey
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-main">
               Work Experience
             </h2>
             <div className="h-1 w-16 bg-primary mx-auto rounded-full mt-3" />
           </div>
 
-          <div className="relative border-l border-white/10 max-w-4xl mx-auto pl-8 sm:pl-10 space-y-12">
+          <div className="relative border-l border-border-subtle max-w-4xl mx-auto pl-8 sm:pl-10 space-y-12">
             {experience.map((exp, index) => (
               <div key={index} className="relative group">
-                
+
                 {/* Timeline node */}
-                <span className="absolute -left-[41px] sm:-left-[49px] top-1.5 flex items-center justify-center bg-[#020C1B] w-6 h-6 rounded-full border-2 border-primary group-hover:bg-primary transition-colors duration-300 shadow-[0_0_10px_rgba(0,168,255,0.3)]" />
+                <span className="absolute -left-[41px] sm:-left-[49px] top-1.5 flex items-center justify-center bg-bg-page w-6 h-6 rounded-full border-2 border-primary group-hover:bg-primary transition-colors duration-300 shadow-[0_0_10px_rgba(0,168,255,0.3)]" />
 
                 <ScrollReveal direction="up" delay={index * 0.15}>
-                  <div className="glass p-8 rounded-3xl border border-white/10 hover:border-primary/20 transition-all duration-500 relative overflow-hidden shadow-xl">
+                  <div className="glass p-8 rounded-3xl border border-border-subtle hover:border-primary/20 transition-all duration-500 relative overflow-hidden shadow-xl">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6 pb-4 border-b border-white/5 relative z-10">
+
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6 pb-4 border-b border-border-subtle relative z-10">
                       <div>
-                        <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors duration-300">
+                        <h3 className="text-xl font-bold text-text-main group-hover:text-primary transition-colors duration-300">
                           {exp.role}
                         </h3>
                         <p className="text-primary font-semibold text-sm mt-1">
                           {exp.company}
                         </p>
                       </div>
-                      <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-gray-300 bg-white/5 border border-white/10 sm:self-center">
+                      <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-text-muted bg-bg-section/60 border border-border-subtle sm:self-center">
                         {exp.period}
                       </span>
                     </div>
 
                     <ul className="space-y-3 relative z-10">
                       {exp.description.map((bullet, idx) => (
-                        <li key={idx} className="flex items-start gap-3 text-gray-400 text-sm leading-relaxed group/bullet">
+                        <li key={idx} className="flex items-start gap-3 text-text-muted text-sm leading-relaxed group/bullet">
                           <FaCheckCircle className="text-primary text-xs shrink-0 mt-1 transition-transform group-hover/bullet:scale-125 duration-300" />
                           <span>{bullet}</span>
                         </li>
@@ -301,7 +300,7 @@ const AboutPage = () => {
             <span className="text-primary font-semibold tracking-widest uppercase text-sm block mb-2">
               Education
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-main">
               Academic Background
             </h2>
             <div className="h-1 w-16 bg-primary mx-auto rounded-full mt-3" />
@@ -309,16 +308,16 @@ const AboutPage = () => {
 
           <div className="max-w-4xl mx-auto">
             <ScrollReveal direction="up">
-              <div className="glass p-8 rounded-3xl border border-white/10 hover:border-primary/20 transition-all duration-500 relative overflow-hidden group shadow-xl">
+              <div className="glass p-8 rounded-3xl border border-border-subtle hover:border-primary/20 transition-all duration-500 relative overflow-hidden group shadow-xl">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 pb-4 border-b border-white/5 relative z-10">
+
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 pb-4 border-b border-border-subtle relative z-10">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 rounded-2xl bg-bg-section/60 border border-border-subtle flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
                       <FaGraduationCap className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">
+                      <h3 className="text-xl font-bold text-text-main group-hover:text-primary transition-colors">
                         Computer Science And Engineering
                       </h3>
                       <p className="text-primary font-semibold text-sm mt-1">
@@ -326,12 +325,12 @@ const AboutPage = () => {
                       </p>
                     </div>
                   </div>
-                  <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-gray-300 bg-white/5 border border-white/10">
+                  <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-text-muted bg-bg-section/60 border border-border-subtle">
                     2021 - 2025
                   </span>
                 </div>
 
-                <div className="text-gray-400 text-sm leading-relaxed max-w-3xl relative z-10 space-y-4">
+                <div className="text-text-muted text-sm leading-relaxed max-w-3xl relative z-10 space-y-4">
                   <p>
                     Completed a comprehensive curriculum centered around deep computational theory, structural database design, advanced algorithms, and systems engineering. Throughout my academic career, I placed consistent emphasis on utilizing modern design patterns and mastering the complexities of scalable distributed applications.
                   </p>
