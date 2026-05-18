@@ -7,9 +7,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const statsData = [
-  { value: 3, suffix: "+", label: "Years Experience" },
+  { value: 2, suffix: "+", label: "Years Experience" },
   { value: 50, suffix: "+", label: "Projects Completed" },
-  { value: 25, suffix: "+", label: "Happy Clients" },
+  { value: 48, suffix: "+", label: "Happy Clients" },
   { value: 99, suffix: "%", label: "Success Rate" },
 ];
 
@@ -23,7 +23,7 @@ export default function StatsCounter() {
     const counters = el.querySelectorAll(".stat-number");
     counters.forEach((counter) => {
       const target = parseInt(counter.getAttribute("data-target") || "0", 10);
-      
+
       gsap.fromTo(
         counter,
         { textContent: "0" },

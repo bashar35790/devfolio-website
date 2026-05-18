@@ -76,27 +76,40 @@ const AboutPage = () => {
 
   const experience = [
     {
-      role: "Senior Full Stack Developer",
-      company: "WellDev",
-      period: "2022 - Present",
+      role: "WordPress Developer",
+      company: "Softvence Agency",
+      period: "Jan 2025 - April 2025",
       description: [
-        "Architected and maintained high-traffic web applications utilizing Next.js, React, and Node.js.",
-        "Optimized database architectures in PostgreSQL and MongoDB, leading to a 35% improvement in API response times.",
-        "Implemented secure, role-based authentication systems and payment gateway integrations.",
-        "Streamlined microservices architecture and automated containerized deployments using Docker and AWS."
+        "Built high-performance WordPress websites using Elementor, Gutenberg, and custom themes tailored for client needs.",
+        "Optimized website speed and SEO performance, improving Lighthouse scores up to 90+ across multiple projects.",
+        "Integrated advanced plugins for eCommerce (WooCommerce), forms, and automation workflows.",
+        "Customized PHP-based themes and REST API integrations for dynamic content management systems."
       ]
     },
     {
-      role: "Full Stack Developer",
-      company: "WellDev",
-      period: "2020 - 2022",
+      role: "Webflow Developer",
+      company: "Softvence Agency",
+      period: "April 2025 - June 2025",
       description: [
-        "Led the migration of legacy monolithic React codebases to high-performance Next.js Server-Side structures.",
-        "Automated deployment workflows via CI/CD pipelines, decreasing release cycle times by 40%.",
-        "Collaborated with UI/UX designers to translate Figma visual interfaces into pixel-perfect, highly responsive React elements.",
-        "Authored comprehensive test suites (Jest, React Testing Library), achieving over 85% code coverage."
+        "Developed responsive and visually appealing websites using Webflow with pixel-perfect design execution.",
+        "Built CMS-driven websites for blogs, portfolios, and business platforms with dynamic content structures.",
+        "Integrated third-party tools such as Zapier, analytics, and custom scripts for enhanced functionality.",
+        "Optimized performance, accessibility, and SEO for production-ready client websites."
       ]
-    }
+    },
+    {
+      role: "Framer Designer & Developer",
+      company: "Softvence Agency",
+      period: "Jun 2025 - Present",
+      description: [
+        "Designed and developed modern, interactive websites using Framer with a focus on motion-rich UI and clean UX.",
+        "Created responsive landing pages with advanced animations, scroll interactions, and micro-interactions.",
+        "Implemented brand-aligned design systems ensuring consistency across typography, colors, and spacing.",
+        "Collaborated with startups to rapidly prototype and deploy high-converting marketing websites."
+      ]
+    },
+
+
   ];
 
   return (
@@ -312,21 +325,24 @@ const AboutPage = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 pb-4 border-b border-border-subtle relative z-10">
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 ">
                     <div className="w-12 h-12 rounded-2xl bg-bg-section/60 border border-border-subtle flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
                       <FaGraduationCap className="w-6 h-6" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-text-main group-hover:text-primary transition-colors">
-                        Computer Science And Engineering
+                        Bachelor of Science in Computer Science and Engineering
                       </h3>
                       <p className="text-primary font-semibold text-sm mt-1">
-                        ZUMS University
+                        ZNRF University of Management Sciences (ZUMS)
+                      </p>
+                      <p className="text-primary font-semibold text-sm mt-1">
+                        Dhaka, Bangladesh
                       </p>
                     </div>
                   </div>
                   <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-text-muted bg-bg-section/60 border border-border-subtle">
-                    2021 - 2025
+                    2024 - 2028
                   </span>
                 </div>
 

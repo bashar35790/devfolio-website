@@ -2,12 +2,12 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-  FaLaptopCode, 
-  FaServer, 
-  FaPencilRuler, 
-  FaTasks, 
-  FaArrowRight 
+import {
+  FaLaptopCode,
+  FaServer,
+  FaPencilRuler,
+  FaTasks,
+  FaArrowRight
 } from "react-icons/fa";
 import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
@@ -45,21 +45,21 @@ const Services = () => {
     <section id="services" className="relative py-24 bg-bg-section overflow-hidden">
       {/* Premium Background Ambient Glows */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div 
+        <motion.div
           animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
           transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[30%] -right-[10%] w-[35%] h-[35%] bg-primary/5 blur-[130px] rounded-full" 
+          className="absolute top-[30%] -right-[10%] w-[35%] h-[35%] bg-primary/5 blur-[130px] rounded-full"
         />
-        <motion.div 
+        <motion.div
           animate={{ x: [0, 40, 0], y: [0, -30, 0] }}
           transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[20%] -left-[10%] w-[35%] h-[35%] bg-blue-500/5 blur-[120px] rounded-full" 
+          className="absolute bottom-[20%] -left-[10%] w-[35%] h-[35%] bg-blue-500/5 blur-[120px] rounded-full"
         />
       </div>
 
       <div className="container relative z-10 mx-auto px-4">
         <div className="grid lg:grid-cols-12 gap-16 items-center">
-          
+
           {/* Left Column: Title, Description, and CTA */}
           <div className="lg:col-span-5 space-y-8">
             <ScrollReveal direction="left" stagger staggerDelay={0.15}>
@@ -105,12 +105,12 @@ const Services = () => {
                   <div className="glass p-8 rounded-3xl hover:border-primary/30 transition-all duration-300 relative overflow-hidden flex flex-col justify-between shadow-xl cursor-pointer">
                     {/* Neon glow effect behind card */}
                     <div className="absolute -inset-px bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
-                    
+
                     <div className="space-y-6 relative z-10">
                       {/* Glowing Icon Container */}
                       <div className="w-14 h-14 rounded-2xl bg-bg-section/60 border border-border-subtle group-hover:border-primary/30 group-hover:bg-primary/5 transition-all duration-500 relative">
                         <div className="absolute inset-0 bg-primary/20 blur-md rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        <div className="relative z-10 group-hover:scale-110 transition-transform duration-300">
+                        <div className="relative z-10 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center h-full">
                           {service.icon}
                         </div>
                       </div>
