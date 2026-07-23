@@ -12,17 +12,17 @@ import {
   FaDownload,
   FaPhone
 } from "react-icons/fa";
-import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 import Magnetic from "./Magnetic";
+import { siteConfig } from "@/config/site";
 
 const About = () => {
   const infoItems = [
-    { label: "Name", value: "Abul Bashar", icon: <FaUser className="text-primary" /> },
-    { label: "Age", value: "24 Years", icon: <FaCalendarAlt className="text-primary" /> },
-    { label: "Location", value: "Dhaka, Bangladesh", icon: <FaMapMarkerAlt className="text-primary" /> },
-    { label: "Phone", value: "+8801833487526", icon: <FaPhoneAlt className="text-primary" /> },
-    { label: "Email", value: "bashar35790@gmail.com", icon: <FaEnvelope className="text-primary" /> },
+    { label: "Name", value: siteConfig.name, icon: <FaUser className="text-primary" /> },
+    { label: "Age", value: siteConfig.age, icon: <FaCalendarAlt className="text-primary" /> },
+    { label: "Location", value: siteConfig.location, icon: <FaMapMarkerAlt className="text-primary" /> },
+    { label: "Phone", value: siteConfig.phone, icon: <FaPhoneAlt className="text-primary" /> },
+    { label: "Email", value: siteConfig.email, icon: <FaEnvelope className="text-primary" /> },
   ];
 
   return (
@@ -115,18 +115,18 @@ const About = () => {
             <ScrollReveal direction="up" delay={0.3}>
               <div className="flex flex-wrap gap-4 pt-4">
                 <Magnetic>
-                  <Link href="/resume.pdf" download className="btn btn-primary group relative overflow-hidden px-8 py-4">
+                  <a href={siteConfig.resumeUrl} download className="btn btn-primary group relative overflow-hidden px-8 py-4 inline-flex">
                     <span className="relative z-10 flex items-center gap-2">
                       Download CV <FaDownload className="group-hover:translate-y-1 transition-transform duration-300" />
                     </span>
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
-                  </Link>
+                  </a>
                 </Magnetic>
 
                 <Magnetic>
-                  <Link href="tel:+8801833487526" className="btn btn-secondary group hover:bg-card-bg transition-all cursor-pointer px-8 py-4">
+                  <a href={`tel:${siteConfig.phone}`} className="btn btn-secondary group hover:bg-card-bg transition-all cursor-pointer px-8 py-4 inline-flex">
                     Call Now <FaPhone className="text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
-                  </Link>
+                  </a>
                 </Magnetic>
               </div>
             </ScrollReveal>

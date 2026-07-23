@@ -22,10 +22,10 @@ import {
   SiGit,
   SiGithub
 } from "react-icons/si";
-import Link from "next/link";
 import Magnetic from "./Magnetic";
 import gsap from "gsap";
 import GradientCursor from "./GradientCursor";
+import { siteConfig } from "@/config/site";
 
 const techStack = [
   { name: "Next.js", icon: <SiNextdotjs className="w-6 h-6" /> },
@@ -47,32 +47,40 @@ const Hero = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(100);
   const profileImageRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const currentTextRef = useRef(currentText);
+  currentTextRef.current = currentText;
 
   useEffect(() => {
-    const handleTyping = () => {
-      const fullText = titles[currentTitleIndex];
+    const fullText = titles[currentTitleIndex];
 
+    const timer = setTimeout(() => {
       if (!isDeleting) {
-        setCurrentText(fullText.substring(0, currentText.length + 1));
+        setCurrentText(fullText.substring(0, currentTextRef.current.length + 1));
         setTypingSpeed(100);
 
-        if (currentText === fullText) {
-          setTimeout(() => setIsDeleting(true), 2000);
+        if (currentTextRef.current === fullText) {
+          timeoutRef.current = setTimeout(() => setIsDeleting(true), 2000);
         }
       } else {
-        setCurrentText(fullText.substring(0, currentText.length - 1));
+        setCurrentText(fullText.substring(0, currentTextRef.current.length - 1));
         setTypingSpeed(50);
 
-        if (currentText === "") {
+        if (currentTextRef.current === "") {
           setIsDeleting(false);
           setCurrentTitleIndex((prev) => (prev + 1) % titles.length);
         }
       }
-    };
+    }, typingSpeed);
 
-    const timer = setTimeout(handleTyping, typingSpeed);
-    return () => clearTimeout(timer);
-  }, [currentText, isDeleting, currentTitleIndex, typingSpeed]);
+    return () => {
+      clearTimeout(timer);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
+    };
+  }, [isDeleting, currentTitleIndex, typingSpeed]);
 
   // Premium Reveal Effect for profile image
   useEffect(() => {
@@ -180,12 +188,14 @@ const Hero = () => {
             </Magnetic>
 
             <Magnetic>
-              <Link href="/resume.pdf" download>
-                <button className="btn btn-secondary group cursor-pointer px-8 py-4">
-                  Download Resume
-                  <FaDownload className="w-4 h-4 group-hover:translate-y-1 transition-transform text-primary" />
-                </button>
-              </Link>
+              <a
+                href={siteConfig.resumeUrl}
+                download
+                className="btn btn-secondary group cursor-pointer px-8 py-4 inline-flex"
+              >
+                Download Resume
+                <FaDownload className="w-4 h-4 group-hover:translate-y-1 transition-transform text-primary" />
+              </a>
             </Magnetic>
           </motion.div>
 
@@ -195,9 +205,9 @@ const Hero = () => {
             className="flex items-center gap-6 pt-4"
           >
             {[
-              { icon: <FaGithub />, href: "https://github.com/bashar35790" },
-              { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/bashar35790/" },
-              { icon: <FaFacebook />, href: "https://www.facebook.com/bashar35790/" },
+              { icon: <FaGithub />, href: siteConfig.social.github },
+              { icon: <FaLinkedin />, href: siteConfig.social.linkedin },
+              { icon: <FaFacebook />, href: siteConfig.social.facebook },
             ].map((social, i) => (
               <Magnetic key={i} range={30} strength={0.4}>
                 <a

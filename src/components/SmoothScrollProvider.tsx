@@ -25,10 +25,10 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
     // Connect Lenis to GSAP ScrollTrigger
     lenis.on("scroll", ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
+    const tickerCallback = (time: number) => {
       lenis.raf(time * 1000);
-    });
-
+    };
+    gsap.ticker.add(tickerCallback);
     gsap.ticker.lagSmoothing(0);
 
     // 2. Scroll Progress Bar Animation via GSAP ScrollTrigger
@@ -69,6 +69,7 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
 
     // Cleanup functions
     return () => {
+      gsap.ticker.remove(tickerCallback);
       lenis.destroy();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };

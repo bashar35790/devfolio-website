@@ -12,6 +12,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Magnetic from "./Magnetic";
+import { siteConfig } from "@/config/site";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
@@ -24,18 +25,19 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const menuItem = [
-    { href: "/", label: "Home", sectionId: "home" },
-    { href: "/about", label: "About", sectionId: "about" },
-    { href: "/projects", label: "Projects", sectionId: "projects" },
-    { href: "/blogs", label: "Blogs", sectionId: "blogs" },
-    { href: "/contract", label: "Contact", sectionId: "newsletter" },
-  ];
+  const menuItem = siteConfig.navItems;
 
-  // 1. Check Scroll State to apply premium glass backdrop
+  // 1. Check Scroll State to apply premium glass backdrop (throttled with rAF)
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -106,6 +108,7 @@ const Navbar = () => {
                   <Magnetic range={20} strength={0.2}>
                     <Link
                       href={item.href}
+                      aria-current={isActive ? "page" : undefined}
                       className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 relative z-10 block ${isActive
                         ? "text-primary font-semibold"
                         : "text-text-muted hover:text-text-main"
@@ -131,6 +134,7 @@ const Navbar = () => {
             <Magnetic range={20} strength={0.3}>
               <motion.button
                 onClick={toggleTheme}
+                aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
                 className="p-3 rounded-full bg-card-bg border border-card-border hover:border-primary/30 text-text-muted hover:text-primary transition-all duration-300 ml-4 cursor-pointer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -148,6 +152,7 @@ const Navbar = () => {
           <div className="flex items-center gap-4 md:hidden">
             <button
               onClick={toggleTheme}
+              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
               className="p-2 rounded-full bg-card-bg border border-card-border text-text-muted"
             >
               {theme === "dark" ? (

@@ -6,10 +6,11 @@ import React, { useState } from "react";
 import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaPaperPlane } from "react-icons/fa";
 import ScrollReveal from "@/components/ScrollReveal";
 import Magnetic from "@/components/Magnetic";
+import { siteConfig } from "@/config/site";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
-const Contract = () => {
+const ContactPage = () => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -57,7 +58,6 @@ const Contract = () => {
       </ScrollReveal>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start mt-12">
-        {/* Left Info Column */}
         <div className="space-y-8">
           <ScrollReveal direction="left" stagger staggerDelay={0.1}>
             <h2 className="text-2xl font-bold text-text-main tracking-tight">Get in Touch</h2>
@@ -75,10 +75,10 @@ const Contract = () => {
                 <div>
                   <h3 className="font-semibold text-text-main">Email</h3>
                   <Link
-                    href="mailto:bashar35790@gmail.com"
+                    href={`mailto:${siteConfig.email}`}
                     className="text-text-muted hover:text-primary transition-colors text-sm"
                   >
-                    bashar35790@gmail.com
+                    {siteConfig.email}
                   </Link>
                 </div>
               </div>
@@ -92,10 +92,10 @@ const Contract = () => {
                 <div>
                   <h3 className="font-semibold text-text-main">Phone</h3>
                   <Link
-                    href="tel:+8801833487526"
+                    href={`tel:${siteConfig.phone}`}
                     className="text-text-muted hover:text-primary transition-colors text-sm"
                   >
-                    +8801833487526
+                    {siteConfig.phone}
                   </Link>
                 </div>
               </div>
@@ -109,7 +109,7 @@ const Contract = () => {
                 <div>
                   <h3 className="font-semibold text-text-main">Location</h3>
                   <span className="text-text-muted text-sm">
-                    Dhaka, Bangladesh
+                    {siteConfig.location}
                   </span>
                 </div>
               </div>
@@ -117,7 +117,6 @@ const Contract = () => {
           </div>
         </div>
 
-        {/* Right Form Column */}
         <ScrollReveal direction="scale" delay={0.2}>
           <div className="glass p-8 rounded-3xl border border-border-subtle shadow-2xl relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -208,4 +207,4 @@ const Contract = () => {
   );
 };
 
-export default Contract;
+export default ContactPage;

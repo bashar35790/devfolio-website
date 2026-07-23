@@ -1,4 +1,14 @@
-export interface Blogs {
+export type BlogCategory =
+  | "Full Stack"
+  | "Frontend"
+  | "Backend"
+  | "UI/UX"
+  | "Mobile Apps"
+  | "SaaS Platform"
+  | "E-Commerce"
+  | "Landing Page";
+
+export interface BlogPost {
   title: string;
   excerpt: string;
   date: string;
@@ -6,18 +16,18 @@ export interface Blogs {
   slug: string;
 }
 
-export interface Projects {
+export interface Project {
   title: string;
   description: string;
   technologies: string[];
   githubLink: string;
   demoLink: string;
   image: string;
-  category: string;
+  category: BlogCategory;
 }
 
-export interface formDate {
-  name:string,
-  email:string,
-  message:string,
+export interface ContactFormData {
+  name: string;
+  email: string;
+  message: string;
 }

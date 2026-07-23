@@ -26,10 +26,10 @@ import {
   SiPostgresql
 } from "react-icons/si";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import TextReveal from "@/components/TextReveal";
 import ScrollReveal from "@/components/ScrollReveal";
 import Magnetic from "@/components/Magnetic";
+import { siteConfig } from "@/config/site";
 
 const AboutPage = () => {
   const skills = [
@@ -123,7 +123,7 @@ const AboutPage = () => {
       <div className="container relative z-10 mx-auto px-4 max-w-6xl">
 
         {/* Header Title Section */}
-        <div className="text-center mb-16 animate__animated animate__fadeIn">
+        <div className="text-center mb-16">
           <span className="text-primary font-semibold tracking-widest uppercase text-sm block mb-3">
             Get To Know Me
           </span>
@@ -175,10 +175,10 @@ const AboutPage = () => {
 
                 <div className="space-y-6">
                   {[
-                    { label: "Role", value: "Senior Full Stack Developer", icon: <FaBriefcase className="text-primary" /> },
-                    { label: "Location", value: "Dhaka, Bangladesh", icon: <FaMapMarkerAlt className="text-primary" /> },
-                    { label: "Email", value: "bashar35790@gmail.com", icon: <FaEnvelope className="text-primary" /> },
-                    { label: "Age", value: "24 Years", icon: <FaCalendarAlt className="text-primary" /> }
+                    { label: "Role", value: siteConfig.role, icon: <FaBriefcase className="text-primary" /> },
+                    { label: "Location", value: siteConfig.location, icon: <FaMapMarkerAlt className="text-primary" /> },
+                    { label: "Email", value: siteConfig.email, icon: <FaEnvelope className="text-primary" /> },
+                    { label: "Age", value: siteConfig.age, icon: <FaCalendarAlt className="text-primary" /> }
                   ].map((info, index) => (
                     <div key={index} className="flex items-center gap-4 group/item">
                       <div className="w-10 h-10 rounded-xl bg-bg-section/60 flex items-center justify-center border border-border-subtle group-hover/item:border-primary/30 group-hover/item:bg-primary/5 transition-all duration-300">
@@ -194,7 +194,7 @@ const AboutPage = () => {
 
                 <div className="mt-8">
                   <Magnetic>
-                    <Link href="/resume.pdf" download className="btn btn-primary w-full group relative overflow-hidden px-6 py-3.5">
+                    <Link href={siteConfig.resumeUrl} download className="btn btn-primary w-full group relative overflow-hidden px-6 py-3.5">
                       <span className="relative z-10 flex items-center justify-center gap-2 font-semibold">
                         Download Complete CV <FaDownload className="group-hover:translate-y-1 transition-transform duration-300" />
                       </span>

@@ -64,7 +64,7 @@ export default function GradientCursor() {
           y: smoothY,
           translateX: "-50%",
           translateY: "-50%",
-          background: "radial-gradient(circle, rgba(255,95,56,0.15) 0%, rgba(255,95,56,0.05) 40%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(0,168,255,0.15) 0%, rgba(0,168,255,0.05) 40%, transparent 70%)",
         }}
         animate={{
           scale: isHovering ? 1.5 : [1, 1.2, 1],
@@ -83,7 +83,7 @@ export default function GradientCursor() {
       
       {/* Core Center Dot */}
       <motion.div
-        className="fixed top-0 left-0 w-3 h-3 bg-primary rounded-full pointer-events-none z-[100] shadow-[0_0_15px_rgba(255,95,56,0.8)]"
+        className="fixed top-0 left-0 w-3 h-3 bg-primary rounded-full pointer-events-none z-[100] shadow-[0_0_15px_rgba(0,168,255,0.8)]"
         style={{
           x: smoothX,
           y: smoothY,

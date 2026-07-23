@@ -15,10 +15,25 @@ interface Particle {
   type: "flame" | "ember" | "burst";
 }
 
+const isInteractiveElement = (el: HTMLElement | null): boolean => {
+  if (!el) return false;
+  return !!(
+    el.closest("a") ||
+    el.closest("button") ||
+    el.closest("[role='button']") ||
+    el.closest("input") ||
+    el.closest("textarea") ||
+    el.closest("select") ||
+    el.classList.contains("btn") ||
+    el.classList.contains("clickable")
+  );
+};
+
 export default function FireCursor() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
+  const isMobileRef = useRef(true);
 
   // Mouse coordinate trackers
   const mouse = useRef({ x: 0, y: 0 });
@@ -40,12 +55,13 @@ export default function FireCursor() {
         window.matchMedia("(pointer: coarse)").matches ||
         window.innerWidth < 768;
       setIsMobile(mobileCheck);
+      isMobileRef.current = mobileCheck;
     };
 
     checkDevice();
     window.addEventListener("resize", checkDevice);
 
-    if (isMobile) return () => window.removeEventListener("resize", checkDevice);
+    if (isMobileRef.current) return () => window.removeEventListener("resize", checkDevice);
 
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -88,35 +104,13 @@ export default function FireCursor() {
 
     // Track Hover over interactive tags
     const handleMouseOver = (e: MouseEvent) => {
-      const targetEl = e.target as HTMLElement;
-      if (
-        targetEl &&
-        (targetEl.closest("a") ||
-          targetEl.closest("button") ||
-          targetEl.closest("[role='button']") ||
-          targetEl.closest("input") ||
-          targetEl.closest("textarea") ||
-          targetEl.closest("select") ||
-          targetEl.classList.contains("btn") ||
-          targetEl.classList.contains("clickable"))
-      ) {
+      if (isInteractiveElement(e.target as HTMLElement | null)) {
         isHovered.current = true;
       }
     };
 
     const handleMouseOut = (e: MouseEvent) => {
-      const targetEl = e.target as HTMLElement;
-      if (
-        targetEl &&
-        (targetEl.closest("a") ||
-          targetEl.closest("button") ||
-          targetEl.closest("[role='button']") ||
-          targetEl.closest("input") ||
-          targetEl.closest("textarea") ||
-          targetEl.closest("select") ||
-          targetEl.classList.contains("btn") ||
-          targetEl.classList.contains("clickable"))
-      ) {
+      if (isInteractiveElement(e.target as HTMLElement | null)) {
         isHovered.current = false;
       }
     };

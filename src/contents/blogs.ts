@@ -1,6 +1,6 @@
-import { Blogs } from "@/types";
+import { BlogPost } from "@/types";
 
-export const blogs: Blogs[] = [
+export const blogs: BlogPost[] = [
     {
         title: 'Getting Started with Next.js 14',
         excerpt: 'Learn about the new features and improvements in Next.js 14.',

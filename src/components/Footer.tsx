@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { FaFacebookF, FaGithub, FaLinkedinIn, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 import Magnetic from "./Magnetic";
+import { siteConfig } from "@/config/site";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -28,9 +29,9 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: <FaGithub />, href: "https://github.com/bashar35790", label: "GitHub" },
-    { icon: <FaLinkedinIn />, href: "https://www.linkedin.com/in/bashar35790/", label: "LinkedIn" },
-    { icon: <FaFacebookF />, href: "https://www.facebook.com/bashar35790/", label: "Facebook" },
+    { icon: <FaGithub />, href: siteConfig.social.github, label: "GitHub" },
+    { icon: <FaLinkedinIn />, href: siteConfig.social.linkedin, label: "LinkedIn" },
+    { icon: <FaFacebookF />, href: siteConfig.social.facebook, label: "Facebook" },
   ];
 
   const quickLinks = [
@@ -131,19 +132,19 @@ const Footer = () => {
                 <div className="w-8 h-8 rounded-lg bg-bg-page/40 flex items-center justify-center text-primary border border-border-subtle shrink-0">
                   <FaMapMarkerAlt />
                 </div>
-                <span>Dhaka, Bangladesh</span>
+                <span>{siteConfig.location}</span>
               </li>
               <li className="flex items-start gap-4 text-text-muted text-sm">
                 <div className="w-8 h-8 rounded-lg bg-bg-page/40 flex items-center justify-center text-primary border border-border-subtle shrink-0">
                   <FaPhoneAlt />
                 </div>
-                <span>+8801833487526</span>
+                <span>{siteConfig.phone}</span>
               </li>
               <li className="flex items-start gap-4 text-text-muted text-sm">
                 <div className="w-8 h-8 rounded-lg bg-bg-page/40 flex items-center justify-center text-primary border border-border-subtle shrink-0">
                   <FaEnvelope />
                 </div>
-                <span className="break-all">bashar35790@gmail.com</span>
+                <span className="break-all">{siteConfig.email}</span>
               </li>
             </ul>
           </motion.div>
@@ -158,7 +159,7 @@ const Footer = () => {
           className="pt-12 border-t border-border-subtle flex flex-col md:flex-row justify-between items-center gap-6"
         >
           <p className="text-text-muted/70 text-sm text-center md:text-left">
-            &copy; {currentYear} <span className="text-text-main font-medium">Abul Bashar</span>. All rights reserved.
+            &copy; {currentYear} <span className="text-text-main font-medium">{siteConfig.name}</span>. All rights reserved.
           </p>
           <div className="flex gap-8">
             <Link href="#" className="text-text-muted hover:text-text-main text-xs transition-colors">Privacy Policy</Link>
