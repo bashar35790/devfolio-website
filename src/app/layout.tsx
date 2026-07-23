@@ -24,6 +24,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Abul Bashar | Premium Developer Portfolio",
   description: "Premium creative portfolio and engineering solutions built by Abul Bashar using React, Next.js, and GSAP.",
+  icons: [{ rel: "icon", url: "/unnamed.png" }],
 };
 
 export default function RootLayout({
