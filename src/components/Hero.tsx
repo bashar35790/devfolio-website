@@ -45,33 +45,27 @@ const Hero = () => {
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const [typingSpeed, setTypingSpeed] = useState(100);
   const profileImageRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const currentTextRef = useRef(currentText);
-  currentTextRef.current = currentText;
-
   useEffect(() => {
     const fullText = titles[currentTitleIndex];
 
     const timer = setTimeout(() => {
       if (!isDeleting) {
-        setCurrentText(fullText.substring(0, currentTextRef.current.length + 1));
-        setTypingSpeed(100);
+        setCurrentText(fullText.substring(0, currentText.length + 1));
 
-        if (currentTextRef.current === fullText) {
+        if (currentText === fullText) {
           timeoutRef.current = setTimeout(() => setIsDeleting(true), 2000);
         }
       } else {
-        setCurrentText(fullText.substring(0, currentTextRef.current.length - 1));
-        setTypingSpeed(50);
+        setCurrentText(fullText.substring(0, currentText.length - 1));
 
-        if (currentTextRef.current === "") {
+        if (currentText === "") {
           setIsDeleting(false);
           setCurrentTitleIndex((prev) => (prev + 1) % titles.length);
         }
       }
-    }, typingSpeed);
+    }, isDeleting ? 50 : 100);
 
     return () => {
       clearTimeout(timer);
@@ -80,7 +74,7 @@ const Hero = () => {
         timeoutRef.current = null;
       }
     };
-  }, [isDeleting, currentTitleIndex, typingSpeed]);
+  }, [isDeleting, currentTitleIndex, currentText]);
 
   // Premium Reveal Effect for profile image
   useEffect(() => {
