@@ -11,6 +11,7 @@ export type BlogCategory =
 export interface BlogPost {
   title: string;
   excerpt: string;
+  description: string;
   date: string;
   readTime: string;
   slug: string;
