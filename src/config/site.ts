@@ -8,7 +8,7 @@ export const siteConfig = {
   location: "Dhaka, Bangladesh",
   age: "24 Years",
   role: "Senior Full Stack Developer",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/web-developer.pdf",
   social: {
     github: "https://github.com/bashar35790",
     linkedin: "https://www.linkedin.com/in/bashar35790/",
