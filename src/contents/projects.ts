@@ -2,6 +2,49 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+  title: "AI Career Coach — AI-Powered Career Development Platform",
+  description:
+    "A full-stack AI-powered career development platform that helps users improve resumes, generate cover letters, practice interviews, build personalized career roadmaps, and receive intelligent career guidance through an interactive AI assistant.",
+  technologies: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "TanStack Query",
+    "Express.js",
+    "MongoDB",
+    "JWT",
+    "Google OAuth",
+    "Google Gemini AI",
+    "Recharts"
+  ],
+  githubLink: "https://github.com/bashar35790/AI-Career-Coach",
+  demoLink: "https://ai-career-coach-bashar.vercel.app",
+  image: "/projects/ai-career-coach.png",
+  category: "Full Stack",
+},
+  {
+  title: "Estately — Modern Real Estate Rental Platform",
+  description:
+    "A full-stack real estate rental platform where users can browse properties, book rentals, manage favorites, make secure Stripe payments, and access role-based dashboards for tenants, property owners, and administrators.",
+  technologies: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "HeroUI",
+    "Better Auth",
+    "MongoDB",
+    "Stripe",
+    "Framer Motion",
+    "Recharts"
+  ],
+  githubLink: "https://github.com/bashar35790/Estately-Frontend", // Replace with your actual repository
+  demoLink: "https://estately-frontend.vercel.app",
+  image: "/projects/estately.png",
+  category: "Full Stack",
+},
+  {
     title: "Tiles Gallery",
     description:
       "A full-stack E-commerce website for selling tiles",
@@ -9,7 +52,7 @@ export const projects: Project[] = [
     githubLink: "https://github.com/bashar35790/Tiles-Gallery",
     demoLink: "https://tiles-gallery-gilt.vercel.app/",
     image: "/projects/e-commerce-website.png",
-    category: "Full Stack",
+    category: "Frontend",
   },
   {
     title: "KeenKeeper — Smart Friendship Management Platform",
@@ -28,7 +71,7 @@ export const projects: Project[] = [
     githubLink: "https://github.com/bashar35790/KeenKeeper",
     demoLink: "https://keen-keeper-bashar.vercel.app/",
     image: "/projects/keenKeeper.png",
-    category: "Full Stack",
+    category: "Frontend",
   },
   {
     title: "Databox — Modern BI & Analytics Platform",
@@ -47,7 +90,7 @@ export const projects: Project[] = [
     githubLink: "https://github.com/bashar35790/Data-Box-Site-Copy",
     demoLink: "https://data-box-site-copy.vercel.app/",
     image: "/projects/databox.png",
-    category: "SaaS Platform",
+    category: "Frontend",
   },
   {
     title: "Weather App",
@@ -75,7 +118,7 @@ export const projects: Project[] = [
     githubLink: "https://github.com/bashar35790/mini-ecomarce",
     demoLink: "https://mini-ecomarce-svtg.vercel.app/",
     image: "/projects/miniEcomarce.png",
-    category: "E-Commerce",
+    category: "Frontend",
 
   },
   {
@@ -94,7 +137,7 @@ export const projects: Project[] = [
     githubLink: "https://github.com/bashar35790/nature-project",
     demoLink: "https://nature-project-bashar.vercel.app/",
     image: "/projects/nature.png",
-    category: "Landing Page",
+    category: "Frontend",
   },
 
 ];
