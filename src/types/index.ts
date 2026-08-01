@@ -23,6 +23,9 @@ export interface Project {
   technologies: string[];
   githubLink: string;
   demoLink: string;
+  clientLink?: string;
+  serverLink?: string;
+  liveLink?: string;
   image: string;
   category: BlogCategory;
 }

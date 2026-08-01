@@ -1,10 +1,34 @@
 import { Project } from "@/types";
 
 export const projects: Project[] = [
+{
+  title: "SportNest — Sports Facility Booking Platform",
+  description:
+    "A full-stack sports facility booking platform that streamlines venue discovery, online reservations, and secure authentication. It empowers administrators with comprehensive tools to efficiently manage facilities, schedules, and bookings.",
+  technologies: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "HeroUI",
+    "Better Auth",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Stripe"
+  ],
+  githubLink: "https://github.com/bashar35790/SportNest",
+  demoLink: "https://sportnext-frontend.vercel.app/",
+  clientLink: "https://github.com/bashar35790/SportNest",
+  serverLink: "https://github.com/bashar35790/SportNest-Backend",
+  liveLink: "https://sportnext-frontend.vercel.app/",
+  image: "/projects/sportnest.png",
+  category: "Full Stack",
+},
   {
   title: "AI Career Coach — AI-Powered Career Development Platform",
   description:
-    "A full-stack AI-powered career development platform that helps users improve resumes, generate cover letters, practice interviews, build personalized career roadmaps, and receive intelligent career guidance through an interactive AI assistant.",
+    "An AI-powered career development platform that helps professionals refine resumes, craft compelling cover letters, practice interviews, and build personalized career roadmaps through an interactive AI assistant.",
   technologies: [
     "Next.js",
     "React",
@@ -20,13 +44,16 @@ export const projects: Project[] = [
   ],
   githubLink: "https://github.com/bashar35790/AI-Career-Coach",
   demoLink: "https://ai-career-coach-bashar.vercel.app",
+  clientLink: "https://github.com/bashar35790/AI-Career-Coach/tree/main/frontend",
+  serverLink: "https://github.com/bashar35790/AI-Career-Coach/tree/main/backend",
+  liveLink: "https://ai-career-coach-bashar.vercel.app",
   image: "/projects/ai-career-coach.png",
   category: "Full Stack",
 },
   {
   title: "Estately — Modern Real Estate Rental Platform",
   description:
-    "A full-stack real estate rental platform where users can browse properties, book rentals, manage favorites, make secure Stripe payments, and access role-based dashboards for tenants, property owners, and administrators.",
+    "A full-stack real estate rental platform that enables users to browse properties, manage bookings and favorites, and process secure Stripe payments, with role-based dashboards for tenants, property owners, and administrators.",
   technologies: [
     "Next.js",
     "React",
@@ -41,13 +68,16 @@ export const projects: Project[] = [
   ],
   githubLink: "https://github.com/bashar35790/Estately-Frontend", // Replace with your actual repository
   demoLink: "https://estately-frontend.vercel.app",
+  clientLink: "https://github.com/bashar35790/Estately-Frontend",
+  serverLink: "https://github.com/bashar35790/Estately-Backend",
+  liveLink: "https://estately-frontend.vercel.app",
   image: "/projects/estately.png",
   category: "Full Stack",
 },
   {
     title: "Tiles Gallery",
     description:
-      "A full-stack E-commerce website for selling tiles",
+      "A modern e-commerce platform for browsing and purchasing premium tile collections, featuring a responsive storefront and secure Stripe checkout.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
     githubLink: "https://github.com/bashar35790/Tiles-Gallery",
     demoLink: "https://tiles-gallery-gilt.vercel.app/",
@@ -55,10 +85,10 @@ export const projects: Project[] = [
     category: "Frontend",
   },
   {
-    title: "KeenKeeper — Smart Friendship Management Platform",
-    description:
-      "KeenKeeper is a modern full-stack relationship management application that helps users organize friendships, track interactions, and nurture meaningful connections through a clean, intuitive, and beautifully crafted digital experience.",
-    technologies: [
+  title: "KeenKeeper — Smart Friendship Management Platform",
+  description:
+    "A full-stack relationship management application that helps users organize friendships, track interactions, and nurture meaningful connections through a clean and intuitive digital experience.",
+  technologies: [
       "React",
       "Vite",
       "Tailwind CSS",
@@ -74,10 +104,10 @@ export const projects: Project[] = [
     category: "Frontend",
   },
   {
-    title: "Databox — Modern BI & Analytics Platform",
-    description:
-      "A modern business intelligence and analytics platform inspired by Databox. Built with a premium SaaS experience featuring AI-powered analytics, KPI dashboards, forecasting, reporting automation, and interactive data visualization for scaling businesses.",
-    technologies: [
+  title: "Databox — Modern BI & Analytics Platform",
+  description:
+    "A business intelligence and analytics platform offering AI-powered analytics, KPI dashboards, forecasting, automated reporting, and interactive data visualization for data-driven decision making.",
+  technologies: [
       "React",
       "Vite",
       "Tailwind CSS",
@@ -95,7 +125,7 @@ export const projects: Project[] = [
   {
     title: "Weather App",
     description:
-      "A weather application that provides real-time weather updates.",
+      "A responsive weather application that delivers real-time weather updates, forecasts, and current conditions powered by the OpenWeatherMap API.",
     technologies: ["React", "OpenWeatherMap API"],
     githubLink: "https://github.com",
     demoLink: "https://demo.com",
@@ -103,10 +133,10 @@ export const projects: Project[] = [
     category: "Frontend",
   },
   {
-    title: "MiniCommerce — Modern E-Commerce Website",
-    description:
-      "A sleek and responsive e-commerce web application built with Next.js and Redux Toolkit. Features product browsing, shopping cart functionality, responsive UI, dynamic sliders, and a smooth shopping experience optimized for modern users.",
-    technologies: [
+  title: "MiniCommerce — Modern E-Commerce Website",
+  description:
+    "A sleek and responsive e-commerce application built with Next.js and Redux Toolkit, featuring product browsing, shopping cart management, dynamic sliders, and a smooth shopping experience.",
+  technologies: [
       "Next.js",
       "React",
       "Redux Toolkit",
@@ -122,10 +152,10 @@ export const projects: Project[] = [
 
   },
   {
-    title: "Natours — Adventure & Travel Landing Page",
-    description:
-      "A modern and visually immersive travel landing page designed for adventure enthusiasts. Features elegant animations, responsive layouts, storytelling sections, and premium UI/UX inspired by real-world outdoor tour experiences.",
-    technologies: [
+  title: "Natours — Adventure & Travel Landing Page",
+  description:
+    "A visually immersive travel landing page crafted for adventure enthusiasts, featuring elegant animations, responsive layouts, and storytelling-driven design inspired by real-world outdoor experiences.",
+  technologies: [
       "HTML5",
       "SCSS",
       "Sass",

@@ -159,25 +159,39 @@ const Projects = () => {
                       <div className="flex gap-4 pt-2">
                         <Magnetic range={20} strength={0.3}>
                           <a
-                            href={project.demoLink}
+                            href={project.liveLink || project.demoLink}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex-1 btn btn-primary py-2 text-xs"
                           >
                             <FaExternalLinkAlt className="w-3 h-3" />
-                            Live Demo
+                            Live Link
                           </a>
                         </Magnetic>
                         <Magnetic range={20} strength={0.3}>
                           <a
-                            href={project.githubLink}
+                            href={project.clientLink || project.githubLink}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn btn-secondary py-2 px-4 text-xs"
                           >
                             <FaGithub className="w-4 h-4" />
+                            Client
                           </a>
                         </Magnetic>
+                        {project.serverLink && (
+                          <Magnetic range={20} strength={0.3}>
+                            <a
+                              href={project.serverLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="btn btn-secondary py-2 px-4 text-xs"
+                            >
+                              <FaGithub className="w-4 h-4" />
+                              Server
+                            </a>
+                          </Magnetic>
+                        )}
                       </div>
                     </div>
 
