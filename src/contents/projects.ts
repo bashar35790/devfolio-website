@@ -85,25 +85,6 @@ export const projects: Project[] = [
     category: "Frontend",
   },
   {
-  title: "KeenKeeper — Smart Friendship Management Platform",
-  description:
-    "A full-stack relationship management application that helps users organize friendships, track interactions, and nurture meaningful connections through a clean and intuitive digital experience.",
-  technologies: [
-      "React",
-      "Vite",
-      "Tailwind CSS",
-      "DaisyUI",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "Socket.io"
-    ],
-    githubLink: "https://github.com/bashar35790/KeenKeeper",
-    demoLink: "https://keen-keeper-bashar.vercel.app/",
-    image: "/projects/keenKeeper.png",
-    category: "Frontend",
-  },
-  {
   title: "Databox — Modern BI & Analytics Platform",
   description:
     "A business intelligence and analytics platform offering AI-powered analytics, KPI dashboards, forecasting, automated reporting, and interactive data visualization for data-driven decision making.",
@@ -167,6 +148,25 @@ export const projects: Project[] = [
     githubLink: "https://github.com/bashar35790/Nature-project",
     demoLink: "https://nature-project-lake.vercel.app",
     image: "/projects/nature.png",
+    category: "Frontend",
+  },
+    {
+  title: "KeenKeeper — Smart Friendship Management Platform",
+  description:
+    "A full-stack relationship management application that helps users organize friendships, track interactions, and nurture meaningful connections through a clean and intuitive digital experience.",
+  technologies: [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "DaisyUI",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Socket.io"
+    ],
+    githubLink: "https://github.com/bashar35790/KeenKeeper",
+    demoLink: "https://keen-keeper-bashar.vercel.app/",
+    image: "/projects/keenKeeper.png",
     category: "Frontend",
   },
 
