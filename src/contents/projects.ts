@@ -127,8 +127,8 @@ export const projects: Project[] = [
     description:
       "A responsive weather application that delivers real-time weather updates, forecasts, and current conditions powered by the OpenWeatherMap API.",
     technologies: ["React", "OpenWeatherMap API"],
-    githubLink: "https://github.com",
-    demoLink: "https://demo.com",
+    githubLink: "https://github.com/bashar35790/weather-app",
+    demoLink: "https://weather-app-six-olive-34.vercel.app",
     image: "/projects/weather-app.png",
     category: "Frontend",
   },
@@ -164,8 +164,8 @@ export const projects: Project[] = [
       "PostCSS",
       "JavaScript"
     ],
-    githubLink: "https://github.com/bashar35790/nature-project",
-    demoLink: "https://nature-project-bashar.vercel.app/",
+    githubLink: "https://github.com/bashar35790/Nature-project",
+    demoLink: "https://nature-project-lake.vercel.app",
     image: "/projects/nature.png",
     category: "Frontend",
   },
