@@ -74,6 +74,42 @@ export const projects: Project[] = [
   image: "/projects/estately.png",
   category: "Full Stack",
 },
+
+{
+  title: "HireFlow — Job & Recruitment Platform",
+  description:
+    "A full-stack job and recruitment platform connecting job seekers with employers through job discovery, applications, saved jobs, company reviews, and role-based dashboards for seekers, employers, and administrators.",
+  technologies: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "HeroUI",
+    "TanStack Query",
+    "Axios",
+    "React Hook Form",
+    "Zod",
+    "Framer Motion",
+    "Express.js",
+    "Prisma",
+    "PostgreSQL",
+    "JWT",
+    "bcrypt"
+  ],
+  githubLink:
+    "https://github.com/bashar35790/HireFlow-Client",
+  demoLink:
+    "https://hireflow-client-nu.vercel.app",
+  clientLink:
+    "https://github.com/bashar35790/HireFlow-Client",
+  serverLink:
+    "https://github.com/bashar35790/HireFlow-API",
+  liveLink:
+    "https://hireflow-client-nu.vercel.app",
+  image: "/projects/hireflow.png",
+  category: "Full Stack",
+},
+
   {
     title: "Tiles Gallery",
     description:
