@@ -109,6 +109,36 @@ export const projects: Project[] = [
   image: "/projects/hireflow.png",
   category: "Full Stack",
 },
+{
+  title: "Student Management Dashboard",
+  description:
+    "A full-stack student management dashboard that enables administrators to efficiently manage student records with advanced search, filtering, sorting, pagination, and complete CRUD operations backed by a PostgreSQL database.",
+  technologies: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Redux Toolkit",
+    "RTK Query",
+    "React Hook Form",
+    "Express.js",
+    "Prisma",
+    "PostgreSQL",
+    "Zod"
+  ],
+  githubLink:
+    "https://github.com/bashar35790/Student-Management-Dashboard",
+  demoLink:
+    "https://student-management-dashboard-iota.vercel.app",
+  clientLink:
+    "https://github.com/bashar35790/Student-Management-Dashboard/tree/main/client",
+  serverLink:
+    "https://github.com/bashar35790/Student-Management-Dashboard/tree/main/server",
+  liveLink:
+    "https://student-management-dashboard-iota.vercel.app",
+  image: "/projects/student-management.png",
+  category: "Full Stack",
+},
 
   {
     title: "Tiles Gallery",
@@ -120,6 +150,7 @@ export const projects: Project[] = [
     image: "/projects/e-commerce-website.png",
     category: "Frontend",
   },
+
   {
   title: "Databox — Modern BI & Analytics Platform",
   description:
