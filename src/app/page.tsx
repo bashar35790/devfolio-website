@@ -16,7 +16,7 @@ const Home = () => {
       <About/>
       <StatsCounter/>
       <Services/>
-      <Projects/>
+      <Projects limit={6}/>
       <Blogs/>
       <FAQ/>
       <NewsLetter/>

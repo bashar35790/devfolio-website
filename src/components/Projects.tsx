@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { FaGithub, FaExternalLinkAlt, FaFolderOpen } from "react-icons/fa";
 import { projects } from "@/contents/projects";
 import ScrollReveal from "./ScrollReveal";
@@ -10,12 +11,14 @@ import Magnetic from "./Magnetic";
 
 const categories = ["All Projects", "Full Stack", "Frontend", "Backend", "UI/UX", "Mobile Apps"];
 
-const Projects = () => {
+const Projects = ({ limit }: { limit?: number }) => {
   const [activeCategory, setActiveCategory] = useState("All Projects");
 
-  const filteredProjects = projects.filter((project) => 
+  const allFiltered = projects.filter((project) => 
     activeCategory === "All Projects" || project.category === activeCategory
   );
+
+  const filteredProjects = limit ? allFiltered.slice(0, limit) : allFiltered;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -218,6 +221,19 @@ const Projects = () => {
             )}
           </AnimatePresence>
         </motion.div>
+
+        {/* View All Button */}
+        {limit && (
+          <ScrollReveal direction="up" delay={0.1}>
+            <div className="flex justify-center mt-16">
+              <Magnetic range={20} strength={0.3}>
+                <Link href="/projects" className="btn btn-primary px-10 py-3 text-sm">
+                  View All Projects
+                </Link>
+              </Magnetic>
+            </div>
+          </ScrollReveal>
+        )}
       </div>
     </section>
   );
