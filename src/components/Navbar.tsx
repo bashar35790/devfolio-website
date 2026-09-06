@@ -79,10 +79,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full top-0 left-0 z-[999] transition-all duration-500 border-b ${scrolled
-        ? "bg-bg-page/80 backdrop-blur-md border-border-subtle py-3 shadow-[0_4px_30px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
-        : "bg-transparent border-transparent py-5"
-        }`}
+      className={`fixed w-full top-0 left-0 z-[999] transition-all duration-500 border-b bg-bg-page ${
+        scrolled
+          ? "backdrop-blur-md border-border-subtle py-3 shadow-[0_4px_30px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
+          : "border-transparent py-5"
+      }`}
     >
       <div className="container max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center">

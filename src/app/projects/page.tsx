@@ -5,7 +5,7 @@ import ProjectsSection from "@/components/Projects";
 
 const ProjectsPage = () => {
   return (
-    <div className="pt-16">
+    <div className="">
       <ProjectsSection />
     </div>
   );
