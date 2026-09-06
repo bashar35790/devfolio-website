@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Container from "@/components/Container";
 
 export default function Error({
   error,
@@ -14,8 +15,8 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-bg-page text-text-main">
-      <div className="text-center space-y-6 max-w-md mx-auto px-4">
+    <div className="py-16 md:py-24 flex items-center justify-center bg-bg-page text-text-main">
+      <Container narrow="narrow" className="text-center space-y-6">
         <div className="w-20 h-20 mx-auto rounded-full bg-red-500/10 flex items-center justify-center">
           <span className="text-4xl">!</span>
         </div>
@@ -29,7 +30,7 @@ export default function Error({
         >
           Try Again
         </button>
-      </div>
+      </Container>
     </div>
   );
 }

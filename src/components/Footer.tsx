@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { FaFacebookF, FaGithub, FaLinkedinIn, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 import Magnetic from "./Magnetic";
+import Container from "./Container";
 import { siteConfig } from "@/config/site";
 
 const Footer = () => {
@@ -49,18 +50,18 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-bg-section pt-24 pb-12 overflow-hidden">
+    <footer className="relative bg-bg-section pt-16 md:pt-24 pb-8 md:pb-12 overflow-hidden">
       {/* Background Decorative Element */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-primary/5 blur-[120px] rounded-full -translate-y-1/2" />
 
-      <div className="container relative z-10 mx-auto px-4">
+      <Container className="relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-12 md:mb-16"
         >
           {/* Brand Column */}
           <motion.div variants={itemVariants} className="space-y-6">
@@ -156,7 +157,7 @@ const Footer = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="pt-12 border-t border-border-subtle flex flex-col md:flex-row justify-between items-center gap-6"
+          className="pt-8 md:pt-10 border-t border-border-subtle flex flex-col md:flex-row justify-between items-center gap-6"
         >
           <p className="text-text-muted/70 text-sm text-center md:text-left">
             &copy; {currentYear} <span className="text-text-main font-medium">{siteConfig.name}</span>. All rights reserved.
@@ -166,7 +167,7 @@ const Footer = () => {
             <Link href="#" className="text-gray-500 hover:text-text-main text-xs transition-colors">Terms of Service</Link>
           </div>
         </motion.div>
-      </div>
+      </Container>
     </footer>
   );
 };

@@ -40,7 +40,7 @@ export default function RootLayout({
         <ThemeProvider>
           <SmoothScrollProvider>
             <Navbar />
-            <main className="pt-23 min-h-screen">{children}</main>
+            <main className="pt-16 md:pt-20 min-h-screen overflow-x-clip">{children}</main>
             <Footer />
           </SmoothScrollProvider>
         </ThemeProvider>

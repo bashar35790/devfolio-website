@@ -14,6 +14,7 @@ import {
 } from "react-icons/fa";
 import ScrollReveal from "./ScrollReveal";
 import Magnetic from "./Magnetic";
+import Section from "./Section";
 import { siteConfig } from "@/config/site";
 
 const About = () => {
@@ -26,7 +27,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="relative py-24 overflow-hidden bg-bg-section">
+    <Section id="about" variant="muted">
       {/* Background Decorations */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <motion.div
@@ -41,8 +42,7 @@ const About = () => {
         />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
+      <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
 
           {/* Left Side: Image with Magnetic Float Effect */}
           <ScrollReveal direction="right" duration={1}>
@@ -133,8 +133,7 @@ const About = () => {
           </div>
 
         </div>
-      </div>
-    </section>
+    </Section>
   );
 };
 

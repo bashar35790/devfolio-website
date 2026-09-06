@@ -12,6 +12,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Magnetic from "./Magnetic";
+import Container from "./Container";
 import { siteConfig } from "@/config/site";
 
 const Navbar = () => {
@@ -79,14 +80,14 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full top-0 left-0 z-[999] transition-all duration-500 border-b bg-bg-page ${
+      className={`fixed w-full top-0 left-0 z-[999] transition-all duration-500 border-b bg-bg-page/90 ${
         scrolled
-          ? "backdrop-blur-md border-border-subtle py-3 shadow-[0_4px_30px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
-          : "border-transparent py-5"
+          ? "backdrop-blur-md border-border-subtle shadow-[0_4px_30px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
+          : "border-transparent"
       }`}
     >
-      <div className="container max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center">
+      <Container className={isMenuOpen ? "pb-4" : "pb-0"}>
+        <div className="flex h-16 md:h-20 justify-between items-center">
  
           {/* Brand Logo with Magnetic Hook */}
           <Magnetic range={30} strength={0.3}>
@@ -218,7 +219,7 @@ const Navbar = () => {
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
+      </Container>
     </nav>
   );
 };

@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronDown, FaQuestionCircle } from "react-icons/fa";
 import ScrollReveal from "./ScrollReveal";
+import Section from "./Section";
+import Container from "./Container";
 
 const faqs = [
   {
@@ -48,14 +50,14 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative py-24 bg-bg-page overflow-hidden">
+    <Section id="faq" variant="page" contained={false}>
       {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[15%] right-[5%] w-[30%] h-[30%] bg-primary/5 blur-[120px] rounded-full" />
         <div className="absolute bottom-[15%] left-[5%] w-[35%] h-[35%] bg-blue-500/5 blur-[110px] rounded-full" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 mb-16 text-center">
+      <Container className="relative z-10 mb-12 md:mb-16 text-center">
         <ScrollReveal direction="up" stagger staggerDelay={0.15}>
           <h4 className="text-primary font-semibold tracking-widest uppercase text-sm mb-4">
             Got Questions?
@@ -65,9 +67,9 @@ const FAQ = () => {
           </h2>
           <div className="h-1 bg-primary mx-auto rounded-full w-20 mt-6" />
         </ScrollReveal>
-      </div>
+      </Container>
 
-      <div className="container relative z-10 mx-auto px-4 max-w-3xl">
+      <Container narrow="narrow" className="relative z-10">
         <ScrollReveal direction="up" delay={0.2}>
           <div className="space-y-4">
             {faqs.map((faq, index) => {
@@ -124,8 +126,8 @@ const FAQ = () => {
             })}
           </div>
         </ScrollReveal>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 

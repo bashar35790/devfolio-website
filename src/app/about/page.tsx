@@ -30,6 +30,7 @@ import { motion } from "framer-motion";
 import TextReveal from "@/components/TextReveal";
 import ScrollReveal from "@/components/ScrollReveal";
 import Magnetic from "@/components/Magnetic";
+import Container from "@/components/Container";
 import { siteConfig } from "@/config/site";
 
 const AboutPage = () => {
@@ -92,17 +93,17 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="relative min-h-screen bg-bg-page text-text-main pt-10 pb-24 overflow-hidden">
+    <div className="relative bg-bg-page text-text-main py-16 md:py-24 overflow-hidden">
       {/* Decorative Ambient Background Glows */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[5%] left-[-10%] w-[50%] h-[50%] bg-[#00A8FF]/5 blur-[140px] rounded-full" />
         <div className="absolute bottom-[20%] right-[-10%] w-[45%] h-[45%] bg-[#00D2FF]/5 blur-[130px] rounded-full" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 max-w-6xl">
+      <Container className="relative z-10">
 
         {/* Header Title Section */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-16">
           <span className="text-primary font-semibold tracking-widest uppercase text-sm block mb-3">
             Get To Know Me
           </span>
@@ -120,7 +121,7 @@ const AboutPage = () => {
         </div>
 
         {/* Core Profile Narrative & Quick Info */}
-        <div className="grid lg:grid-cols-12 gap-12 items-start mb-24">
+        <div className="grid lg:grid-cols-12 gap-12 items-start mb-16 md:mb-24">
 
           {/* Narrative - Column 7 */}
           <div className="lg:col-span-7 space-y-6">
@@ -188,7 +189,7 @@ const AboutPage = () => {
         </div>
 
         {/* Skills Section Grid */}
-        <div className="mb-24">
+        <div className="mb-16 md:mb-24">
           <div className="text-center mb-12">
             <span className="text-primary font-semibold tracking-widest uppercase text-sm block mb-2">
               Capabilities
@@ -235,8 +236,8 @@ const AboutPage = () => {
         </div>
 
         {/* Experience timeline section */}
-        <div className="mb-24">
-          <div className="text-center mb-16">
+        <div className="mb-16 md:mb-24">
+          <div className="text-center mb-12 md:mb-16">
             <span className="text-primary font-semibold tracking-widest uppercase text-sm block mb-2">
               Career Journey
             </span>
@@ -386,7 +387,7 @@ const AboutPage = () => {
           </div>
         </div>
 
-      </div>
+      </Container>
     </div>
   );
 };

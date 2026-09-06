@@ -4,18 +4,18 @@ import React from "react";
 import { FaPaperPlane, FaEnvelopeOpenText } from "react-icons/fa";
 import ScrollReveal from "./ScrollReveal";
 import Magnetic from "./Magnetic";
+import Section from "./Section";
 
 const NewsLetter = () => {
   return (
-    <section id="newsletter" className="relative py-24 bg-bg-page overflow-hidden">
+    <Section id="newsletter" variant="page">
       {/* Background Decorative Gradients */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] max-w-4xl bg-primary/5 blur-[150px] rounded-full" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4">
         <ScrollReveal direction="scale" duration={1}>
-          <div className="relative max-w-5xl mx-auto glass rounded-[2.5rem] p-8 md:p-16 border border-border-subtle overflow-hidden group shadow-2xl">
+          <div className="relative max-w-5xl mx-auto glass rounded-[2rem] md:rounded-[2.5rem] p-6 sm:p-8 md:p-12 lg:p-16 border border-border-subtle overflow-hidden group shadow-2xl">
             {/* Inner Glow Effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             
@@ -63,8 +63,7 @@ const NewsLetter = () => {
             </div>
           </div>
         </ScrollReveal>
-      </div>
-    </section>
+    </Section>
   );
 };
 

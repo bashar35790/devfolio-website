@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaHome, FaArrowLeft } from "react-icons/fa";
+import Container from "@/components/Container";
 
 export default function NotFound() {
   return (
@@ -14,7 +15,7 @@ export default function NotFound() {
         <div className="absolute bottom-[10%] right-[10%] w-[40%] h-[40%] bg-blue-500/5 blur-[100px] rounded-full" />
       </div>
 
-      <div className="container relative z-10 px-4 text-center">
+      <Container className="relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -83,7 +84,7 @@ export default function NotFound() {
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
           className="absolute bottom-1/4 -left-10 w-32 h-32 border border-border-subtle rounded-2xl hidden md:block"
         />
-      </div>
+      </Container>
     </div>
   );
 }

@@ -7,20 +7,22 @@ import Link from "next/link";
 import { FaCalendarAlt, FaClock, FaArrowRight } from "react-icons/fa";
 import ScrollReveal from "./ScrollReveal";
 import Magnetic from "./Magnetic";
+import Section from "./Section";
+import Container from "./Container";
 
 const Blogs = () => {
   // Duplicate blogs for infinite scroll effect
   const duplicatedBlogs = [...blogs, ...blogs, ...blogs];
 
   return (
-    <section id="blogs" className="relative py-24 bg-bg-section overflow-hidden">
+    <Section id="blogs" variant="muted" contained={false}>
       {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[20%] left-[5%] w-[30%] h-[30%] bg-primary/5 blur-[120px] rounded-full" />
         <div className="absolute bottom-[20%] right-[5%] w-[40%] h-[40%] bg-blue-500/5 blur-[100px] rounded-full" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 mb-16 text-center">
+      <Container className="relative z-10 mb-12 md:mb-16 text-center">
         <ScrollReveal direction="up" stagger staggerDelay={0.15}>
           <h4 className="text-primary font-semibold tracking-widest uppercase text-sm mb-4">
             Insights & Articles
@@ -30,7 +32,7 @@ const Blogs = () => {
           </h2>
           <div className="h-1 bg-primary mx-auto rounded-full w-20 mt-6" />
         </ScrollReveal>
-      </div>
+      </Container>
 
       {/* Infinite Ticker */}
       <ScrollReveal direction="up" delay={0.2}>
@@ -42,7 +44,7 @@ const Blogs = () => {
               repeat: Infinity,
               ease: "linear",
             }}
-            className="flex gap-8 px-4 w-max"
+            className="flex gap-6 md:gap-8 px-4 sm:px-6 lg:px-8 w-max"
             style={{ cursor: "pointer" }}
             whileHover={{ animationPlayState: "paused" }}
           >
@@ -93,12 +95,12 @@ const Blogs = () => {
           </motion.div>
 
           {/* Edge Fades */}
-          <div className="absolute top-0 left-0 h-full w-20 md:w-40 bg-gradient-to-r from-bg-section to-transparent z-10 pointer-events-none" />
-          <div className="absolute top-0 right-0 h-full w-20 md:w-40 bg-gradient-to-l from-bg-section to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 left-0 h-full w-16 md:w-24 bg-gradient-to-r from-bg-section to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 right-0 h-full w-16 md:w-24 bg-gradient-to-l from-bg-section to-transparent z-10 pointer-events-none" />
         </div>
       </ScrollReveal>
 
-      <div className="container mx-auto px-4 mt-16 text-center">
+      <Container className="mt-12 md:mt-16 text-center">
         <ScrollReveal direction="up" delay={0.3}>
           <Magnetic>
             <Link href="/blogs" className="inline-block">
@@ -108,8 +110,8 @@ const Blogs = () => {
             </Link>
           </Magnetic>
         </ScrollReveal>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 

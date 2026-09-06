@@ -12,6 +12,7 @@ import {
 import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 import Magnetic from "./Magnetic";
+import Section from "./Section";
 
 const servicesList = [
   {
@@ -42,7 +43,7 @@ const servicesList = [
 
 const Services = () => {
   return (
-    <section id="services" className="relative py-24 bg-bg-section overflow-hidden">
+    <Section id="services" variant="muted">
       {/* Premium Background Ambient Glows */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -57,8 +58,7 @@ const Services = () => {
         />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="grid lg:grid-cols-12 gap-16 items-center">
+      <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
           {/* Left Column: Title, Description, and CTA */}
           <div className="lg:col-span-5 space-y-8">
@@ -134,8 +134,7 @@ const Services = () => {
           </div>
 
         </div>
-      </div>
-    </section>
+    </Section>
   );
 };
 

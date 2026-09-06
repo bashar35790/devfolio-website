@@ -8,6 +8,7 @@ import { FaGithub, FaExternalLinkAlt, FaFolderOpen } from "react-icons/fa";
 import { projects } from "@/contents/projects";
 import ScrollReveal from "./ScrollReveal";
 import Magnetic from "./Magnetic";
+import Section from "./Section";
 
 const categories = ["All Projects", "Full Stack", "Frontend", "Backend", "UI/UX", "Mobile Apps"];
 
@@ -43,7 +44,7 @@ const Projects = ({ limit }: { limit?: number }) => {
   };
 
   return (
-    <section id="projects" className="relative py-24 bg-bg-page overflow-hidden">
+    <Section id="projects" variant="page">
       {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[10%] right-[5%] w-[30%] h-[30%] bg-primary/5 blur-[120px] rounded-full" />
@@ -51,9 +52,7 @@ const Projects = ({ limit }: { limit?: number }) => {
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-[0.03]" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-16 space-y-4">
+      <div className="text-center mb-12 md:mb-16 space-y-4">
           <ScrollReveal direction="up" stagger staggerDelay={0.15}>
             <h4 className="text-primary font-semibold tracking-widest uppercase text-sm">
               My Portfolio
@@ -67,7 +66,7 @@ const Projects = ({ limit }: { limit?: number }) => {
 
         {/* Filter Tabs */}
         <ScrollReveal direction="up" delay={0.2}>
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
+          <div className="flex flex-wrap justify-center gap-4 mb-12 md:mb-16">
             {categories.map((category) => (
               <button
                 key={category}
@@ -225,7 +224,7 @@ const Projects = ({ limit }: { limit?: number }) => {
         {/* View All Button */}
         {limit && (
           <ScrollReveal direction="up" delay={0.1}>
-            <div className="flex justify-center mt-16">
+            <div className="flex justify-center mt-12 md:mt-16">
               <Magnetic range={20} strength={0.3}>
                 <Link href="/projects" className="btn btn-primary px-10 py-3 text-sm">
                   View All Projects
@@ -234,8 +233,7 @@ const Projects = ({ limit }: { limit?: number }) => {
             </div>
           </ScrollReveal>
         )}
-      </div>
-    </section>
+    </Section>
   );
 };
 

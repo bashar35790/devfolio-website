@@ -23,6 +23,7 @@ import {
   SiGithub
 } from "react-icons/si";
 import Magnetic from "./Magnetic";
+import Container from "./Container";
 import gsap from "gsap";
 import GradientCursor from "./GradientCursor";
 import { siteConfig } from "@/config/site";
@@ -116,7 +117,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative flex flex-col justify-center overflow-hidden bg-bg-page pt-20 min-h-screen">
+    <section id="home" className="relative flex flex-col justify-center overflow-x-clip bg-bg-page min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)]">
       {/* Background Decorative Gradients & Custom Fluid Physics Cursor */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[45%] h-[45%] bg-primary/5 dark:bg-primary/10 blur-[130px] rounded-full" />
@@ -124,7 +125,7 @@ const Hero = () => {
         <GradientCursor />
       </div>
 
-      <div className="container relative z-10 grid lg:grid-cols-2 gap-12 items-center py-12">
+      <Container className="relative z-10 grid lg:grid-cols-2 gap-12 items-center py-12 md:py-16">
         {/* Left Content */}
         <motion.div
           variants={containerVariants}
@@ -278,11 +279,11 @@ const Hero = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-bg-page/60 via-transparent to-transparent opacity-60" />
           </div>
         </motion.div>
-      </div>
+      </Container>
 
-      {/* Tech Stack Strip with Infinite Marquee */}
-      <div className="mt-16 w-full border-y border-border-subtle bg-bg-section/10 backdrop-blur-sm py-8 overflow-hidden relative">
-        <div className="flex whitespace-nowrap gap-16 items-center px-16 w-max animate-[scroll_45s_linear_infinite] hover:[animation-play-state:paused] cursor-pointer">
+      {/* Tech Stack Strip with Infinite Marquee — full-bleed background, aligned edges */}
+      <div className="w-full border-y border-border-subtle bg-bg-section/10 backdrop-blur-sm py-6 md:py-8 overflow-hidden relative">
+        <div className="flex whitespace-nowrap gap-12 md:gap-16 items-center px-4 sm:px-6 lg:px-8 w-max animate-[scroll_45s_linear_infinite] hover:[animation-play-state:paused] cursor-pointer">
           {[...techStack, ...techStack, ...techStack].map((tech, i) => (
             <div key={i} className="flex items-center gap-4 text-text-muted hover:text-text-main transition-colors duration-300 group">
               <div className="text-primary group-hover:scale-110 transition-transform duration-300">
@@ -293,15 +294,15 @@ const Hero = () => {
           ))}
         </div>
         {/* Soft edge masks */}
-        <div className="absolute top-0 left-0 h-full w-24 bg-gradient-to-r from-bg-page to-transparent z-10 pointer-events-none" />
-        <div className="absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-bg-page to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 left-0 h-full w-16 md:w-24 bg-gradient-to-r from-bg-page to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 right-0 h-full w-16 md:w-24 bg-gradient-to-l from-bg-page to-transparent z-10 pointer-events-none" />
       </div>
 
       {/* Scroll Indicator */}
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-80 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-text-muted cursor-pointer hidden md:flex"
+        className="absolute bottom-24 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 text-text-muted cursor-pointer"
       >
         <span className="text-[10px] uppercase tracking-[0.22em] font-semibold text-text-muted">Scroll</span>
         <FaChevronDown className="w-4 h-4 text-primary" />

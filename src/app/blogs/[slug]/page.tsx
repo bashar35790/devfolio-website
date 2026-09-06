@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { FaCalendarAlt, FaClock, FaArrowLeft } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useParams } from "next/navigation";
+import Container from "@/components/Container";
 
 const BlogDetailPage = () => {
   const params = useParams();
@@ -21,8 +22,8 @@ const BlogDetailPage = () => {
   const paragraphs = blog.description.split("\n\n");
 
   return (
-    <div className="bg-bg-page min-h-screen py-32 text-text-main">
-      <div className="container max-w-4xl mx-auto px-4">
+    <div className="bg-bg-page py-16 md:py-24 text-text-main">
+      <Container narrow="reading">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -69,7 +70,7 @@ const BlogDetailPage = () => {
             </div>
           </div>
         </motion.article>
-      </div>
+      </Container>
     </div>
   );
 };

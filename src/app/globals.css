@@ -107,8 +107,11 @@ a {
 }
 
 @layer components {
+  /* Single source of truth for horizontal alignment.
+     Prefer <Container /> in TSX; this utility is the CSS fallback.
+     Do NOT add ad-hoc `max-w-* mx-auto px-*` alongside it. */
   .container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
   }
   
   .btn {

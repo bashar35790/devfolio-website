@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaPaperPlane } from "react-icons/fa";
 import ScrollReveal from "@/components/ScrollReveal";
 import Magnetic from "@/components/Magnetic";
+import Container from "@/components/Container";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
@@ -49,14 +50,15 @@ const Contract = () => {
   };
 
   return (
-    <div className="container max-w-7xl mx-auto py-20 px-4 text-text-main">
+    <div className="py-16 md:py-24 text-text-main">
+      <Container>
       <ScrollReveal direction="up" stagger staggerDelay={0.15}>
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-12 text-center text-text-main tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-12 md:mb-16 text-center text-text-main tracking-tight">
           Contact <span className="text-gradient bg-gradient-to-r from-primary via-primary/80 to-text-main">Me</span>
         </h1>
       </ScrollReveal>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start mt-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-start">
         {/* Left Info Column */}
         <div className="space-y-8">
           <ScrollReveal direction="left" stagger staggerDelay={0.1}>
@@ -204,6 +206,7 @@ const Contract = () => {
           </div>
         </ScrollReveal>
       </div>
+      </Container>
     </div>
   );
 };

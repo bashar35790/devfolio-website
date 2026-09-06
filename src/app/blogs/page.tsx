@@ -5,12 +5,13 @@ import { blogs } from "@/contents/blogs";
 import Link from "next/link";
 import { FaCalendarAlt, FaClock, FaArrowRight } from "react-icons/fa";
 import { motion } from "framer-motion";
+import Container from "@/components/Container";
 
 const BlogsPage = () => {
   return (
-    <div className="bg-bg-page min-h-screen py-32 text-text-main">
-      <div className="container max-w-7xl mx-auto px-4">
-        <div className="text-center mb-20 space-y-4">
+    <div className="bg-bg-page py-16 md:py-24 text-text-main">
+      <Container>
+        <div className="text-center mb-12 md:mb-16 space-y-4">
           <motion.h4
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -77,7 +78,7 @@ const BlogsPage = () => {
             </motion.div>
           ))}
         </div>
-      </div>
+      </Container>
     </div>
   );
 };
