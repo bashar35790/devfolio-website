@@ -26,6 +26,7 @@ import {
   SiPostgresql
 } from "react-icons/si";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import TextReveal from "@/components/TextReveal";
 import ScrollReveal from "@/components/ScrollReveal";
 import Magnetic from "@/components/Magnetic";
@@ -76,40 +77,18 @@ const AboutPage = () => {
 
   const experience = [
     {
-      role: "WordPress Developer",
+      role: "Frontend Developer",
       company: "Softvence Agency",
-      period: "Jan 2025 - April 2025",
-      description: [
-        "Built high-performance WordPress websites using Elementor, Gutenberg, and custom themes tailored for client needs.",
-        "Optimized website speed and SEO performance, improving Lighthouse scores up to 90+ across multiple projects.",
-        "Integrated advanced plugins for eCommerce (WooCommerce), forms, and automation workflows.",
-        "Customized PHP-based themes and REST API integrations for dynamic content management systems."
+      period: "Jan 2025 - Aug 2026",
+      tagline: "Delivering high-end, responsive web experiences for global clients.",
+      checklist: [
+        "Build responsive, pixel-perfect interfaces with modern frameworks and clean, semantic code.",
+        "Craft motion-rich UIs with smooth animations and micro-interactions that elevate user engagement.",
+        "Optimize performance and Core Web Vitals to deliver fast, SEO-friendly experiences.",
+        "Collaborate with designers and backend engineers to ship production-ready features on time.",
+        "Translate client requirements into polished, accessible frontend solutions that drive results."
       ]
-    },
-    {
-      role: "Webflow Developer",
-      company: "Softvence Agency",
-      period: "April 2025 - June 2025",
-      description: [
-        "Developed responsive and visually appealing websites using Webflow with pixel-perfect design execution.",
-        "Built CMS-driven websites for blogs, portfolios, and business platforms with dynamic content structures.",
-        "Integrated third-party tools such as Zapier, analytics, and custom scripts for enhanced functionality.",
-        "Optimized performance, accessibility, and SEO for production-ready client websites."
-      ]
-    },
-    {
-      role: "Framer Designer & Developer",
-      company: "Softvence Agency",
-      period: "Jun 2025 - Present",
-      description: [
-        "Designed and developed modern, interactive websites using Framer with a focus on motion-rich UI and clean UX.",
-        "Created responsive landing pages with advanced animations, scroll interactions, and micro-interactions.",
-        "Implemented brand-aligned design systems ensuring consistency across typography, colors, and spacing.",
-        "Collaborated with startups to rapidly prototype and deploy high-converting marketing websites."
-      ]
-    },
-
-
+    }
   ];
 
   return (
@@ -267,39 +246,72 @@ const AboutPage = () => {
             <div className="h-1 w-16 bg-primary mx-auto rounded-full mt-3" />
           </div>
 
-          <div className="relative border-l border-border-subtle max-w-4xl mx-auto pl-8 sm:pl-10 space-y-12">
+          <div className="relative max-w-4xl mx-auto">
             {experience.map((exp, index) => (
-              <div key={index} className="relative group">
+              <div key={index} className="relative group md:pl-6">
+                <ScrollReveal direction="up" delay={0.1}>
+                  <div className="relative glass rounded-3xl border border-border-subtle hover:border-primary/25 transition-all duration-500 overflow-hidden shadow-xl group/card">
+                    {/* Animated top gradient line */}
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-transparent to-primary bg-[length:200%_100%] group-hover/card:animate-[shimmer_1.5s_linear_infinite]" />
 
-                {/* Timeline node */}
-                <span className="absolute -left-[41px] sm:-left-[49px] top-1.5 flex items-center justify-center bg-bg-page w-6 h-6 rounded-full border-2 border-primary group-hover:bg-primary transition-colors duration-300 shadow-[0_0_10px_rgba(0,168,255,0.3)]" />
+                    <div className="absolute -right-20 -top-20 w-56 h-56 bg-primary/10 rounded-full blur-3xl group-hover/card:bg-primary/15 transition-colors duration-500" />
 
-                <ScrollReveal direction="up" delay={index * 0.15}>
-                  <div className="glass p-8 rounded-3xl border border-border-subtle hover:border-primary/20 transition-all duration-500 relative overflow-hidden shadow-xl">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="p-8 sm:p-10 relative z-10">
+                      {/* Card Header */}
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-8 pb-6 border-b border-border-subtle">
+                        <div className="flex items-center gap-5">
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                            className="hidden sm:flex w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-transparent border border-primary/30 items-center justify-center text-primary"
+                          >
+                            <FaBriefcase className="w-6 h-6" />
+                          </motion.div>
+                          <div>
+                            <div className="flex items-center gap-3">
+                              <h3 className="text-2xl font-bold text-text-main group-hover/card:text-primary transition-colors">
+                                {exp.role}
+                              </h3>
+                              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-primary/10 text-primary border border-primary/25">
+                                <span className="relative flex h-1.5 w-1.5">
+                                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary" />
+                                </span>
+                                Current
+                              </span>
+                            </div>
+                            <p className="text-primary font-semibold mt-1">{exp.company}</p>
+                          </div>
+                        </div>
 
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6 pb-4 border-b border-border-subtle relative z-10">
-                      <div>
-                        <h3 className="text-xl font-bold text-text-main group-hover:text-primary transition-colors duration-300">
-                          {exp.role}
-                        </h3>
-                        <p className="text-primary font-semibold text-sm mt-1">
-                          {exp.company}
-                        </p>
+                        <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold tracking-wider text-text-muted bg-bg-section/60 border border-border-subtle sm:self-center">
+                          <FaCalendarAlt className="text-primary" />
+                          {exp.period}
+                        </span>
                       </div>
-                      <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-text-muted bg-bg-section/60 border border-border-subtle sm:self-center">
-                        {exp.period}
-                      </span>
-                    </div>
 
-                    <ul className="space-y-3 relative z-10">
-                      {exp.description.map((bullet, idx) => (
-                        <li key={idx} className="flex items-start gap-3 text-text-muted text-sm leading-relaxed group/bullet">
-                          <FaCheckCircle className="text-primary text-xs shrink-0 mt-1 transition-transform group-hover/bullet:scale-125 duration-300" />
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
+                      {/* Tagline */}
+                      <p className="text-text-muted leading-relaxed mb-8 italic">
+                        &ldquo;{exp.tagline}&rdquo;
+                      </p>
+
+                      {/* 5 Responsibility Checkpoints */}
+                      <div className="grid sm:grid-cols-2 gap-4">
+                        {exp.checklist.map((item, idx) => (
+                          <div
+                            key={idx}
+                            className={`group/check relative flex items-start gap-4 p-5 rounded-2xl border border-border-subtle bg-bg-section/40 hover:border-primary/30 hover:bg-bg-section/70 transition-all duration-300 ${idx === exp.checklist.length - 1 ? "sm:col-span-2" : ""}`}
+                          >
+                            <span className="relative flex items-center justify-center w-8 h-8 shrink-0 rounded-xl bg-primary/10 border border-primary/25 text-xs font-bold text-primary group-hover/check:scale-110 transition-transform duration-300">
+                              {idx + 1}
+                            </span>
+                            <p className="text-sm text-text-main leading-relaxed">
+                              {item}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </ScrollReveal>
               </div>
