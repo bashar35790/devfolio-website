@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { setLenis } from "@/lib/lenis";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,6 +22,8 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
       wheelMultiplier: 1.0,
       touchMultiplier: 2.0,
     });
+
+    setLenis(lenis);
 
     // Connect Lenis to GSAP ScrollTrigger
     lenis.on("scroll", ScrollTrigger.update);
@@ -71,6 +74,7 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
     return () => {
       gsap.ticker.remove(tickerCallback);
       lenis.destroy();
+      setLenis(null);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);

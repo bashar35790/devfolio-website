@@ -9,9 +9,16 @@ interface PdfPreviewProps {
   viewUrl: string;
   downloadUrl: string;
   title: string;
+  heightClass?: string;
 }
 
-const PdfPreview = ({ previewUrl, viewUrl, downloadUrl, title }: PdfPreviewProps) => {
+const PdfPreview = ({
+  previewUrl,
+  viewUrl,
+  downloadUrl,
+  title,
+  heightClass = "h-[70vh] min-h-[420px]",
+}: PdfPreviewProps) => {
   const [loaded, setLoaded] = useState(false);
 
   return (
@@ -57,7 +64,7 @@ const PdfPreview = ({ previewUrl, viewUrl, downloadUrl, title }: PdfPreviewProps
       </div>
 
       {/* Viewer */}
-      <div className="relative w-full h-[70vh] min-h-[420px] bg-bg-section">
+      <div className={`relative w-full ${heightClass} bg-bg-section`}>
         {!loaded && (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 pointer-events-none">
             <div className="w-10 h-10 rounded-full border-2 border-primary/30 border-t-primary animate-spin" />
