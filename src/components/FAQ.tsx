@@ -18,7 +18,7 @@ const faqs = [
     id: 2,
     question: "What technologies do you specialize in?",
     answer:
-      "I specialize in modern frontend and backend development — React, Next.js, TypeScript, Node.js, and scalable API design — paired with a strong eye for UI/UX and pixel-perfect responsive interfaces.",
+      "I specialize in modern frontend and backend development - React, Next.js, TypeScript, Node.js, and scalable API design - paired with a strong eye for UI/UX and pixel-perfect responsive interfaces.",
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const faqs = [
     id: 6,
     question: "How is project pricing determined?",
     answer:
-      "Pricing is based on the scope, complexity, and timeline of your project. After our initial conversation I provide a transparent, fixed quote — no hidden fees, so you know exactly what you're investing in.",
+      "Pricing is based on the scope, complexity, and timeline of your project. After our initial conversation I provide a transparent, fixed quote - no hidden fees, so you know exactly what you're investing in.",
   },
 ];
 
@@ -63,7 +63,10 @@ const FAQ = () => {
             Got Questions?
           </h4>
           <h2 className="text-4xl md:text-5xl font-bold text-text-main tracking-tight">
-            Frequently Asked <span className="text-gradient bg-gradient-to-r from-primary via-primary/80 to-text-main">Questions</span>
+            Frequently Asked{" "}
+            <span className="text-gradient bg-gradient-to-r from-primary via-primary/80 to-text-main">
+              Questions
+            </span>
           </h2>
           <div className="h-1 bg-primary mx-auto rounded-full w-20 mt-6" />
         </ScrollReveal>
@@ -110,7 +113,10 @@ const FAQ = () => {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+                        transition={{
+                          duration: 0.35,
+                          ease: [0.25, 0.1, 0.25, 1],
+                        }}
                         className="overflow-hidden"
                       >
                         <div className="px-6 pb-6 md:pl-20">

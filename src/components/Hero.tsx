@@ -181,7 +181,10 @@ const Hero = () => {
           </motion.p>
 
           {/* Magnetic Buttons */}
-          <motion.div variants={itemVariants} className="flex flex-wrap gap-4 pt-1">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap gap-4 pt-1"
+          >
             <Magnetic>
               <button className="btn btn-primary group cursor-pointer relative overflow-hidden px-7 py-3.5 md:px-8 md:py-4">
                 <span className="relative z-10 flex items-center gap-2">
@@ -293,15 +296,14 @@ const Hero = () => {
               fill
               className="object-cover scale-110 -translate-y-2"
               priority
-            >
-            </Image>
+            ></Image>
             {/* Overlay Gradient to blend with deep navy background */}
             <div className="absolute inset-0 bg-gradient-to-t from-bg-page/60 via-transparent to-transparent opacity-60" />
           </div>
         </motion.div>
       </Container>
 
-      {/* Tech Stack Strip with Infinite Marquee — full-bleed background, placed at viewport bottom */}
+      {/* Tech Stack Strip with Infinite Marquee - full-bleed background, placed at viewport bottom */}
       <div className="w-full border-y border-border-subtle bg-bg-section/10 backdrop-blur-sm py-3.5 md:py-4 overflow-hidden relative mt-auto z-10">
         <div className="flex whitespace-nowrap gap-10 md:gap-14 items-center px-4 sm:px-6 lg:px-8 w-max animate-[scroll_45s_linear_infinite] hover:[animation-play-state:paused] cursor-pointer">
           {[...techStack, ...techStack, ...techStack].map((tech, i) => (
@@ -323,7 +325,7 @@ const Hero = () => {
         <div className="absolute top-0 right-0 h-full w-16 md:w-24 bg-gradient-to-l from-bg-page to-transparent z-10 pointer-events-none" />
       </div>
 
-      {/* Scroll Indicator — elevated to a comfortable top position above the marquee */}
+      {/* Scroll Indicator - elevated to a comfortable top position above the marquee */}
       <motion.button
         type="button"
         onClick={() => {

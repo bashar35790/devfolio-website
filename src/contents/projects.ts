@@ -2,7 +2,7 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
   {
-    title: "SportNest — Sports Facility Booking Platform",
+    title: "SportNest - Sports Facility Booking Platform",
     slug: "sportnest",
     description:
       "A full-stack sports facility booking platform that streamlines venue discovery, online reservations, and secure authentication. It empowers administrators with comprehensive tools to efficiently manage facilities, schedules, and bookings.",
@@ -97,7 +97,7 @@ export const projects: Project[] = [
     category: "Full Stack",
   },
   {
-    title: "Estately — Modern Real Estate Rental Platform",
+    title: "Estately - Modern Real Estate Rental Platform",
     slug: "estately",
     description:
       "A full-stack real estate rental platform that enables users to browse properties, manage bookings and favorites, and process secure Stripe payments, with role-based dashboards for tenants, property owners, and administrators.",
@@ -222,10 +222,7 @@ export const projects: Project[] = [
       "date-fns",
       "react-icons",
     ],
-    backendTech: [
-      "Next.js API Route (server proxy)",
-      "OpenWeatherMap API",
-    ],
+    backendTech: ["Next.js API Route (server proxy)", "OpenWeatherMap API"],
     buildSteps: [
       {
         title: "Create the Next.js app",
@@ -265,7 +262,7 @@ export const projects: Project[] = [
     category: "Frontend",
   },
   {
-    title: "HireFlow — Job & Recruitment Platform",
+    title: "HireFlow - Job & Recruitment Platform",
     slug: "hireflow",
     description:
       "A full-stack job and recruitment platform connecting job seekers with employers through job discovery, applications, saved jobs, company reviews, and role-based dashboards for seekers, employers, and administrators.",
@@ -615,7 +612,7 @@ export const projects: Project[] = [
   },
 
   {
-    title: "Databox — Modern BI & Analytics Platform",
+    title: "Databox - Modern BI & Analytics Platform",
     slug: "databox",
     description:
       "A business intelligence and analytics platform offering AI-powered analytics, KPI dashboards, forecasting, automated reporting, and interactive data visualization for data-driven decision making.",
@@ -687,7 +684,7 @@ export const projects: Project[] = [
   },
 
   {
-    title: "AI Career Coach — AI-Powered Career Development Platform",
+    title: "AI Career Coach - AI-Powered Career Development Platform",
     slug: "ai-career-coach",
     description:
       "An AI-powered career development platform that helps professionals refine resumes, craft compelling cover letters, practice interviews, and build personalized career roadmaps through an interactive AI assistant.",
@@ -781,7 +778,7 @@ export const projects: Project[] = [
     category: "Full Stack",
   },
   {
-    title: "MiniCommerce — Modern E-Commerce Website",
+    title: "MiniCommerce - Modern E-Commerce Website",
     slug: "mini-commerce",
     description:
       "A sleek and responsive e-commerce application built with Next.js and Redux Toolkit, featuring product browsing, shopping cart management, dynamic sliders, and a smooth shopping experience.",
@@ -831,8 +828,7 @@ export const projects: Project[] = [
       },
       {
         title: "Deploy",
-        description:
-          "Run a production build and deploy to Vercel.",
+        description: "Run a production build and deploy to Vercel.",
       },
     ],
     technologies: [
@@ -850,14 +846,14 @@ export const projects: Project[] = [
     category: "Frontend",
   },
   {
-    title: "Natours — Adventure & Travel Landing Page",
+    title: "Natours - Adventure & Travel Landing Page",
     slug: "natours",
     description:
       "A visually immersive travel landing page crafted for adventure enthusiasts, featuring elegant animations, responsive layouts, and storytelling-driven design inspired by real-world outdoor experiences.",
     overview: [
       "Natours is a visually immersive travel landing page crafted for adventure enthusiasts. It combines elegant animations, responsive layouts, and storytelling-driven design inspired by real-world outdoor experiences.",
       "The project is built with semantic HTML5 and modern CSS. Styling is authored in SCSS/Sass and processed with PostCSS and Autoprefixer for broad browser support.",
-      "Interactive touches and smooth transitions are handled with vanilla JavaScript, with no framework overhead — a focused demonstration of strong layout and animation fundamentals.",
+      "Interactive touches and smooth transitions are handled with vanilla JavaScript, with no framework overhead - a focused demonstration of strong layout and animation fundamentals.",
     ],
     features: [
       "Immersive hero with layered visuals",
@@ -899,8 +895,7 @@ export const projects: Project[] = [
       },
       {
         title: "Deploy",
-        description:
-          "Compile the production build and deploy the static site.",
+        description: "Compile the production build and deploy the static site.",
       },
     ],
     technologies: [
@@ -918,7 +913,7 @@ export const projects: Project[] = [
     category: "Frontend",
   },
   {
-    title: "KeenKeeper — Smart Friendship Management Platform",
+    title: "KeenKeeper - Smart Friendship Management Platform",
     slug: "keenkeeper",
     description:
       "A full-stack relationship management application that helps users organize friendships, track interactions, and nurture meaningful connections through a clean and intuitive digital experience.",
@@ -969,8 +964,7 @@ export const projects: Project[] = [
       },
       {
         title: "Deploy",
-        description:
-          "Build and deploy the frontend to Vercel.",
+        description: "Build and deploy the frontend to Vercel.",
       },
     ],
     technologies: [
