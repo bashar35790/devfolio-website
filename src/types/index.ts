@@ -17,9 +17,20 @@ export interface BlogPost {
   slug: string;
 }
 
-export interface Project {
+export interface ProjectStep {
   title: string;
   description: string;
+}
+
+export interface Project {
+  title: string;
+  slug: string;
+  description: string;
+  overview: string[];
+  features: string[];
+  frontendTech: string[];
+  backendTech?: string[];
+  buildSteps?: ProjectStep[];
   technologies: string[];
   githubLink: string;
   demoLink: string;

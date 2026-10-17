@@ -114,6 +114,12 @@ const Projects = ({ limit }: { limit?: number }) => {
                 >
                   {/* Card Container */}
                   <div className="relative h-full glass rounded-3xl overflow-hidden border border-border-subtle group-hover:border-primary/30 transition-all duration-500 shadow-xl cursor-pointer">
+                    {/* Stretched link: whole card navigates to the details page */}
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      aria-label={`View details for ${project.title}`}
+                      className="absolute inset-0 z-10 rounded-3xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                    />
                     {/* Image Section */}
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <Image
@@ -160,7 +166,7 @@ const Projects = ({ limit }: { limit?: number }) => {
                       </div>
 
                       {/* Action Buttons with Magnetic pull */}
-                      <div className="flex gap-4 pt-2">
+                      <div className="relative z-20 flex gap-4 pt-2">
                         <Magnetic range={20} strength={0.3}>
                           <a
                             href={project.liveLink || project.demoLink}
