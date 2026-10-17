@@ -15,9 +15,11 @@ const categories = ["All Projects", "Full Stack", "Frontend", "Backend", "UI/UX"
 const Projects = ({ limit }: { limit?: number }) => {
   const [activeCategory, setActiveCategory] = useState("All Projects");
 
-  const allFiltered = projects.filter((project) => 
-    activeCategory === "All Projects" || project.category === activeCategory
-  );
+  const allFiltered = projects.filter((project) => {
+    if (activeCategory === "All Projects") return true;
+    if (activeCategory === "Backend") return project.category === "Full Stack";
+    return project.category === activeCategory;
+  });
 
   const filteredProjects = limit ? allFiltered.slice(0, limit) : allFiltered;
 
