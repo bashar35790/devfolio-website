@@ -13,6 +13,13 @@ import {
   FaFilePdf,
   FaAws,
   FaArrowRight,
+  FaCertificate,
+  FaShieldAlt,
+  FaExternalLinkAlt,
+  FaExpand,
+  FaStar,
+  FaEye,
+  FaLayerGroup,
 } from "react-icons/fa";
 import {
   SiNextdotjs,
@@ -26,7 +33,7 @@ import {
   SiDocker,
   SiPostgresql,
 } from "react-icons/si";
-import { experiences } from "@/contents/experience";
+import { certificates, experiences } from "@/contents/experience";
 import { WorkProof } from "@/types";
 import Section from "@/components/Section";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -75,8 +82,25 @@ const skills = [
   },
 ];
 
+const totalTechnologies = skills.reduce(
+  (total, group) => total + group.items.length,
+  0
+);
+
+const stats = [
+  { label: "Certifications", value: certificates.length, icon: <FaCertificate /> },
+  { label: "Skill Areas", value: skills.length, icon: <FaLayerGroup /> },
+  { label: "Technologies", value: totalTechnologies, icon: <FaCode /> },
+];
+
+const anchors = [
+  { href: "#certifications", label: "Certifications" },
+  { href: "#experience", label: "Experience" },
+  { href: "#skills", label: "Skills" },
+];
+
 const ExperiencePage = () => {
-  const [activeProof, setActiveProof] = useState<WorkProof | null>(null);
+  const [activeDoc, setActiveDoc] = useState<WorkProof | null>(null);
 
   return (
     <div className="bg-bg-page text-text-main">
@@ -101,16 +125,209 @@ const ExperiencePage = () => {
               </h1>
               <div className="h-1 w-24 bg-primary mx-auto rounded-full" />
               <p className="text-lg md:text-xl text-text-muted leading-relaxed font-light max-w-3xl mx-auto">
-                A summary of my professional experience and the technologies I
-                use to design and engineer modern web applications.
+                A summary of my professional experience, my certifications, and
+                the technologies I use to design and engineer modern web
+                applications.
               </p>
+            </div>
+          </ScrollReveal>
+
+          {/* Anchor jump nav */}
+          <ScrollReveal direction="up" delay={0.3}>
+            <div className="flex flex-wrap items-center justify-center gap-3 mt-10">
+              {anchors.map((anchor) => (
+                <a
+                  key={anchor.href}
+                  href={anchor.href}
+                  className="px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-text-muted bg-bg-section/60 border border-border-subtle hover:text-primary hover:border-primary/40 hover:bg-primary/10 transition-all duration-300"
+                >
+                  {anchor.label}
+                </a>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          {/* Stats strip */}
+          <ScrollReveal direction="up" delay={0.4}>
+            <div className="grid grid-cols-3 gap-3 sm:gap-5 max-w-2xl mx-auto mt-10">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="glass rounded-2xl border border-border-subtle px-3 py-5 text-center hover:border-primary/30 transition-colors duration-300"
+                >
+                  <div className="flex justify-center text-primary text-lg mb-1.5">
+                    {stat.icon}
+                  </div>
+                  <div className="text-2xl md:text-3xl font-bold text-text-main">
+                    {stat.value}
+                  </div>
+                  <div className="text-[10px] uppercase tracking-widest text-text-muted mt-1">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
             </div>
           </ScrollReveal>
         </div>
       </Section>
 
+      {/* Certifications */}
+      <Section id="certifications" variant="muted" className="scroll-mt-24">
+        <ScrollReveal direction="up" stagger staggerDelay={0.15}>
+          <div className="text-center mb-12 md:mb-16 space-y-4">
+            <span className="text-primary font-semibold tracking-widest uppercase text-sm block">
+              Credentials
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-text-main">
+              Certifications
+            </h2>
+            <div className="h-1 w-20 bg-primary mx-auto rounded-full mt-3" />
+          </div>
+        </ScrollReveal>
+
+        <div className="max-w-5xl mx-auto space-y-10">
+          {certificates.map((cert, index) => (
+            <ScrollReveal key={index} direction="up" delay={index * 0.1}>
+              <div className="relative group">
+                {/* Ambient glow */}
+                <div className="absolute -inset-1 rounded-[34px] bg-gradient-to-r from-primary/40 via-[#00D2FF]/30 to-primary/40 opacity-25 blur-2xl group-hover:opacity-60 transition-opacity duration-700" />
+
+                {/* Award frame */}
+                <div className="relative glass rounded-[32px] border border-border-subtle overflow-hidden shadow-2xl group-hover:border-primary/30 transition-colors duration-500">
+                  {/* CERTIFIED ribbon */}
+                  <div className="pointer-events-none absolute -right-14 top-7 z-20 rotate-45 bg-gradient-to-r from-primary to-[#00D2FF] text-white text-[10px] font-bold uppercase tracking-[0.2em] px-16 py-1.5 shadow-lg shadow-primary/40">
+                    Certified
+                  </div>
+
+                  {/* Corner flourishes */}
+                  <div className="pointer-events-none absolute inset-0">
+                    <div className="absolute top-5 left-5 w-8 h-8 border-t-2 border-l-2 border-primary/40 rounded-tl-xl" />
+                    <div className="absolute top-5 right-5 w-8 h-8 border-t-2 border-r-2 border-primary/40 rounded-tr-xl" />
+                    <div className="absolute bottom-5 left-5 w-8 h-8 border-b-2 border-l-2 border-primary/40 rounded-bl-xl" />
+                    <div className="absolute bottom-5 right-5 w-8 h-8 border-b-2 border-r-2 border-primary/40 rounded-br-xl" />
+                  </div>
+
+                  {/* Shine sweep */}
+                  <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                    <div className="absolute top-0 left-0 h-full w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-[220%] group-hover:animate-[shimmer_1.8s_ease-in-out_infinite]" />
+                  </div>
+
+                  <div className="relative z-10 grid md:grid-cols-5 gap-8 md:gap-10 items-center p-8 sm:p-10 md:p-12">
+                    {/* Left: seal + preview panel */}
+                    <div className="md:col-span-2 flex flex-col items-center gap-8">
+                      {/* Medal seal */}
+                      <div className="relative w-24 h-24">
+                        <span className="absolute inset-0 rounded-full bg-primary/25 animate-ping" />
+                        <div className="relative flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-primary to-[#00D2FF] text-white shadow-[0_0_35px_rgba(0,168,255,0.45)]">
+                          <FaCertificate className="w-10 h-10" />
+                        </div>
+                        <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                          <span className="w-3 h-8 bg-primary/70 rounded-b-md rotate-6" />
+                          <span className="w-3 h-8 bg-[#00D2FF]/70 rounded-b-md -rotate-6" />
+                        </div>
+                      </div>
+
+                      {/* Stylized preview panel */}
+                      <button
+                        type="button"
+                        onClick={() => setActiveDoc(cert.document)}
+                        className="group/preview relative w-full rounded-2xl border border-border-subtle bg-bg-section/50 p-5 text-left hover:border-primary/30 transition-all duration-300 cursor-pointer"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="w-9 h-9 shrink-0 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                            <FaFilePdf className="w-4 h-4" />
+                          </div>
+                          <div className="min-w-0">
+                            <p className="text-xs font-semibold text-text-main truncate">
+                              {cert.title}
+                            </p>
+                            <p className="text-[10px] uppercase tracking-widest text-text-muted">
+                              PDF Certificate
+                            </p>
+                          </div>
+                        </div>
+                        <div className="mt-4 h-1.5 rounded-full bg-gradient-to-r from-primary/60 via-[#00D2FF]/60 to-primary/30" />
+                        <div className="mt-3 space-y-2 opacity-60">
+                          <div className="h-2 rounded bg-bg-page/70 w-full" />
+                          <div className="h-2 rounded bg-bg-page/70 w-5/6" />
+                          <div className="h-2 rounded bg-bg-page/70 w-2/3" />
+                        </div>
+                        <span className="absolute inset-0 rounded-2xl flex items-center justify-center bg-bg-page/60 backdrop-blur-[2px] opacity-0 group-hover/preview:opacity-100 transition-opacity duration-300">
+                          <span className="inline-flex items-center gap-2 text-xs font-semibold text-primary">
+                            <FaExpand className="w-3.5 h-3.5" /> Preview
+                          </span>
+                        </span>
+                      </button>
+                    </div>
+
+                    {/* Right: details */}
+                    <div className="md:col-span-3 text-center md:text-left">
+                      <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-semibold uppercase tracking-widest bg-primary/10 text-primary border border-primary/25">
+                        <FaShieldAlt className="w-3 h-3" /> Verified Credential
+                      </span>
+
+                      <h3 className="mt-5 text-2xl md:text-3xl font-bold text-text-main">
+                        {cert.title}
+                      </h3>
+
+                      <div className="flex items-center justify-center md:justify-start gap-1.5 mt-4 text-primary">
+                        {[...Array(5)].map((_, i) => (
+                          <FaStar key={i} className="w-3 h-3" />
+                        ))}
+                      </div>
+
+                      <p className="mt-5 text-text-muted leading-relaxed">
+                        {cert.description}
+                      </p>
+
+                      {/* Skill chips */}
+                      <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-6">
+                        {cert.skills.map((skill) => (
+                          <span
+                            key={skill}
+                            className="px-2.5 py-1 rounded-full text-[10px] font-medium text-text-muted bg-bg-section/60 border border-border-subtle hover:text-primary hover:border-primary/30 hover:bg-primary/10 transition-colors duration-300"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Actions */}
+                      <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center justify-center md:justify-start gap-4 mt-10">
+                        <Magnetic range={24} strength={0.3}>
+                          <button
+                            type="button"
+                            onClick={() => setActiveDoc(cert.document)}
+                            className="relative inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full px-10 py-4 text-base font-semibold text-white bg-gradient-to-r from-primary to-[#00D2FF] shadow-[0_0_30px_rgba(0,168,255,0.5)] hover:shadow-[0_0_45px_rgba(0,168,255,0.75)] hover:scale-[1.03] active:scale-95 transition-all duration-300 cursor-pointer"
+                          >
+                            <span className="pointer-events-none absolute inset-0 rounded-full border border-primary/60 animate-ping" />
+                            <FaEye className="w-5 h-5" />
+                            View Certificate
+                          </button>
+                        </Magnetic>
+                        <Magnetic range={20} strength={0.3}>
+                          <a
+                            href={cert.document.viewUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-secondary w-full sm:w-auto px-8 py-4 text-base rounded-full"
+                          >
+                            <FaExternalLinkAlt className="w-4 h-4" />
+                            Open in Drive
+                          </a>
+                        </Magnetic>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </Section>
+
       {/* Work Experience */}
-      <Section variant="muted">
+      <Section id="experience" variant="page" className="scroll-mt-24">
         <ScrollReveal direction="up" stagger staggerDelay={0.15}>
           <div className="text-center mb-12 md:mb-16 space-y-4">
             <span className="text-primary font-semibold tracking-widest uppercase text-sm block">
@@ -170,10 +387,10 @@ const ExperiencePage = () => {
                           <Magnetic range={20} strength={0.3}>
                             <button
                               type="button"
-                              onClick={() => setActiveProof(exp.workProof ?? null)}
-                              className="btn btn-primary py-2 px-4 text-xs cursor-pointer"
+                              onClick={() => setActiveDoc(exp.workProof ?? null)}
+                              className="btn btn-primary w-full sm:w-auto px-6 py-3 text-sm cursor-pointer"
                             >
-                              <FaFilePdf className="w-3.5 h-3.5" />
+                              <FaFilePdf className="w-4 h-4" />
                               View Work Proof
                             </button>
                           </Magnetic>
@@ -211,7 +428,7 @@ const ExperiencePage = () => {
       </Section>
 
       {/* Skills */}
-      <Section variant="page">
+      <Section id="skills" variant="muted" className="scroll-mt-24">
         <ScrollReveal direction="up" stagger staggerDelay={0.15}>
           <div className="text-center mb-12 space-y-4">
             <span className="text-primary font-semibold tracking-widest uppercase text-sm block">
@@ -260,7 +477,7 @@ const ExperiencePage = () => {
       </Section>
 
       {/* CTA */}
-      <Section variant="muted">
+      <Section variant="page">
         <ScrollReveal direction="up">
           <div className="glass rounded-3xl p-10 md:p-14 border border-border-subtle text-center space-y-8">
             <div className="flex items-center justify-center gap-3">
@@ -275,15 +492,21 @@ const ExperiencePage = () => {
                 Explore the projects I have designed and engineered end to end.
               </p>
             </div>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Magnetic range={20} strength={0.3}>
-                <Link href="/projects" className="btn btn-primary px-8 py-3 text-sm">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
+              <Magnetic range={24} strength={0.3}>
+                <Link
+                  href="/projects"
+                  className="btn btn-primary w-full sm:w-auto px-10 py-4 text-base rounded-full"
+                >
                   View Projects
-                  <FaArrowRight className="w-3.5 h-3.5" />
+                  <FaArrowRight className="w-4 h-4" />
                 </Link>
               </Magnetic>
               <Magnetic range={20} strength={0.3}>
-                <Link href="/about" className="btn btn-secondary px-8 py-3 text-sm">
+                <Link
+                  href="/about"
+                  className="btn btn-secondary w-full sm:w-auto px-10 py-4 text-base rounded-full"
+                >
                   Back to About
                 </Link>
               </Magnetic>
@@ -292,14 +515,14 @@ const ExperiencePage = () => {
         </ScrollReveal>
       </Section>
 
-      {activeProof && (
+      {activeDoc && (
         <DocumentModal
-          open={Boolean(activeProof)}
-          onClose={() => setActiveProof(null)}
-          title={activeProof.label}
-          previewUrl={activeProof.previewUrl}
-          viewUrl={activeProof.viewUrl}
-          downloadUrl={activeProof.downloadUrl}
+          open={Boolean(activeDoc)}
+          onClose={() => setActiveDoc(null)}
+          title={activeDoc.label}
+          previewUrl={activeDoc.previewUrl}
+          viewUrl={activeDoc.viewUrl}
+          downloadUrl={activeDoc.downloadUrl}
         />
       )}
     </div>

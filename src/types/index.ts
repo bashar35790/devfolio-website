@@ -59,6 +59,13 @@ export interface Experience {
   workProof?: WorkProof;
 }
 
+export interface Certificate {
+  title: string;
+  description: string;
+  skills: string[];
+  document: WorkProof;
+}
+
 export interface ContactFormData {
   name: string;
   email: string;
