@@ -41,6 +41,24 @@ export interface Project {
   category: BlogCategory;
 }
 
+export interface WorkProof {
+  label: string;
+  fileId: string;
+  previewUrl: string;
+  viewUrl: string;
+  downloadUrl: string;
+}
+
+export interface Experience {
+  slug: string;
+  role: string;
+  company: string;
+  period: string;
+  tagline: string;
+  checklist: string[];
+  workProof?: WorkProof;
+}
+
 export interface ContactFormData {
   name: string;
   email: string;

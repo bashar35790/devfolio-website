@@ -11,6 +11,7 @@ import {
   FaMapMarkerAlt,
   FaCalendarAlt,
   FaCheckCircle,
+  FaFilePdf,
   FaAws
 } from "react-icons/fa";
 import {
@@ -32,6 +33,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import Magnetic from "@/components/Magnetic";
 import Container from "@/components/Container";
 import { siteConfig } from "@/config/site";
+import { experiences } from "@/contents/experience";
 
 const AboutPage = () => {
   const skills = [
@@ -72,22 +74,6 @@ const AboutPage = () => {
         { name: "AWS (S3, EC2, CloudFront)", icon: <FaAws /> },
         { name: "CI/CD (GitHub Actions)", icon: <SiGit /> },
         { name: "Vercel / Netlify Deployment", icon: <SiNextdotjs /> },
-      ]
-    }
-  ];
-
-  const experience = [
-    {
-      role: "Frontend Developer",
-      company: "Softvence Agency",
-      period: "Jan 2025 - Aug 2026",
-      tagline: "Delivering high-end, responsive web experiences for global clients.",
-      checklist: [
-        "Build responsive, pixel-perfect interfaces with modern frameworks and clean, semantic code.",
-        "Craft motion-rich UIs with smooth animations and micro-interactions that elevate user engagement.",
-        "Optimize performance and Core Web Vitals to deliver fast, SEO-friendly experiences.",
-        "Collaborate with designers and backend engineers to ship production-ready features on time.",
-        "Translate client requirements into polished, accessible frontend solutions that drive results."
       ]
     }
   ];
@@ -248,7 +234,7 @@ const AboutPage = () => {
           </div>
 
           <div className="relative max-w-4xl mx-auto">
-            {experience.map((exp, index) => (
+            {experiences.map((exp, index) => (
               <div key={index} className="relative group md:pl-6">
                 <ScrollReveal direction="up" delay={0.1}>
                   <div className="relative glass rounded-3xl border border-border-subtle hover:border-primary/25 transition-all duration-500 overflow-hidden shadow-xl group/card">
@@ -285,10 +271,23 @@ const AboutPage = () => {
                           </div>
                         </div>
 
-                        <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold tracking-wider text-text-muted bg-bg-section/60 border border-border-subtle sm:self-center">
-                          <FaCalendarAlt className="text-primary" />
-                          {exp.period}
-                        </span>
+                        <div className="flex flex-col items-start sm:items-end gap-3 sm:self-center">
+                          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold tracking-wider text-text-muted bg-bg-section/60 border border-border-subtle">
+                            <FaCalendarAlt className="text-primary" />
+                            {exp.period}
+                          </span>
+                          {exp.workProof && (
+                            <Magnetic range={20} strength={0.3}>
+                              <Link
+                                href={`/experience/${exp.slug}`}
+                                className="btn btn-secondary py-2 px-4 text-xs"
+                              >
+                                <FaFilePdf className="w-3.5 h-3.5 text-primary" />
+                                View Work Proof
+                              </Link>
+                            </Magnetic>
+                          )}
+                        </div>
                       </div>
 
                       {/* Tagline */}

@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { useParams, notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -14,10 +13,8 @@ import {
   FaDesktop,
   FaServer,
 } from "react-icons/fa";
-import { motion } from "framer-motion";
 import { projects } from "@/contents/projects";
 import Section from "@/components/Section";
-import Container from "@/components/Container";
 import ScrollReveal from "@/components/ScrollReveal";
 import Magnetic from "@/components/Magnetic";
 
